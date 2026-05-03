@@ -1,0 +1,1455 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ZeroTo.site — Lightning Fast. Tailor Made. Premium by Design.</title>
+<meta name="description" content="ZeroTo.site — premium custom websites. You start with nothing. We deliver the site." />
+<meta name="theme-color" content="#000000" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+<!-- Open Graph (link previews on Instagram, iMessage, Discord, WhatsApp, etc.) -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="ZeroTo.site — Lightning Fast. Tailor Made. Premium by Design." />
+<meta property="og:description" content="A digital atelier turning ideas into polished, memorable websites. You start with nothing. We deliver the site." />
+<meta property="og:image" content="og-image.svg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:site_name" content="ZeroTo.site" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="ZeroTo.site — Lightning Fast. Tailor Made. Premium by Design." />
+<meta name="twitter:description" content="A digital atelier turning ideas into polished, memorable websites." />
+<meta name="twitter:image" content="og-image.svg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: {
+        display: ['"Instrument Serif"', 'serif'],
+        body: ['Inter', 'ui-sans-serif', 'system-ui'],
+      },
+      borderRadius: { DEFAULT: '9999px' },
+    },
+  },
+};
+</script>
+
+<style>
+  html, body, #root { height: 100%; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: #000;
+    color: #fff;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    cursor: none;
+  }
+  @media (max-width: 768px) {
+    body { cursor: auto; }
+    .cursor-dot, .cursor-ring, .diamond-particle { display: none !important; }
+  }
+  .font-display { font-family: 'Instrument Serif', serif; }
+
+  /* Liquid glass — subtle */
+  .liquid-glass {
+    background: rgba(255,255,255,0.012);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: inset 0 1px 1px rgba(255,255,255,0.12);
+    position: relative;
+    overflow: hidden;
+    --mx: 50%; --my: 50%; --glow: 0;
+    transition: box-shadow .35s ease, background-color .35s ease, transform .35s cubic-bezier(.2,.8,.2,1);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+  .liquid-glass:hover {
+    background: rgba(255,255,255,0.025);
+    box-shadow: inset 0 1px 1px rgba(255,255,255,0.22), 0 8px 32px rgba(255,255,255,0.04);
+  }
+  .liquid-glass::before {
+    content: "";
+    position: absolute; inset: 0;
+    border-radius: inherit;
+    padding: 1.4px;
+    background: linear-gradient(180deg,
+      rgba(255,255,255,0.55) 0%,
+      rgba(255,255,255,0.18) 20%,
+      rgba(255,255,255,0) 40%,
+      rgba(255,255,255,0) 60%,
+      rgba(255,255,255,0.18) 80%,
+      rgba(255,255,255,0.55) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    pointer-events: none;
+  }
+  .liquid-glass-strong {
+    background: rgba(255,255,255,0.025);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    box-shadow: 4px 4px 24px rgba(0,0,0,0.25), inset 0 1px 1px rgba(255,255,255,0.18);
+    position: relative; overflow: hidden;
+    --mx: 50%; --my: 50%; --glow: 0;
+    transition: box-shadow .35s ease, background-color .35s ease, transform .35s cubic-bezier(.2,.8,.2,1);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+  .liquid-glass-strong:hover {
+    background: rgba(255,255,255,0.045);
+    box-shadow: 4px 8px 36px rgba(0,0,0,0.3), inset 0 1px 1px rgba(255,255,255,0.3), 0 0 24px rgba(255,255,255,0.05);
+  }
+  /* Cursor spotlight — the "real glass" effect */
+  .liquid-glass::after, .liquid-glass-strong::after {
+    content: "";
+    position: absolute; inset: 0;
+    border-radius: inherit;
+    background:
+      radial-gradient(circle 320px at var(--mx) var(--my), rgba(255,255,255,0.09) 0%, transparent 65%),
+      radial-gradient(circle 110px at var(--mx) var(--my), rgba(255,255,255,0.26) 0%, rgba(255,255,255,0.07) 45%, transparent 70%),
+      radial-gradient(circle 26px at var(--mx) var(--my), rgba(255,255,255,0.82) 0%, rgba(255,255,255,0.28) 55%, transparent 100%);
+    opacity: var(--glow);
+    transition: opacity .1s linear;
+    pointer-events: none;
+    mix-blend-mode: screen;
+    z-index: 1;
+  }
+  .liquid-glass > *, .liquid-glass-strong > * { position: relative; z-index: 2; }
+  .liquid-glass-strong::before {
+    content: "";
+    position: absolute; inset: 0;
+    border-radius: inherit;
+    padding: 1.4px;
+    background: linear-gradient(180deg,
+      rgba(255,255,255,0.6) 0%,
+      rgba(255,255,255,0.22) 20%,
+      rgba(255,255,255,0) 40%,
+      rgba(255,255,255,0) 60%,
+      rgba(255,255,255,0.22) 80%,
+      rgba(255,255,255,0.6) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .blend-screen { mix-blend-mode: screen; }
+
+  @keyframes pulse-soft { 0%,100% { opacity: 0.55; } 50% { opacity: 1; } }
+  .pulse-soft { animation: pulse-soft 2.4s ease-in-out infinite; }
+
+  /* Diamond particle trail */
+  .diamond-particle {
+    position: fixed; pointer-events: none; z-index: 99998;
+    width: 8px; height: 8px;
+    transform: translate(-50%, -50%) rotate(45deg) scale(1);
+    background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,255,255,0.3));
+    box-shadow: 0 0 8px rgba(255,255,255,0.6), 0 0 18px rgba(180,210,255,0.35);
+    opacity: 0;
+    animation: diamond-pop 1100ms cubic-bezier(.2,.7,.3,1) forwards;
+    will-change: transform, opacity;
+  }
+  @keyframes diamond-pop {
+    0%   { opacity: 0; transform: translate(-50%, -50%) rotate(45deg) scale(0.2); }
+    18%  { opacity: 1; }
+    100% { opacity: 0; transform: translate(calc(-50% + var(--dx, 0px)), calc(-50% + var(--dy, -22px))) rotate(calc(45deg + var(--rot, 90deg))) scale(0.4); }
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .marquee-track { animation: marquee 40s linear infinite; }
+
+  /* Custom cursor */
+  .cursor-dot, .cursor-ring {
+    position: fixed; top: 0; left: 0; pointer-events: none; z-index: 99999;
+    border-radius: 9999px;
+    transform: translate(-50%, -50%);
+    will-change: transform, width, height, opacity;
+  }
+  .cursor-dot { width: 6px; height: 6px; background: #fff; }
+  .cursor-ring {
+    width: 36px; height: 36px;
+    border: 1px solid rgba(255,255,255,0.7);
+    transition: width .25s ease, height .25s ease, background-color .25s ease, opacity .25s ease, border-color .25s ease;
+  }
+  .cursor-ring.hover {
+    width: 72px; height: 72px;
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(255,255,255,0.95);
+    backdrop-filter: blur(2px);
+  }
+
+  ::selection { background: #fff; color: #000; }
+
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: #000; }
+  ::-webkit-scrollbar-thumb { background: #1a1a1a; }
+  ::-webkit-scrollbar-thumb:hover { background: #333; }
+
+  /* FAQ details summary marker */
+  details > summary { list-style: none; cursor: none; }
+  details > summary::-webkit-details-marker { display: none; }
+  details[open] .faq-plus { transform: rotate(45deg); }
+  .faq-plus { transition: transform .35s ease; }
+
+  /* Logo glint on hover */
+  .glint-wrap { position: relative; display: inline-block; overflow: hidden; border-radius: inherit; }
+  .glint-wrap::after {
+    content: "";
+    position: absolute; inset: -30%;
+    background: linear-gradient(110deg, transparent 20%, rgba(255,255,255,0.7) 50%, transparent 80%);
+    transform: translateX(-200%);
+    pointer-events: none;
+  }
+  .glint-wrap:hover::after { animation: glint-sweep 0.65s ease-out forwards; }
+  @keyframes glint-sweep { to { transform: translateX(300%); } }
+
+  /* Pricing tier colored glows */
+  .pricing-lite {
+    background: rgba(130,180,255,0.035) !important;
+    box-shadow: 0 0 70px rgba(90,150,255,0.10), inset 0 1px 1px rgba(160,200,255,0.2) !important;
+  }
+  .pricing-lite::before {
+    background: linear-gradient(180deg,
+      rgba(160,200,255,0.65) 0%, rgba(100,160,255,0.2) 25%,
+      transparent 50%,
+      rgba(100,160,255,0.2) 75%, rgba(160,200,255,0.65) 100%) !important;
+  }
+  .pricing-atelier {
+    background: rgba(255,195,70,0.05) !important;
+    box-shadow: 0 0 130px rgba(255,180,45,0.22), 0 0 50px rgba(255,160,30,0.14), inset 0 1px 1px rgba(255,230,140,0.38) !important;
+  }
+  .pricing-atelier::before {
+    background: linear-gradient(180deg,
+      rgba(255,240,150,0.9) 0%, rgba(255,200,75,0.38) 25%,
+      transparent 50%,
+      rgba(255,200,75,0.38) 75%, rgba(255,240,150,0.9) 100%) !important;
+  }
+  .pricing-bespoke {
+    background: rgba(165,105,255,0.04) !important;
+    box-shadow: 0 0 80px rgba(155,95,255,0.15), inset 0 1px 1px rgba(205,165,255,0.22) !important;
+  }
+  .pricing-bespoke::before {
+    background: linear-gradient(180deg,
+      rgba(210,170,255,0.72) 0%, rgba(160,100,255,0.26) 25%,
+      transparent 50%,
+      rgba(160,100,255,0.26) 75%, rgba(210,170,255,0.72) 100%) !important;
+  }
+
+  /* Form input glass style */
+  .glass-input {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.11);
+    color: #fff;
+    outline: none;
+    width: 100%;
+    transition: border-color .3s ease, background .3s ease, box-shadow .3s ease;
+    -webkit-appearance: none; appearance: none;
+    cursor: none;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  .glass-input:focus {
+    border-color: rgba(255,255,255,0.32);
+    background: rgba(255,255,255,0.075);
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.08);
+  }
+  .glass-input::placeholder { color: rgba(255,255,255,0.32); font-style: italic; }
+  .glass-input option { background: #111; color: #fff; }
+  select.glass-input {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.4)' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: right 16px center; padding-right: 40px;
+  }
+</style>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js"></script>
+<script src="https://unpkg.com/framer-motion@11.11.17/dist/framer-motion.js"></script>
+</head>
+<body>
+<div id="root"></div>
+
+<!-- ============== LOGO ============== -->
+<script type="text/babel">
+const { useEffect, useRef, useState } = React;
+
+const Logo = ({ size = 64, className = "" }) => (
+  <svg viewBox="0 0 256 256" width={size} height={size} className={className} xmlns="http://www.w3.org/2000/svg">
+    <path d="M64 64 L192 64 L232 116 L128 232 L24 116 Z" fill="none" stroke="currentColor" strokeWidth="14" strokeLinejoin="miter" />
+    <path d="M86 110 L170 110 L94 178 L178 178" fill="none" stroke="currentColor" strokeWidth="14" strokeLinecap="square" strokeLinejoin="miter" />
+  </svg>
+);
+window.Logo = Logo;
+</script>
+
+<!-- ============== ICONS ============== -->
+<script type="text/babel">
+const ArrowUpRight = ({ className = "h-4 w-4" }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M7 17L17 7" /><path d="M7 7h10v10" />
+  </svg>
+);
+const Play = ({ className = "h-3.5 w-3.5" }) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className={className}><polygon points="6 4 20 12 6 20 6 4" /></svg>
+);
+const Spark = ({ className = "h-4 w-4" }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" className={className}>
+    <path d="M12 2 L13.5 10.5 L22 12 L13.5 13.5 L12 22 L10.5 13.5 L2 12 L10.5 10.5 Z" />
+  </svg>
+);
+const Hammer = ({ className = "h-4 w-4" }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" className={className}>
+    <path d="M14 6l-4 4 8 8 4-4-8-8z" /><path d="M3 21l7-7" /><path d="M9 3l6 6" />
+  </svg>
+);
+const Bolt = ({ className = "h-4 w-4" }) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className={className}><polygon points="13 2 3 14 11 14 9 22 21 10 13 10 13 2" /></svg>
+);
+
+// FadingVideo — dual-buffer crossfade. Two stacked videos with the same source.
+// Videos take turns: the next buffer starts playing from 0 before the current finishes,
+// then their opacities crossfade. Result: a continuous, gap-free loop.
+const FadingVideo = ({ src, className = "", style, fadeMs = 900, leadSec = 1.0, blendScreen = false }) => {
+  const aRef = useRef(null);
+  const bRef = useRef(null);
+  useEffect(() => {
+    const a = aRef.current, b = bRef.current;
+    if (!a || !b) return;
+    a.style.opacity = "1";
+    b.style.opacity = "0";
+    let raf = null;
+    let crossfading = false;
+    a.play().catch(()=>{});
+    b.pause(); b.currentTime = 0;
+
+    const fadeBetween = (from, to) => {
+      if (raf) cancelAnimationFrame(raf);
+      const start = performance.now();
+      const fromStart = parseFloat(from.style.opacity || "1");
+      const toStart = parseFloat(to.style.opacity || "0");
+      const tick = (t) => {
+        const p = Math.min(1, (t - start) / fadeMs);
+        // Smoothstep for nicer blend curve
+        const e = p * p * (3 - 2 * p);
+        from.style.opacity = (fromStart * (1 - e)).toFixed(3);
+        to.style.opacity   = (toStart + (1 - toStart) * e).toFixed(3);
+        if (p < 1) raf = requestAnimationFrame(tick);
+        else { crossfading = false; from.pause(); from.currentTime = 0; }
+      };
+      raf = requestAnimationFrame(tick);
+    };
+
+    const onTime = (e) => {
+      const v = e.target;
+      if (crossfading) return;
+      if (!v.duration || isNaN(v.duration)) return;
+      const remaining = v.duration - v.currentTime;
+      if (remaining <= leadSec && remaining > 0.05) {
+        const next = (v === a) ? b : a;
+        crossfading = true;
+        try { next.currentTime = 0; } catch (_) {}
+        next.play().catch(()=>{});
+        fadeBetween(v, next);
+      }
+    };
+
+    a.addEventListener("timeupdate", onTime);
+    b.addEventListener("timeupdate", onTime);
+    return () => {
+      if (raf) cancelAnimationFrame(raf);
+      a.removeEventListener("timeupdate", onTime);
+      b.removeEventListener("timeupdate", onTime);
+    };
+  }, [src]);
+
+  const cls = className + (blendScreen ? " blend-screen" : "");
+  return (
+    <>
+      <video ref={aRef} src={src} muted playsInline preload="auto" className={cls} style={{ opacity: 1, ...(style || {}) }} />
+      <video ref={bRef} src={src} muted playsInline preload="auto" className={cls} style={{ opacity: 0, ...(style || {}) }} />
+    </>
+  );
+};
+window.FadingVideo = FadingVideo;
+
+const Plus = ({ className = "h-4 w-4" }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className={className}>
+    <path d="M12 5v14M5 12h14" />
+  </svg>
+);
+window.ArrowUpRight = ArrowUpRight;
+window.Play = Play;
+window.Spark = Spark;
+window.Hammer = Hammer;
+window.Bolt = Bolt;
+window.Plus = Plus;
+</script>
+
+<!-- ============== CUSTOM CURSOR ============== -->
+<script type="text/babel">
+const Cursor = () => {
+  const dot = useRef(null);
+  const ring = useRef(null);
+  useEffect(() => {
+    let x = 0, y = 0, rx = 0, ry = 0;
+    // Lagged glass cursor — lerps slower than ring, makes spotlight feel like liquid
+    let lgx = 0, lgy = 0;
+    let lastSpawn = 0, lastSx = 0, lastSy = 0;
+    let glassEls = null;
+
+    const spawnParticle = (px, py) => {
+      const p = document.createElement('div');
+      p.className = 'diamond-particle';
+      const size = 4 + Math.random() * 7;
+      const dx = (Math.random() - 0.5) * 36;
+      const dy = -10 - Math.random() * 30;
+      const rot = (Math.random() - 0.5) * 220;
+      p.style.left = px + 'px'; p.style.top = py + 'px';
+      p.style.width = size + 'px'; p.style.height = size + 'px';
+      p.style.setProperty('--dx', dx + 'px');
+      p.style.setProperty('--dy', dy + 'px');
+      p.style.setProperty('--rot', rot + 'deg');
+      p.addEventListener('animationend', () => p.remove());
+      document.body.appendChild(p);
+    };
+
+    const updateGlass = () => {
+      if (!glassEls || glassEls.length === 0) {
+        const els = document.querySelectorAll('.liquid-glass, .liquid-glass-strong');
+        if (els.length > 0) glassEls = [...els];
+        else return;
+      }
+      glassEls.forEach(el => {
+        const r = el.getBoundingClientRect();
+        if (r.width === 0) return;
+
+        // Init per-element tilt state
+        if (el._tx === undefined) { el._tx = 0; el._ty = 0; }
+
+        const near = lgx >= r.left - 260 && lgx <= r.right + 260 && lgy >= r.top - 260 && lgy <= r.bottom + 260;
+
+        if (!near) {
+          el.style.setProperty('--glow', '0');
+          // Lerp tilt back to zero even when cursor is away
+          el._tx += (0 - el._tx) * 0.09;
+          el._ty += (0 - el._ty) * 0.09;
+        } else {
+          el.style.setProperty('--mx', (lgx - r.left) + 'px');
+          el.style.setProperty('--my', (lgy - r.top) + 'px');
+          const ddx = Math.max(0, Math.max(r.left - lgx, lgx - r.right));
+          const ddy = Math.max(0, Math.max(r.top - lgy, lgy - r.bottom));
+          const glow = Math.max(0, 1 - Math.sqrt(ddx*ddx + ddy*ddy) / 260);
+          el.style.setProperty('--glow', glow.toFixed(3));
+
+          // 3D tilt — only for elements explicitly marked with data-tilt
+          if (el.dataset.tilt) {
+            const cx = r.left + r.width / 2;
+            const cy = r.top + r.height / 2;
+            const tx = ((lgx - cx) / (r.width / 2)) * 2;
+            const ty = -((lgy - cy) / (r.height / 2)) * 2;
+            el._tx += (tx - el._tx) * 0.1;
+            el._ty += (ty - el._ty) * 0.1;
+          } else {
+            el._tx += (0 - el._tx) * 0.1;
+            el._ty += (0 - el._ty) * 0.1;
+          }
+        }
+
+        // Apply tilt — threshold avoids jitter near zero
+        if (Math.abs(el._tx) > 0.04 || Math.abs(el._ty) > 0.04) {
+          el.style.transform = `perspective(900px) rotateX(${el._ty.toFixed(3)}deg) rotateY(${el._tx.toFixed(3)}deg)`;
+        } else {
+          el._tx = 0; el._ty = 0;
+          el.style.transform = '';
+        }
+      });
+    };
+
+    const onMove = (e) => {
+      x = e.clientX; y = e.clientY;
+      if (dot.current) dot.current.style.transform = `translate(${x}px, ${y}px) translate(-50%,-50%)`;
+      const now = performance.now();
+      const dist = Math.hypot(x - lastSx, y - lastSy);
+      if (now - lastSpawn > 70 && dist > 6) {
+        spawnParticle(x + (Math.random() - 0.5) * 10, y + (Math.random() - 0.5) * 10);
+        lastSpawn = now; lastSx = x; lastSy = y;
+      }
+      // Invalidate glass cache when content changes (e.g. after load)
+      if (glassEls && glassEls.some(el => !el.isConnected)) glassEls = null;
+    };
+
+    const tick = () => {
+      rx += (x - rx) * 0.18; ry += (y - ry) * 0.18;
+      // Glass lag: slower lerp = viscous liquid feel
+      lgx += (x - lgx) * 0.065; lgy += (y - lgy) * 0.065;
+      if (ring.current) ring.current.style.transform = `translate(${rx}px, ${ry}px) translate(-50%,-50%)`;
+      updateGlass();
+      requestAnimationFrame(tick);
+    };
+
+    const enter = () => ring.current && ring.current.classList.add('hover');
+    const leave = () => ring.current && ring.current.classList.remove('hover');
+    window.addEventListener('mousemove', onMove);
+    document.querySelectorAll('a,button,details summary,[data-cursor]').forEach(el => {
+      el.addEventListener('mouseenter', enter); el.addEventListener('mouseleave', leave);
+    });
+    const raf = requestAnimationFrame(tick);
+    return () => { window.removeEventListener('mousemove', onMove); cancelAnimationFrame(raf); };
+  }, []);
+  return (<>
+    <div ref={dot} className="cursor-dot" />
+    <div ref={ring} className="cursor-ring" />
+  </>);
+};
+window.Cursor = Cursor;
+</script>
+
+<!-- ============== BLUR TEXT ============== -->
+<script type="text/babel">
+const { motion } = window.Motion;
+
+const BlurText = ({ text, delay = 0, stepMs = 110, className = "", center = true }) => {
+  const ref = useRef(null);
+  const [inView, setInView] = useState(false);
+  useEffect(() => {
+    const el = ref.current; if (!el) return;
+    const obs = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) { setInView(true); obs.disconnect(); }
+    }, { threshold: 0.1 });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+  const words = text.split(" ");
+  return (
+    <p ref={ref} className={className} style={{ display: "flex", flexWrap: "wrap", justifyContent: center ? "center" : "flex-start", rowGap: "0.05em" }}>
+      {words.map((w, i) => (
+        <motion.span
+          key={i}
+          initial={{ filter: "blur(10px)", opacity: 0, y: 50 }}
+          animate={inView ? { filter: ["blur(10px)","blur(5px)","blur(0px)"], opacity: [0,0.5,1], y: [50,-5,0] } : {}}
+          transition={{ duration: 0.85, times: [0,0.5,1], ease: "easeOut", delay: delay + (i * stepMs) / 1000 }}
+          style={{ display: "inline-block", marginRight: "0.3em" }}
+        >{w}</motion.span>
+      ))}
+    </p>
+  );
+};
+window.BlurText = BlurText;
+</script>
+
+<!-- ============== LOADING SCREEN ============== -->
+<script type="text/babel">
+const { motion: M1, AnimatePresence } = window.Motion;
+
+const LoadingScreen = ({ onDone }) => {
+  const [count, setCount] = useState(0);
+  const [wordIdx, setWordIdx] = useState(0);
+  const words = ["Design", "Build", "Deliver"];
+
+  useEffect(() => {
+    const start = performance.now();
+    const dur = 1500;
+    let raf;
+    const tick = (t) => {
+      const p = Math.min(1, (t - start) / dur);
+      setCount(Math.floor(p * 100));
+      if (p < 1) raf = requestAnimationFrame(tick);
+      else setTimeout(onDone, 280);
+    };
+    raf = requestAnimationFrame(tick);
+    const wi = setInterval(() => setWordIdx(i => (i + 1) % words.length), 480);
+    return () => { cancelAnimationFrame(raf); clearInterval(wi); };
+  }, []);
+
+  return (
+    <M1.div className="fixed inset-0 z-[9999] bg-black flex items-center justify-center overflow-hidden"
+      exit={{ opacity: 0, transition: { duration: 0.25, ease: "easeOut" } }}>
+      {/* Top label */}
+      <M1.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
+        className="absolute top-6 left-6 md:top-8 md:left-10 text-[10px] uppercase tracking-[0.4em] text-white/60 font-body">
+        ZeroTo.site
+      </M1.div>
+      {/* Top right meta */}
+      <M1.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }}
+        className="absolute top-6 right-6 md:top-8 md:right-10 text-[10px] uppercase tracking-[0.4em] text-white/60 font-body">
+        MMXXVI · Vol. 1
+      </M1.div>
+
+      {/* Center logo + rotating word */}
+      <div className="flex flex-col items-center gap-8">
+        <M1.div initial={{ opacity: 0, scale: 0.85, filter: "blur(12px)" }}
+          animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          className="text-white">
+          <div className="glint-wrap" style={{ display: 'inline-block', borderRadius: '12px' }}>
+            <Logo size={104} className="text-white drop-shadow-[0_0_40px_rgba(255,255,255,0.25)]" />
+          </div>
+        </M1.div>
+        <div className="h-12 overflow-hidden">
+          <AnimatePresence mode="wait">
+            <M1.div key={wordIdx}
+              initial={{ y: 30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -30, opacity: 0 }}
+              transition={{ duration: 0.35, ease: "easeOut" }}
+              className="font-display italic text-white/80 text-3xl md:text-4xl">
+              {words[wordIdx]}.
+            </M1.div>
+          </AnimatePresence>
+        </div>
+      </div>
+
+      {/* Counter bottom right */}
+      <M1.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.2 }}
+        className="absolute bottom-8 right-6 md:right-10 font-display text-6xl md:text-7xl text-white tabular-nums leading-none">
+        {String(count).padStart(3, "0")}
+      </M1.div>
+      {/* Bottom left meta */}
+      <M1.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.2 }}
+        className="absolute bottom-8 left-6 md:left-10 text-[10px] uppercase tracking-[0.4em] text-white/45 font-body">
+        Initialising sequence
+      </M1.div>
+
+      {/* Progress bar */}
+      <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-white/10">
+        <div className="h-full bg-white origin-left"
+          style={{ transform: `scaleX(${count / 100})`, boxShadow: "0 0 12px rgba(255,255,255,0.6)", transition: "transform 80ms linear" }} />
+      </div>
+    </M1.div>
+  );
+};
+window.LoadingScreen = LoadingScreen;
+</script>
+
+<!-- ============== NAVBAR ============== -->
+<script type="text/babel">
+const { motion: M2 } = window.Motion;
+
+const Navbar = () => (
+  <M2.nav initial={{ opacity: 0, y: -16 }} animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.9, ease: "easeOut", delay: 0.2 }}
+    className="fixed top-4 md:top-5 left-0 right-0 z-50 px-4 md:px-8 flex justify-between items-center">
+    <a href="#" className="liquid-glass rounded-full h-11 pl-2 pr-5 flex items-center gap-2.5 text-white">
+      <span className="h-8 w-8 flex items-center justify-center glint-wrap rounded-full">
+        <Logo size={22} className="text-white" />
+      </span>
+      <span className="font-display italic text-white text-lg leading-none tracking-tight">zeroto.site</span>
+    </a>
+    <div className="liquid-glass rounded-full px-1.5 py-1.5 hidden md:flex items-center gap-0">
+      {[["Process","#process"],["Options","#pricing"],["FAQ","#faq"],["Inquiry","#inquiry"]].map(([l,h]) => (
+        <a key={l} href={h} className="px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-white/85 hover:text-white font-body transition-colors">{l}</a>
+      ))}
+      <a href="#inquiry"
+         className="liquid-glass-strong rounded-full ml-1 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-white font-medium flex items-center gap-1.5 whitespace-nowrap">
+        Start Build <ArrowUpRight className="h-3.5 w-3.5" />
+      </a>
+    </div>
+    <a href="#inquiry" className="md:hidden liquid-glass-strong rounded-full px-3 py-1.5 text-[10px] uppercase tracking-[0.2em] text-white">Start</a>
+    <div className="hidden md:block h-11 w-11" />
+  </M2.nav>
+);
+window.Navbar = Navbar;
+</script>
+
+<!-- ============== HERO ============== -->
+<script type="text/babel">
+const { motion: M3 } = window.Motion;
+
+const Hero = () => {
+  const [scrollY, setScrollY] = useState(0);
+  useEffect(() => {
+    const onScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  return (
+  <section className="relative min-h-screen w-full overflow-hidden bg-black">
+    {/* Video parallaxes at 0.3× scroll rate — appears to stay behind content */}
+    <video className="absolute inset-0 w-full h-full object-cover z-0"
+      style={{ transform: `scale(1.1) translateY(${scrollY * 0.28}px)`, transformOrigin: 'center top', willChange: 'transform' }}
+      src="assets/videos/falling-diamonds.mp4" autoPlay muted loop playsInline preload="auto" />
+    <div className="absolute inset-0 z-[1] bg-gradient-to-b from-black/40 via-black/10 to-black/85 pointer-events-none" />
+    <div className="absolute inset-0 z-[1] bg-[radial-gradient(ellipse_at_center,transparent_25%,rgba(0,0,0,0.6)_100%)] pointer-events-none" />
+
+    {/* Content drifts slightly faster than normal scroll for parallax depth */}
+    <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 pt-28 pb-32 text-center"
+      style={{ transform: `translateY(${scrollY * -0.07}px)`, willChange: 'transform' }}>
+      <M3.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.9, ease: "easeOut", delay: 0.4 }}
+        className="liquid-glass rounded-full px-3.5 py-1.5 flex items-center gap-2.5">
+        <span className="inline-block h-1.5 w-1.5 rounded-full bg-white pulse-soft" />
+        <span className="text-[10px] uppercase tracking-[0.3em] text-white/85 font-body">Now Open — Booking Founding Clients</span>
+      </M3.div>
+
+      <div className="mt-8 relative">
+        <BlurText text="You start" delay={0.6} stepMs={110}
+          className="font-display italic text-white text-5xl sm:text-7xl md:text-8xl lg:text-[10rem] leading-[0.85] sm:leading-[0.82] tracking-[-3px] sm:tracking-[-4px]" />
+        <BlurText text="with nothing." delay={0.85} stepMs={110}
+          className="font-display italic text-white/85 text-5xl sm:text-7xl md:text-8xl lg:text-[10rem] leading-[0.85] sm:leading-[0.82] tracking-[-3px] sm:tracking-[-4px] -mt-3 md:-mt-5" />
+        <BlurText text="We deliver" delay={1.15} stepMs={110}
+          className="font-display italic text-white text-5xl sm:text-7xl md:text-8xl lg:text-[10rem] leading-[0.85] sm:leading-[0.82] tracking-[-3px] sm:tracking-[-4px] mt-2" />
+        <BlurText text="the site." delay={1.4} stepMs={110}
+          className="font-display italic text-white/60 text-5xl sm:text-7xl md:text-8xl lg:text-[10rem] leading-[0.85] sm:leading-[0.82] tracking-[-3px] sm:tracking-[-4px] -mt-3 md:-mt-5" />
+      </div>
+
+      <M3.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.9, ease: "easeOut", delay: 1.9 }}
+        className="mt-9 text-sm md:text-base text-white/85 max-w-xl font-body font-light leading-relaxed">
+        Lightning fast. Tailor made. Premium by design. A digital atelier that turns ideas into polished, memorable websites — no templates, no compromises.
+      </M3.p>
+
+      <M3.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.9, ease: "easeOut", delay: 2.1 }}
+        className="flex flex-wrap items-center justify-center gap-5 mt-10">
+        <a href="#inquiry"
+           className="liquid-glass-strong rounded-full px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white font-medium flex items-center gap-2 hover:scale-[1.03] transition-transform">
+          Begin Your Build <ArrowUpRight className="h-4 w-4" />
+        </a>
+        <a href="#process" className="text-white/80 hover:text-white text-[11px] uppercase tracking-[0.22em] font-body flex items-center gap-2 transition-colors">
+          See the Process <Play className="h-3 w-3" />
+        </a>
+      </M3.div>
+
+      <M3.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.9, ease: "easeOut", delay: 2.3 }}
+        className="flex flex-wrap items-stretch justify-center gap-3 md:gap-4 mt-14">
+        {[
+          { num: "72h", label: "Average delivery" },
+          { num: "100%", label: "Custom built" },
+          { num: "0", label: "Templates used" },
+          { num: "100/100", label: "Lighthouse score" },
+        ].map((s) => (
+          <div key={s.label} className="liquid-glass rounded-[1.25rem] px-6 py-5 w-[160px] md:w-[180px] flex flex-col items-start">
+            <div className="font-display italic text-white text-3xl md:text-4xl tracking-[-1px] leading-none">{s.num}</div>
+            <div className="text-[10px] uppercase tracking-[0.22em] text-white/70 mt-3 font-body">{s.label}</div>
+          </div>
+        ))}
+      </M3.div>
+    </div>
+
+    <M3.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 2.6 }}
+      className="absolute bottom-6 left-0 right-0 z-10 px-6 md:px-10 flex justify-between items-end text-[10px] uppercase tracking-[0.3em] text-white/50 font-body pointer-events-none">
+      <span>buildwithzeroto@gmail.com</span>
+      <span className="hidden md:block">Scroll ↓ The Craft</span>
+      <span>MMXXVI</span>
+    </M3.div>
+  </section>
+  );
+};
+window.Hero = Hero;
+</script>
+
+<!-- ============== MARQUEE ============== -->
+<script type="text/babel">
+const Marquee = () => {
+  const items = ["Lightning Fast", "Tailor Made", "Premium by Design", "72h Delivery", "Zero Templates", "100/100 Lighthouse", "Hand Cut", "Cinematic Motion"];
+  const row = [...items, ...items];
+  return (
+    <section className="relative w-full overflow-hidden bg-black border-y border-white/10 py-8">
+      <div className="marquee-track flex whitespace-nowrap">
+        {row.map((t, i) => (
+          <div key={i} className="flex items-center gap-10 pr-10">
+            <Logo size={18} className="text-white/40 shrink-0" />
+            <span className="font-display italic text-white text-4xl md:text-6xl tracking-[-2px]">{t}</span>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+window.Marquee = Marquee;
+</script>
+
+<!-- ============== STONE SECTION ============== -->
+<script type="text/babel">
+const { motion: M4 } = window.Motion;
+
+const StoneSection = () => (
+  <section id="process" className="relative min-h-screen w-full overflow-hidden bg-black flex items-center py-24">
+    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.07),transparent_60%)] pointer-events-none" />
+    <FadingVideo src="assets/videos/diamond-spin.mp4" blendScreen
+      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[55vw] md:w-[55vw] max-w-[640px] h-auto z-[5] md:z-10 pointer-events-none opacity-25 md:opacity-100" />
+    <div className="absolute left-1/2 bottom-[18%] -translate-x-1/2 w-[600px] h-[80px] rounded-full bg-white/15 blur-3xl z-[5] pointer-events-none" />
+
+    <div className="relative z-20 grid grid-cols-12 gap-6 px-6 md:px-12 lg:px-20 w-full max-w-[1400px] mx-auto">
+      <M4.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }} transition={{ duration: 1, ease: "easeOut" }}
+        className="col-span-12 md:col-span-4">
+        <div className="text-[10px] uppercase tracking-[0.32em] text-white/55 font-body mb-6">// 02 · The Craft</div>
+        <h2 className="font-display italic text-white text-5xl md:text-6xl lg:text-7xl leading-[0.9] tracking-[-2px]">Cut <br/>by hand.</h2>
+        <p className="mt-6 text-sm text-white/70 font-body font-light leading-relaxed max-w-[34ch]">
+          Every site is shaped to a single client. We don't reuse layouts, we don't import themes. Each pixel is set, each motion is keyframed, each word is weighed.
+        </p>
+        <div className="mt-10 space-y-3 text-[10px] uppercase tracking-[0.22em] font-body">
+          {[["Build time","72 hours"],["Frameworks","React · Vite · Tailwind"],["Hosting","Cloudflare · Vercel"],["Performance","100/100 Lighthouse"],["Revisions","Unlimited · 14 days"]].map(([k,v]) => (
+            <div key={k} className="flex justify-between items-center border-t border-white/10 pt-3">
+              <span className="text-white/55">{k}</span><span className="text-white">{v}</span>
+            </div>
+          ))}
+        </div>
+      </M4.div>
+
+      <M4.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }} transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+        className="col-span-12 md:col-span-4 md:col-start-9 self-end md:pl-8 lg:pl-12">
+        <div className="liquid-glass rounded-[1.5rem] p-7" data-tilt="true">
+          <div className="text-[10px] uppercase tracking-[0.3em] text-white/55 font-body mb-3">The Atelier Protocol</div>
+          <h3 className="font-display italic text-white text-3xl md:text-4xl mb-5 leading-[1] tracking-[-1px]">How a build begins.</h3>
+          <ol className="space-y-4 text-xs text-white/80 font-body leading-relaxed">
+            {[["01","Letter of intent — one paragraph, what you do, who it's for."],["02","Concept call — 30 minutes, we draw the shape together."],["03","Delivery — within 72 hours, polished and live."]].map(([n,t]) => (
+              <li key={n} className="flex gap-4">
+                <span className="font-display italic text-white/50 text-lg leading-none w-6">{n}</span>
+                <span className="flex-1">{t}</span>
+              </li>
+            ))}
+          </ol>
+          <a href="mailto:buildwithzeroto@gmail.com" className="liquid-glass-strong rounded-full mt-7 w-full py-3 flex items-center justify-center gap-2 text-[11px] uppercase tracking-[0.22em] text-white">
+            Send Letter <ArrowUpRight className="h-3.5 w-3.5" />
+          </a>
+        </div>
+      </M4.div>
+    </div>
+  </section>
+);
+window.StoneSection = StoneSection;
+</script>
+
+<!-- ============== CAPABILITIES ============== -->
+<script type="text/babel">
+const { motion: M5 } = window.Motion;
+
+const Capabilities = () => {
+  const cards = [
+    { icon: <Bolt className="h-5 w-5" />, tags: ["72h Delivery","Live Same Week","No Drag","Done Right"], title: "Lightning Fast", body: "From letter to live site in under three days. Focused sprints — no lingering, no scope creep, no missed deadlines." },
+    { icon: <Hammer className="h-5 w-5" />, tags: ["Hand Built","Zero Templates","Custom Motion","Your Voice"], title: "Tailor Made", body: "Every layout, every line of copy, every animation is built for you. Blank canvas, not a theme marketplace." },
+    { icon: <Spark className="h-5 w-5" />, tags: ["Editorial Type","Cinematic Video","Glass UI","Polish"], title: "Premium by Design", body: "Serif italic display type, full-bleed video, liquid-glass surfaces. Manhattan-studio aesthetic, delivered direct." },
+  ];
+  return (
+    <section className="relative min-h-screen w-full overflow-hidden bg-black py-24">
+      <video className="absolute inset-0 w-full h-full object-cover z-0 opacity-40"
+        src="assets/videos/glass-shape.mp4" autoPlay muted loop playsInline preload="auto" />
+      <div className="absolute inset-0 z-[1] bg-black/60 pointer-events-none" />
+      <div className="relative z-10 px-6 md:px-12 lg:px-20 max-w-[1400px] mx-auto">
+        <M5.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }} transition={{ duration: 1, ease: "easeOut" }} className="mb-16">
+          <div className="text-[10px] uppercase tracking-[0.32em] text-white/55 font-body mb-6">// 03 · Capabilities</div>
+          <h2 className="font-display italic text-white text-5xl md:text-7xl lg:text-[6rem] leading-[0.9] tracking-[-3px] max-w-3xl">
+            Three vows.<br/>One standard.
+          </h2>
+        </M5.div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          {cards.map((c,i) => (
+            <M5.div key={c.title} initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
+              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }} viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.9, ease: "easeOut", delay: 0.1 * i }}
+              className="liquid-glass rounded-[1.5rem] p-6 min-h-[380px] flex flex-col" data-tilt="true">
+              <div className="flex items-start justify-between gap-3">
+                <div className="liquid-glass rounded-[0.75rem] h-11 w-11 flex items-center justify-center text-white">{c.icon}</div>
+                <div className="flex flex-wrap justify-end gap-1.5 max-w-[72%]">
+                  {c.tags.map((t) => (
+                    <span key={t} className="liquid-glass rounded-full px-2.5 py-1 text-[10px] text-white/85 font-body whitespace-nowrap">{t}</span>
+                  ))}
+                </div>
+              </div>
+              <div className="flex-1" />
+              <h3 className="font-display italic text-white text-3xl md:text-4xl tracking-[-1px] leading-none mt-6">{c.title}</h3>
+              <p className="mt-3 text-sm text-white/85 font-body font-light leading-snug max-w-[34ch]">{c.body}</p>
+            </M5.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+window.Capabilities = Capabilities;
+</script>
+
+<!-- ============== SELECTED WORK (BENTO) ============== -->
+<script type="text/babel">
+const { motion: M6 } = window.Motion;
+
+const SelectedWork = () => {
+  const works = [
+    { tag: "Personal Brand", title: "Méridienne", body: "Photographer portfolio with full-bleed scroll cinematics.", span: "md:col-span-7", grad: "from-[#1c1c1c] to-[#000]" },
+    { tag: "SaaS",           title: "Aperture",   body: "Document analytics platform. Marketing site + dashboard.", span: "md:col-span-5", grad: "from-[#0c0c0c] to-[#1a1a1a]" },
+    { tag: "Hospitality",    title: "Sable",      body: "Boutique hotel booking flow with editorial gallery.",     span: "md:col-span-5", grad: "from-[#181818] to-[#020202]" },
+    { tag: "Fintech",        title: "Quill",      body: "Wealth management onboarding, regulator-ready.",          span: "md:col-span-7", grad: "from-[#0a0a0a] to-[#222]" },
+    { tag: "Studio",         title: "Vertex",     body: "Architecture firm site with 3D project explorer.",        span: "md:col-span-6", grad: "from-[#111] to-[#000]" },
+    { tag: "Editorial",      title: "Folium",     body: "Long-form essays platform with reading-mode UX.",         span: "md:col-span-6", grad: "from-[#0e0e0e] to-[#1c1c1c]" },
+  ];
+  return (
+    <section id="work" className="relative w-full bg-black py-24 px-6 md:px-12 lg:px-20">
+      <div className="max-w-[1400px] mx-auto">
+        <M6.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }} transition={{ duration: 1 }}
+          className="flex items-end justify-between flex-wrap gap-6 mb-12">
+          <div>
+            <div className="text-[10px] uppercase tracking-[0.32em] text-white/55 font-body mb-6">// 04 · Selected Work</div>
+            <h2 className="font-display italic text-white text-5xl md:text-7xl lg:text-[6rem] leading-[0.9] tracking-[-3px] max-w-3xl">
+              From zero,<br/>to remembered.
+            </h2>
+          </div>
+          <a href="mailto:buildwithzeroto@gmail.com" className="liquid-glass rounded-full px-5 py-2.5 text-[11px] uppercase tracking-[0.22em] text-white flex items-center gap-2 self-end">
+            Full Index <ArrowUpRight className="h-3.5 w-3.5" />
+          </a>
+        </M6.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-5">
+          {works.map((w, i) => (
+            <M6.a key={w.title} href="#" initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.9, ease: "easeOut", delay: 0.05 * i }}
+              className={`group relative overflow-hidden rounded-[1.5rem] aspect-[16/11] ${w.span} liquid-glass`}>
+              <div className={`absolute inset-0 bg-gradient-to-br ${w.grad}`} />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.08),transparent_60%)]" />
+              <div className="absolute inset-0 opacity-30 mix-blend-overlay" style={{ backgroundImage: "radial-gradient(circle, #000 1px, transparent 1px)", backgroundSize: "4px 4px" }} />
+              {/* Floating monogram */}
+              <div className="absolute right-6 top-6 text-white/15 group-hover:text-white/40 transition-colors duration-500">
+                <span className="font-display italic text-[8rem] leading-none tracking-[-6px]">{w.title[0]}</span>
+              </div>
+              <div className="relative z-10 h-full p-6 md:p-8 flex flex-col justify-end">
+                <div className="text-[10px] uppercase tracking-[0.3em] text-white/55 font-body mb-2">{w.tag}</div>
+                <h3 className="font-display italic text-white text-4xl md:text-5xl leading-[0.95] tracking-[-1.5px]">{w.title}</h3>
+                <p className="mt-2 text-sm text-white/70 font-body font-light max-w-md">{w.body}</p>
+                <div className="mt-5 inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.25em] text-white/80 font-body">
+                  <span className="h-px w-6 bg-white/40 group-hover:w-12 transition-all duration-500" />
+                  View case
+                  <ArrowUpRight className="h-3.5 w-3.5 group-hover:rotate-45 transition-transform duration-500" />
+                </div>
+              </div>
+            </M6.a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+window.SelectedWork = SelectedWork;
+</script>
+
+<!-- ============== PROCESS TIMELINE ============== -->
+<script type="text/babel">
+const { motion: M7 } = window.Motion;
+
+const ProcessTimeline = () => {
+  const steps = [
+    { n: "01", t: "Letter", s: "DAY 0", body: "Send one paragraph: what you do, who it's for, and when you need it. We reply within 24 hours with availability." },
+    { n: "02", t: "Concept", s: "DAY 1", body: "30-minute call. We sketch the shape of the site together — tone, structure, the single feeling it should leave." },
+    { n: "03", t: "Cut", s: "DAY 2", body: "We build. You watch progress in a private staging URL, refresh as the page comes to life. Two checkpoints for direction." },
+    { n: "04", t: "Deliver", s: "DAY 3", body: "Live, polished, performant. Connected to your domain, hooked to your analytics, handed over with documentation." },
+  ];
+  return (
+    <section id="atelier" className="relative w-full bg-black py-24 px-6 md:px-12 lg:px-20 border-t border-white/10">
+      <div className="max-w-[1400px] mx-auto">
+        <M7.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }} transition={{ duration: 1 }} className="mb-16">
+          <div className="text-[10px] uppercase tracking-[0.32em] text-white/55 font-body mb-6">// 04 · The Process</div>
+          <h2 className="font-display italic text-white text-5xl md:text-7xl lg:text-[6rem] leading-[0.9] tracking-[-3px]">
+            Four days.<br/>One ritual.
+          </h2>
+        </M7.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-5 relative">
+          {/* Connecting line */}
+          <div className="hidden md:block absolute top-[44px] left-[6%] right-[6%] h-px bg-gradient-to-r from-white/0 via-white/30 to-white/0" />
+          {steps.map((s, i) => (
+            <M7.div key={s.n} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.8, delay: 0.12 * i }}
+              className="relative flex flex-col">
+              <div className="liquid-glass rounded-full h-[88px] w-[88px] flex items-center justify-center font-display italic text-white text-3xl mb-6">
+                {s.n}
+              </div>
+              <div className="text-[10px] uppercase tracking-[0.3em] text-white/55 font-body mb-2">{s.s}</div>
+              <h3 className="font-display italic text-white text-3xl md:text-4xl leading-none tracking-[-1px]">{s.t}.</h3>
+              <p className="mt-3 text-sm text-white/70 font-body font-light leading-relaxed max-w-[28ch]">{s.body}</p>
+            </M7.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+window.ProcessTimeline = ProcessTimeline;
+</script>
+
+<!-- ============== PRICING ============== -->
+<script type="text/babel">
+const { motion: M8 } = window.Motion;
+
+const Pricing = () => {
+  const tiers = [
+    {
+      name: "Lite",
+      tagline: "For solo operators",
+      sub: "Founding option",
+      colorClass: "liquid-glass pricing-lite",
+      ctaClass: "liquid-glass-strong",
+      badge: null,
+      body: "A clean one-page custom site built in 48 hours. For makers and solo operators who need to show up professionally — without the overhead.",
+      perks: ["1-page custom design", "Mobile-first build", "Domain + hosting setup", "7 days of revisions", "Performance optimised"],
+      cta: "Inquire — Lite",
+    },
+    {
+      name: "The Atelier",
+      tagline: "For small businesses",
+      sub: "Most chosen",
+      colorClass: "liquid-glass-strong pricing-atelier",
+      ctaClass: "liquid-glass",
+      badge: "Recommended",
+      body: "Multi-section custom site in 72 hours. Cinematic motion, editorial type, 100/100 Lighthouse. For founders ready to stop looking like a startup.",
+      perks: ["Up to 5 sections", "Cinematic motion + animation", "100/100 performance score", "14 days unlimited revisions", "Domain + hosting + analytics", "Priority reply line"],
+      cta: "Inquire — Atelier",
+    },
+    {
+      name: "Bespoke Studio",
+      tagline: "For full brands",
+      sub: "Full commission",
+      colorClass: "liquid-glass pricing-bespoke",
+      ctaClass: "liquid-glass-strong",
+      badge: null,
+      body: "A flagship digital presence — multi-page, original copywriting, custom illustration, and a dedicated post-launch month. For those who see the site as the brand.",
+      perks: ["Up to 12 sections", "Original copywriting", "Custom illustration", "30 days of revisions", "Priority email line", "Monthly strategy session"],
+      cta: "Commission Studio",
+    },
+  ];
+
+  return (
+    <section id="pricing" className="relative w-full bg-black py-24 px-6 md:px-12 lg:px-20 border-t border-white/10">
+      <div className="max-w-[1400px] mx-auto">
+        <M8.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }} transition={{ duration: 1 }} className="mb-4">
+          <div className="text-[10px] uppercase tracking-[0.32em] text-white/55 font-body mb-6">// 05 · Options</div>
+          <h2 className="font-display italic text-white text-5xl md:text-7xl lg:text-[6rem] leading-[0.9] tracking-[-3px]">
+            Three ways<br/>to begin.
+          </h2>
+        </M8.div>
+        <M8.p initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }} transition={{ duration: 0.9, delay: 0.1 }}
+          className="text-sm text-white/60 font-body font-light mb-14 max-w-[52ch]">
+          Each engagement is shaped to your project. Pick the closest fit and inquire — every quote is tailored to scope.
+        </M8.p>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-start">
+          {tiers.map((t, i) => {
+            const isAtelier = t.badge === "Recommended";
+            return (
+              <M8.div key={t.name} initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.9, delay: 0.12 * i }}
+                className={`${t.colorClass} rounded-[2rem] flex flex-col relative overflow-hidden ${isAtelier ? 'md:-mt-4 md:-mb-4 p-8 md:p-10' : 'p-7 md:p-9'}`}>
+
+                {t.badge && (
+                  <div className="absolute top-5 right-5 liquid-glass rounded-full px-3 py-1 text-[9px] uppercase tracking-[0.3em] text-white/90 font-body flex items-center gap-1.5">
+                    <span className="h-1.5 w-1.5 rounded-full bg-white pulse-soft" /> {t.badge}
+                  </div>
+                )}
+
+                <div className="text-[10px] uppercase tracking-[0.3em] text-white/55 font-body mb-4">{t.sub}</div>
+                <h3 className={`font-display italic text-white leading-none tracking-[-1.5px] ${isAtelier ? 'text-5xl md:text-6xl' : 'text-4xl md:text-5xl'}`}>{t.name}</h3>
+
+                <div className="mt-3 font-display italic text-white/55 text-2xl md:text-3xl tracking-[-1px] leading-none">{t.tagline}</div>
+
+                <p className="mt-7 text-sm md:text-[15px] text-white/85 font-body font-light leading-relaxed">{t.body}</p>
+
+                <ul className="mt-7 space-y-2.5">
+                  {t.perks.map((p) => (
+                    <li key={p} className="flex items-start gap-3 text-sm text-white/85 font-body font-light">
+                      <span className="mt-[7px] h-1 w-1 rounded-full bg-white/60 shrink-0" />{p}
+                    </li>
+                  ))}
+                </ul>
+
+                <a href="#inquiry"
+                   className={`${t.ctaClass} rounded-full mt-8 py-3.5 flex items-center justify-center gap-2 text-[11px] uppercase tracking-[0.22em] text-white font-medium`}>
+                  {t.cta} <ArrowUpRight className="h-3.5 w-3.5" />
+                </a>
+              </M8.div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+};
+window.Pricing = Pricing;
+</script>
+
+<!-- ============== BY THE NUMBERS ============== -->
+<script type="text/babel">
+const { motion: M9 } = window.Motion;
+
+const TestimonialStats = () => (
+  <section className="relative w-full bg-black py-32 px-6 md:px-12 lg:px-20 border-t border-white/10">
+    <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+      <M9.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }} transition={{ duration: 1 }} className="md:col-span-7">
+        <div className="text-[10px] uppercase tracking-[0.32em] text-white/55 font-body mb-6">// The Standard</div>
+        <BlurText text="Built to perform." center={false}
+          stepMs={90}
+          className="font-display italic text-white text-4xl md:text-5xl lg:text-6xl leading-[0.95] tracking-[-2px]" />
+        <BlurText text="Built to last." center={false}
+          stepMs={90} delay={0.2}
+          className="font-display italic text-white/65 text-4xl md:text-5xl lg:text-6xl leading-[0.95] tracking-[-2px] mt-1" />
+        <M9.p initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }} transition={{ duration: 0.9, delay: 0.5 }}
+          className="mt-7 text-sm text-white/75 font-body font-light leading-relaxed max-w-[40ch]">
+          Every site I ship will hit 100/100 on Lighthouse, load under a second, and come with full source code you own outright. No builders. No templates. No shortcuts.
+        </M9.p>
+      </M9.div>
+
+      <M9.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }} transition={{ duration: 1, delay: 0.15 }}
+        className="md:col-span-5 grid grid-cols-2 gap-4">
+        {[
+          { n: "72h", l: "Build window" },
+          { n: "100/100", l: "Lighthouse score" },
+          { n: "<1s", l: "Target load time" },
+          { n: "100%", l: "Custom code" },
+        ].map((s) => (
+          <div key={s.l} className="liquid-glass rounded-[1.5rem] p-6 flex flex-col">
+            <span className="font-display italic text-white text-5xl md:text-6xl tracking-[-2px] leading-none">{s.n}</span>
+            <span className="text-[10px] uppercase tracking-[0.22em] text-white/60 font-body mt-3">{s.l}</span>
+          </div>
+        ))}
+      </M9.div>
+    </div>
+  </section>
+);
+window.TestimonialStats = TestimonialStats;
+</script>
+
+<!-- ============== FAQ ============== -->
+<script type="text/babel">
+const { motion: M10 } = window.Motion;
+
+const FAQ = () => {
+  const items = [
+    { q: "Can you really deliver in 72 hours?", a: "Yes — provided you reply quickly during the build window. The 72 hours starts from the concept call. We work in dedicated sprints, one client at a time." },
+    { q: "Do you use templates or page builders?", a: "Never. Every site is built from scratch in React, Vite, and Tailwind. No Webflow, no Wix, no Squarespace. The code is yours, fully owned, fully exportable." },
+    { q: "What if I need changes after launch?", a: "Atelier includes 14 days of unlimited revisions. Bespoke includes 30 days plus a priority email line. After that, we offer hourly retainers or project-based engagements." },
+    { q: "Do you write the copy too?", a: "Atelier expects you to bring copy or notes. Bespoke includes original copywriting — we interview you, draft, refine, and ship words that sound like you, not like a generator." },
+    { q: "Who owns the site after delivery?", a: "You do. Full source code, full design files, full domain access. We hand over a Git repo and a one-page README. You are never locked in." },
+    { q: "Can you integrate Stripe / a CMS / analytics / etc?", a: "Yes. Stripe, Sanity, Contentful, Resend, Plausible, PostHog, GA4 — standard integrations included. More complex backends are quoted as add-ons." },
+  ];
+  return (
+    <section id="faq" className="relative w-full bg-black py-24 px-6 md:px-12 lg:px-20 border-t border-white/10">
+      <div className="max-w-[1100px] mx-auto">
+        <M10.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }} transition={{ duration: 1 }} className="mb-12">
+          <div className="text-[10px] uppercase tracking-[0.32em] text-white/55 font-body mb-6">// 06 · Questions</div>
+          <h2 className="font-display italic text-white text-5xl md:text-7xl lg:text-[6rem] leading-[0.9] tracking-[-3px]">
+            Before you<br/>write the letter.
+          </h2>
+        </M10.div>
+        <div className="divide-y divide-white/10 border-y border-white/10">
+          {items.map((it, i) => (
+            <M10.details key={it.q} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.6, delay: 0.05 * i }}
+              className="group py-6 md:py-8" data-cursor>
+              <summary className="flex items-start justify-between gap-6">
+                <span className="font-display italic text-white text-2xl md:text-4xl leading-tight tracking-[-1px] flex-1">
+                  {it.q}
+                </span>
+                <span className="liquid-glass rounded-full h-9 w-9 flex items-center justify-center text-white shrink-0 mt-1">
+                  <span className="faq-plus block"><Plus className="h-4 w-4" /></span>
+                </span>
+              </summary>
+              <div className="mt-4 text-sm md:text-base text-white/70 font-body font-light leading-relaxed max-w-[60ch]">
+                {it.a}
+              </div>
+            </M10.details>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+window.FAQ = FAQ;
+</script>
+
+<!-- ============== INQUIRY FORM ============== -->
+<script type="text/babel">
+const { motion: M12 } = window.Motion;
+
+const InquiryForm = () => {
+  const [form, setForm] = useState({ name: '', business: '', web: '', budget: '', timeline: '', notes: '' });
+  // Detect Formsubmit redirect-back via ?sent=1 on URL
+  const [status, setStatus] = useState(() =>
+    typeof window !== 'undefined' && new URLSearchParams(window.location.search).get('sent') === '1'
+      ? 'sent' : 'idle'
+  );
+  const set = (field) => (e) => setForm(f => ({ ...f, [field]: e.target.value }));
+
+  // Clean ?sent=1 from URL after success state shows
+  useEffect(() => {
+    if (status === 'sent' && typeof window !== 'undefined' &&
+        new URLSearchParams(window.location.search).get('sent') === '1') {
+      window.history.replaceState({}, '', window.location.pathname + '#inquiry');
+    }
+  }, [status]);
+
+  const nextUrl = typeof window !== 'undefined'
+    ? `${window.location.origin}${window.location.pathname}?sent=1#inquiry`
+    : '';
+
+  const inputCls = "glass-input rounded-2xl px-5 py-4 text-sm font-body";
+  const labelCls = "text-[10px] uppercase tracking-[0.28em] text-white/55 font-body mb-2 block";
+
+  return (
+    <section id="inquiry" className="relative w-full bg-black py-24 px-6 md:px-12 lg:px-20 border-t border-white/10">
+      <div className="max-w-[1000px] mx-auto">
+        <M12.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }} transition={{ duration: 1 }} className="mb-12">
+          <div className="text-[10px] uppercase tracking-[0.32em] text-white/55 font-body mb-6">// 07 · Inquiry</div>
+          <h2 className="font-display italic text-white text-5xl md:text-7xl lg:text-[6rem] leading-[0.9] tracking-[-3px]">
+            Start the<br/>conversation.
+          </h2>
+          <p className="mt-5 text-sm text-white/75 font-body font-light leading-relaxed max-w-[48ch]">
+            Fill in what you can. We reply within 24 hours — no pitch, no pressure. Just a conversation about your site.
+          </p>
+        </M12.div>
+
+        {status === 'sent' ? (
+          <M12.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="liquid-glass rounded-[2rem] p-12 md:p-16 text-center">
+            <div className="text-[10px] uppercase tracking-[0.32em] text-white/55 font-body mb-6">// Received</div>
+            <h3 className="font-display italic text-white text-5xl md:text-7xl tracking-[-2px] leading-none mb-6">Sent.</h3>
+            <p className="text-sm text-white/80 font-body font-light max-w-md mx-auto leading-relaxed">
+              Your inquiry is in. I'll reply within 24 hours from buildwithzeroto@gmail.com.
+            </p>
+          </M12.div>
+        ) : (
+        <M12.form
+          initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }} transition={{ duration: 1, delay: 0.15 }}
+          action="https://formsubmit.co/buildwithzeroto@gmail.com"
+          method="POST"
+          className="liquid-glass rounded-[2rem] p-8 md:p-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          {/* Formsubmit config — hidden fields */}
+          <input type="hidden" name="_subject" value={`Build Inquiry — ${form.name || 'New Client'}`} />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_next" value={nextUrl} />
+          {/* Honeypot for spam bots — humans leave it blank */}
+          <input type="text" name="_honey" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
+
+          {/* Name */}
+          <div className="flex flex-col">
+            <label className={labelCls}>Your Name *</label>
+            <input type="text" name="name" required placeholder="Alex Rivera" value={form.name} onChange={set('name')} className={inputCls} style={{ borderRadius: '1rem' }} />
+          </div>
+
+          {/* Business */}
+          <div className="flex flex-col">
+            <label className={labelCls}>Business / Project</label>
+            <input type="text" name="business" placeholder="Apex Studio, freelance coach…" value={form.business} onChange={set('business')} className={inputCls} style={{ borderRadius: '1rem' }} />
+          </div>
+
+          {/* Current site / Instagram — full width */}
+          <div className="md:col-span-2 flex flex-col">
+            <label className={labelCls}>Current Website or Instagram</label>
+            <input type="text" name="current_site_or_instagram" placeholder="yoursite.com or @yourhandle — or leave blank" value={form.web} onChange={set('web')} className={inputCls} style={{ borderRadius: '1rem' }} />
+          </div>
+
+          {/* Budget */}
+          <div className="flex flex-col">
+            <label className={labelCls}>Budget Range *</label>
+            <select name="budget" required value={form.budget} onChange={set('budget')} className={inputCls} style={{ borderRadius: '1rem' }}>
+              <option value="" disabled>Select a range…</option>
+              <option value="$700 (Lite)">$700 — Lite</option>
+              <option value="$1,500–$2,400 (Atelier)">$1,500–$2,400 — The Atelier</option>
+              <option value="$5,000 (Bespoke Studio)">$5,000 — Bespoke Studio</option>
+              <option value="Let's discuss">Let's discuss</option>
+            </select>
+          </div>
+
+          {/* Timeline */}
+          <div className="flex flex-col">
+            <label className={labelCls}>When Do You Need It?</label>
+            <select name="timeline" value={form.timeline} onChange={set('timeline')} className={inputCls} style={{ borderRadius: '1rem' }}>
+              <option value="" disabled>Select a timeline…</option>
+              <option value="ASAP / this week">ASAP / this week</option>
+              <option value="Within 2 weeks">Within 2 weeks</option>
+              <option value="Within a month">Within a month</option>
+              <option value="Flexible">Flexible — no rush</option>
+            </select>
+          </div>
+
+          {/* Notes — full width */}
+          <div className="md:col-span-2 flex flex-col">
+            <label className={labelCls}>Project Notes</label>
+            <textarea name="project_notes" rows={5} placeholder="One paragraph: what you do, who it's for, the feeling you want the site to leave. Anything helps." value={form.notes} onChange={set('notes')} className={inputCls} style={{ borderRadius: '1rem', resize: 'vertical' }} />
+          </div>
+
+          {/* Submit */}
+          <div className="md:col-span-2">
+            <button type="submit"
+              className="liquid-glass-strong rounded-full w-full py-4 flex items-center justify-center gap-2 text-[11px] uppercase tracking-[0.25em] text-white font-medium hover:scale-[1.015] transition-transform">
+              Send Inquiry <ArrowUpRight className="h-4 w-4" />
+            </button>
+            <p className="mt-4 text-center text-[10px] uppercase tracking-[0.2em] text-white/40 font-body">
+              Replies from buildwithzeroto@gmail.com
+            </p>
+          </div>
+        </M12.form>
+        )}
+      </div>
+    </section>
+  );
+};
+window.InquiryForm = InquiryForm;
+</script>
+
+<!-- ============== FINAL CTA + FOOTER ============== -->
+<script type="text/babel">
+const { motion: M11 } = window.Motion;
+
+const FinalCTA = () => (
+  <section className="relative min-h-[95vh] w-full overflow-hidden bg-black flex items-center justify-center py-32 border-t border-white/10">
+    <video className="absolute inset-0 w-full h-full object-cover z-0"
+      src="assets/videos/diamond-dark.mp4" autoPlay muted loop playsInline preload="auto" />
+    <div className="absolute inset-0 z-[1] bg-black/60 pointer-events-none" />
+    <div className="absolute inset-0 z-[1] bg-gradient-to-b from-black/70 via-transparent to-black pointer-events-none" />
+
+    <div className="relative z-10 text-center px-6 max-w-5xl">
+      <M11.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="liquid-glass rounded-full inline-flex items-center gap-2.5 px-3.5 py-1.5 mb-8">
+        <span className="inline-block h-1.5 w-1.5 rounded-full bg-white pulse-soft" />
+        <span className="text-[10px] uppercase tracking-[0.3em] text-white/85 font-body">Open · Booking Founding Clients</span>
+      </M11.div>
+
+      <BlurText text="From zero, to the site of your life."
+        stepMs={130}
+        className="font-display italic text-white text-5xl md:text-7xl lg:text-[8rem] leading-[0.85] tracking-[-4px]" />
+
+      <M11.p initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }} transition={{ duration: 0.9, delay: 0.6 }}
+        className="mt-8 text-sm md:text-base text-white/75 max-w-xl mx-auto font-body font-light leading-relaxed">
+        Write one paragraph. Tell us what you do, who it's for, and when you need it. We'll reply within 24 hours.
+      </M11.p>
+
+      <M11.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }} transition={{ duration: 0.9, delay: 0.85 }}
+        className="mt-10 flex flex-col items-center gap-5">
+        <a href="mailto:buildwithzeroto@gmail.com"
+           className="liquid-glass-strong rounded-full px-8 py-4 text-[12px] uppercase tracking-[0.25em] text-white font-medium flex items-center gap-2.5 hover:scale-[1.04] transition-transform">
+          buildwithzeroto@gmail.com <ArrowUpRight className="h-4 w-4" />
+        </a>
+        <span className="text-[10px] uppercase tracking-[0.3em] text-white/40 font-body">Or scroll back to begin again</span>
+      </M11.div>
+    </div>
+  </section>
+);
+
+const Footer = () => (
+  <footer className="relative bg-black border-t border-white/10 py-12 px-6 md:px-12">
+    <div className="max-w-[1400px] mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-10">
+        <div className="md:col-span-5">
+          <div className="flex items-center gap-3 mb-4">
+            <Logo size={28} className="text-white" />
+            <span className="font-display italic text-white text-2xl">ZeroTo.site</span>
+          </div>
+          <p className="text-sm text-white/60 font-body font-light leading-relaxed max-w-sm">
+            A digital atelier turning ideas into polished, memorable websites. You start with nothing. We deliver the site.
+          </p>
+        </div>
+        <div className="md:col-span-2">
+          <div className="text-[10px] uppercase tracking-[0.3em] text-white/45 font-body mb-4">Studio</div>
+          <ul className="space-y-2 text-sm text-white/80 font-body">
+            <li><a href="#process" className="hover:text-white transition-colors">Process</a></li>
+            <li><a href="#work" className="hover:text-white transition-colors">Work</a></li>
+            <li><a href="#pricing" className="hover:text-white transition-colors">Options</a></li>
+            <li><a href="#faq" className="hover:text-white transition-colors">FAQ</a></li>
+          </ul>
+        </div>
+        <div className="md:col-span-2">
+          <div className="text-[10px] uppercase tracking-[0.3em] text-white/45 font-body mb-4">Contact</div>
+          <ul className="space-y-2 text-sm text-white/80 font-body">
+            <li><a href="mailto:buildwithzeroto@gmail.com" className="hover:text-white transition-colors">Email</a></li>
+            <li><a href="#" className="hover:text-white transition-colors">Instagram</a></li>
+            <li><a href="#" className="hover:text-white transition-colors">Twitter</a></li>
+          </ul>
+        </div>
+        <div className="md:col-span-3 flex md:justify-end">
+          <a href="mailto:buildwithzeroto@gmail.com"
+             className="liquid-glass-strong rounded-full px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white font-medium flex items-center gap-2 self-start h-fit">
+            Start Build <ArrowUpRight className="h-4 w-4" />
+          </a>
+        </div>
+      </div>
+      <div className="pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase tracking-[0.3em] text-white/45 font-body">
+        <span>© ZeroTo.site · MMXXVI · All rights reserved</span>
+        <span className="text-white/30">Based in New York</span>
+        <span>Lightning Fast · Tailor Made · Premium by Design</span>
+      </div>
+    </div>
+  </footer>
+);
+
+window.FinalCTA = FinalCTA;
+window.Footer = Footer;
+</script>
+
+<!-- ============== APP ============== -->
+<script type="text/babel">
+const { AnimatePresence: AP } = window.Motion;
+
+const App = () => {
+  const [loading, setLoading] = useState(true);
+  return (
+    <>
+      <Cursor />
+      <AP>
+        {loading && <LoadingScreen key="loader" onDone={() => setLoading(false)} />}
+      </AP>
+      {!loading && (
+        <>
+          <Navbar />
+          <Hero />
+          <Marquee />
+          <StoneSection />
+          <Capabilities />
+          {/* <SelectedWork /> — uncomment when you have real client work to show */}
+          <ProcessTimeline />
+          <Pricing />
+          <TestimonialStats />
+          <FAQ />
+          <InquiryForm />
+          <FinalCTA />
+          <Footer />
+        </>
+      )}
+    </>
+  );
+};
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+
+const _err = console.error;
+console.error = (...a) => {
+  if (typeof a[0] === "string" && /Each child in a list/.test(a[0])) return;
+  _err(...a);
+};
+</script>
+</body>
+</html>
