@@ -324,7 +324,7 @@ const Bolt = ({ className = "h-4 w-4" }) => (
 // FadingVideo — dual-buffer crossfade. Two stacked videos with the same source.
 // Videos take turns: the next buffer starts playing from 0 before the current finishes,
 // then their opacities crossfade. Result: a continuous, gap-free loop.
-const FadingVideo = ({ src, className = "", style, fadeMs = 900, leadSec = 1.0, blendScreen = false }) => {
+const FadingVideo = ({ src, className = "", style, fadeMs = 900, leadSec = 1.0, blendScreen = false, fetchPriority = "auto", preload = "auto" }) => {
   const aRef = useRef(null);
   const bRef = useRef(null);
   useEffect(() => {
@@ -380,8 +380,8 @@ const FadingVideo = ({ src, className = "", style, fadeMs = 900, leadSec = 1.0, 
   const cls = className + (blendScreen ? " blend-screen" : "");
   return (
     <>
-      <video ref={aRef} src={src} muted playsInline preload="metadata" className={cls} style={{ opacity: 1, ...(style || {}) }} />
-      <video ref={bRef} src={src} muted playsInline preload="metadata" className={cls} style={{ opacity: 0, ...(style || {}) }} />
+      <video ref={aRef} src={src} muted playsInline preload={preload} fetchpriority={fetchPriority} className={cls} style={{ opacity: 1, ...(style || {}) }} />
+      <video ref={bRef} src={src} muted playsInline preload={preload} fetchpriority={fetchPriority} className={cls} style={{ opacity: 0, ...(style || {}) }} />
     </>
   );
 };
@@ -681,11 +681,16 @@ const Hero = () => {
   return (
   <section className="relative min-h-screen w-full overflow-hidden"
     style={{ background: 'radial-gradient(ellipse at 30% 30%, rgba(255,255,255,0.05), transparent 55%), radial-gradient(ellipse at 70% 65%, rgba(180,200,255,0.04), transparent 60%), #050505' }}>
-    {/* Video parallaxes at 0.3× scroll rate — appears to stay behind content */}
-    <video className="absolute inset-0 w-full h-full object-cover z-0"
+    {/* Hero video: dual-buffer seamless crossfade, parallaxes at 0.28× scroll rate */}
+    <FadingVideo
+      src="assets/videos/falling-diamonds.mp4"
+      className="absolute inset-0 w-full h-full object-cover z-0"
       style={{ transform: `scale(1.1) translateY(${scrollY * 0.28}px)`, transformOrigin: 'center top', willChange: 'transform' }}
-      src="assets/videos/falling-diamonds.mp4" autoPlay muted loop playsInline preload="auto"
-      fetchpriority="high" />
+      fadeMs={1600}
+      leadSec={1.6}
+      preload="auto"
+      fetchPriority="high"
+    />
     <div className="absolute inset-0 z-[1] bg-gradient-to-b from-black/40 via-black/10 to-black/85 pointer-events-none" />
     <div className="absolute inset-0 z-[1] bg-[radial-gradient(ellipse_at_center,transparent_25%,rgba(0,0,0,0.6)_100%)] pointer-events-none" />
 
@@ -701,13 +706,13 @@ const Hero = () => {
 
       <div className="mt-8 relative">
         <BlurText text="You start" delay={0.3} stepMs={85}
-          className="font-display italic text-white text-5xl sm:text-7xl md:text-8xl lg:text-[10rem] leading-[0.85] sm:leading-[0.82] tracking-[-3px] sm:tracking-[-4px]" />
+          className="font-display italic text-white text-[3.75rem] sm:text-7xl md:text-8xl lg:text-[10rem] leading-[0.82] tracking-[-3px] sm:tracking-[-4px]" />
         <BlurText text="with nothing." delay={0.55} stepMs={85}
-          className="font-display italic text-white/85 text-5xl sm:text-7xl md:text-8xl lg:text-[10rem] leading-[0.85] sm:leading-[0.82] tracking-[-3px] sm:tracking-[-4px] -mt-3 md:-mt-5" />
+          className="font-display italic text-white/85 text-[3.75rem] sm:text-7xl md:text-8xl lg:text-[10rem] leading-[0.82] tracking-[-3px] sm:tracking-[-4px] -mt-3 md:-mt-5" />
         <BlurText text="We deliver" delay={0.8} stepMs={85}
-          className="font-display italic text-white text-5xl sm:text-7xl md:text-8xl lg:text-[10rem] leading-[0.85] sm:leading-[0.82] tracking-[-3px] sm:tracking-[-4px] mt-2" />
+          className="font-display italic text-white text-[3.75rem] sm:text-7xl md:text-8xl lg:text-[10rem] leading-[0.82] tracking-[-3px] sm:tracking-[-4px] mt-2" />
         <BlurText text="the site." delay={1.05} stepMs={85}
-          className="font-display italic text-white/60 text-5xl sm:text-7xl md:text-8xl lg:text-[10rem] leading-[0.85] sm:leading-[0.82] tracking-[-3px] sm:tracking-[-4px] -mt-3 md:-mt-5" />
+          className="font-display italic text-white/60 text-[3.75rem] sm:text-7xl md:text-8xl lg:text-[10rem] leading-[0.82] tracking-[-3px] sm:tracking-[-4px] -mt-3 md:-mt-5" />
       </div>
 
       <M3.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
@@ -786,12 +791,13 @@ const StoneSection = () => (
   <section id="process" className="relative min-h-screen w-full overflow-hidden bg-black flex items-start md:items-center pt-12 md:pt-24 pb-24">
     <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.07),transparent_60%)] pointer-events-none" />
 
-    {/* MOBILE: diamond at top, inline */}
-    <div className="md:hidden absolute left-1/2 -translate-x-1/2 top-[60px] w-[55vw] max-w-[360px] z-[5] pointer-events-none">
-      <video
+    {/* MOBILE: diamond at top, bigger, with seamless crossfade */}
+    <div className="md:hidden absolute left-1/2 -translate-x-1/2 top-[40px] w-[88vw] max-w-[520px] z-[5] pointer-events-none">
+      <FadingVideo
         src="assets/videos/diamond-spin.mp4"
-        autoPlay muted loop playsInline preload="metadata"
-        className="w-full blend-screen"
+        blendScreen
+        className="w-full"
+        preload="metadata"
       />
     </div>
 
@@ -801,7 +807,7 @@ const StoneSection = () => (
 
     <div className="hidden md:block absolute left-1/2 bottom-[18%] -translate-x-1/2 w-[600px] h-[80px] rounded-full bg-white/15 blur-3xl z-[5] pointer-events-none" />
 
-    <div className="relative z-20 grid grid-cols-12 gap-6 px-6 md:px-12 lg:px-20 w-full max-w-[1400px] mx-auto pt-[240px] md:pt-0">
+    <div className="relative z-20 grid grid-cols-12 gap-6 px-6 md:px-12 lg:px-20 w-full max-w-[1400px] mx-auto pt-[400px] md:pt-0">
       <M4.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }} transition={{ duration: 1, ease: "easeOut" }}
         className="col-span-12 md:col-span-4">
