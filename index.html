@@ -276,10 +276,10 @@ tailwind.config = {
   }
 </style>
 
-<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin></script>
-<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js"></script>
-<script src="https://unpkg.com/framer-motion@11.11.17/dist/framer-motion.js"></script>
+<script defer src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin></script>
+<script defer src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin></script>
+<script defer src="https://unpkg.com/framer-motion@11.11.17/dist/framer-motion.js"></script>
+<script defer src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js"></script>
 </head>
 <body>
 <div id="root"></div>
@@ -380,8 +380,8 @@ const FadingVideo = ({ src, className = "", style, fadeMs = 900, leadSec = 1.0, 
   const cls = className + (blendScreen ? " blend-screen" : "");
   return (
     <>
-      <video ref={aRef} src={src} muted playsInline preload="auto" className={cls} style={{ opacity: 1, ...(style || {}) }} />
-      <video ref={bRef} src={src} muted playsInline preload="auto" className={cls} style={{ opacity: 0, ...(style || {}) }} />
+      <video ref={aRef} src={src} muted playsInline preload="metadata" className={cls} style={{ opacity: 1, ...(style || {}) }} />
+      <video ref={bRef} src={src} muted playsInline preload="metadata" className={cls} style={{ opacity: 0, ...(style || {}) }} />
     </>
   );
 };
@@ -542,7 +542,7 @@ const BlurText = ({ text, delay = 0, stepMs = 110, className = "", center = true
           key={i}
           initial={{ filter: "blur(10px)", opacity: 0, y: 50 }}
           animate={inView ? { filter: ["blur(10px)","blur(5px)","blur(0px)"], opacity: [0,0.5,1], y: [50,-5,0] } : {}}
-          transition={{ duration: 0.85, times: [0,0.5,1], ease: "easeOut", delay: delay + (i * stepMs) / 1000 }}
+          transition={{ duration: 0.5, times: [0,0.5,1], ease: "easeOut", delay: delay + (i * stepMs) / 1000 }}
           style={{ display: "inline-block", marginRight: "0.3em" }}
         >{w}</motion.span>
       ))}
@@ -563,16 +563,16 @@ const LoadingScreen = ({ onDone }) => {
 
   useEffect(() => {
     const start = performance.now();
-    const dur = 1500;
+    const dur = 700;
     let raf;
     const tick = (t) => {
       const p = Math.min(1, (t - start) / dur);
       setCount(Math.floor(p * 100));
       if (p < 1) raf = requestAnimationFrame(tick);
-      else setTimeout(onDone, 280);
+      else setTimeout(onDone, 80);
     };
     raf = requestAnimationFrame(tick);
-    const wi = setInterval(() => setWordIdx(i => (i + 1) % words.length), 480);
+    const wi = setInterval(() => setWordIdx(i => (i + 1) % words.length), 240);
     return () => { cancelAnimationFrame(raf); clearInterval(wi); };
   }, []);
 
@@ -679,11 +679,13 @@ const Hero = () => {
   }, []);
 
   return (
-  <section className="relative min-h-screen w-full overflow-hidden bg-black">
+  <section className="relative min-h-screen w-full overflow-hidden"
+    style={{ background: 'radial-gradient(ellipse at 30% 30%, rgba(255,255,255,0.05), transparent 55%), radial-gradient(ellipse at 70% 65%, rgba(180,200,255,0.04), transparent 60%), #050505' }}>
     {/* Video parallaxes at 0.3× scroll rate — appears to stay behind content */}
     <video className="absolute inset-0 w-full h-full object-cover z-0"
       style={{ transform: `scale(1.1) translateY(${scrollY * 0.28}px)`, transformOrigin: 'center top', willChange: 'transform' }}
-      src="assets/videos/falling-diamonds.mp4" autoPlay muted loop playsInline preload="auto" />
+      src="assets/videos/falling-diamonds.mp4" autoPlay muted loop playsInline preload="auto"
+      fetchpriority="high" />
     <div className="absolute inset-0 z-[1] bg-gradient-to-b from-black/40 via-black/10 to-black/85 pointer-events-none" />
     <div className="absolute inset-0 z-[1] bg-[radial-gradient(ellipse_at_center,transparent_25%,rgba(0,0,0,0.6)_100%)] pointer-events-none" />
 
@@ -691,31 +693,31 @@ const Hero = () => {
     <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 pt-28 pb-32 text-center"
       style={{ transform: `translateY(${scrollY * -0.07}px)`, willChange: 'transform' }}>
       <M3.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9, ease: "easeOut", delay: 0.4 }}
+        transition={{ duration: 0.5, ease: "easeOut", delay: 0.05 }}
         className="liquid-glass rounded-full px-3.5 py-1.5 flex items-center gap-2.5">
         <span className="inline-block h-1.5 w-1.5 rounded-full bg-white pulse-soft" />
         <span className="text-[10px] uppercase tracking-[0.3em] text-white/85 font-body">Now Open — Booking Founding Clients</span>
       </M3.div>
 
       <div className="mt-8 relative">
-        <BlurText text="You start" delay={0.6} stepMs={110}
+        <BlurText text="You start" delay={0.1} stepMs={50}
           className="font-display italic text-white text-5xl sm:text-7xl md:text-8xl lg:text-[10rem] leading-[0.85] sm:leading-[0.82] tracking-[-3px] sm:tracking-[-4px]" />
-        <BlurText text="with nothing." delay={0.85} stepMs={110}
+        <BlurText text="with nothing." delay={0.2} stepMs={50}
           className="font-display italic text-white/85 text-5xl sm:text-7xl md:text-8xl lg:text-[10rem] leading-[0.85] sm:leading-[0.82] tracking-[-3px] sm:tracking-[-4px] -mt-3 md:-mt-5" />
-        <BlurText text="We deliver" delay={1.15} stepMs={110}
+        <BlurText text="We deliver" delay={0.3} stepMs={50}
           className="font-display italic text-white text-5xl sm:text-7xl md:text-8xl lg:text-[10rem] leading-[0.85] sm:leading-[0.82] tracking-[-3px] sm:tracking-[-4px] mt-2" />
-        <BlurText text="the site." delay={1.4} stepMs={110}
+        <BlurText text="the site." delay={0.4} stepMs={50}
           className="font-display italic text-white/60 text-5xl sm:text-7xl md:text-8xl lg:text-[10rem] leading-[0.85] sm:leading-[0.82] tracking-[-3px] sm:tracking-[-4px] -mt-3 md:-mt-5" />
       </div>
 
       <M3.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9, ease: "easeOut", delay: 1.9 }}
+        transition={{ duration: 0.5, ease: "easeOut", delay: 0.7 }}
         className="mt-9 text-sm md:text-base text-white/85 max-w-xl font-body font-light leading-relaxed">
         Lightning fast. Tailor made. Premium by design. A digital atelier that turns ideas into polished, memorable websites — no templates, no compromises.
       </M3.p>
 
       <M3.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9, ease: "easeOut", delay: 2.1 }}
+        transition={{ duration: 0.5, ease: "easeOut", delay: 0.85 }}
         className="flex flex-wrap items-center justify-center gap-5 mt-10">
         <a href="#inquiry"
            className="liquid-glass-strong rounded-full px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white font-medium flex items-center gap-2 hover:scale-[1.03] transition-transform">
@@ -727,13 +729,13 @@ const Hero = () => {
       </M3.div>
 
       <M3.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9, ease: "easeOut", delay: 2.3 }}
+        transition={{ duration: 0.5, ease: "easeOut", delay: 1.0 }}
         className="flex flex-wrap items-stretch justify-center gap-3 md:gap-4 mt-14">
         {[
           { num: "72h", label: "Average delivery" },
           { num: "100%", label: "Custom built" },
           { num: "0", label: "Templates used" },
-          { num: "100/100", label: "Lighthouse score" },
+          { num: "1:1", label: "Per-client builds" },
         ].map((s) => (
           <div key={s.label} className="liquid-glass rounded-[1.25rem] px-6 py-5 w-[160px] md:w-[180px] flex flex-col items-start">
             <div className="font-display italic text-white text-3xl md:text-4xl tracking-[-1px] leading-none">{s.num}</div>
@@ -743,7 +745,7 @@ const Hero = () => {
       </M3.div>
     </div>
 
-    <M3.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 2.6 }}
+    <M3.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 1.1 }}
       className="absolute bottom-6 left-0 right-0 z-10 px-6 md:px-10 flex justify-between items-end text-[10px] uppercase tracking-[0.3em] text-white/50 font-body pointer-events-none">
       <span>buildwithzeroto@gmail.com</span>
       <span className="hidden md:block">Scroll ↓ The Craft</span>
@@ -758,7 +760,7 @@ window.Hero = Hero;
 <!-- ============== MARQUEE ============== -->
 <script type="text/babel">
 const Marquee = () => {
-  const items = ["Lightning Fast", "Tailor Made", "Premium by Design", "72h Delivery", "Zero Templates", "100/100 Lighthouse", "Hand Cut", "Cinematic Motion"];
+  const items = ["Lightning Fast", "Tailor Made", "Premium by Design", "72h Delivery", "Zero Templates", "Editorial Type", "Hand Cut", "Cinematic Motion"];
   const row = [...items, ...items];
   return (
     <section className="relative w-full overflow-hidden bg-black border-y border-white/10 py-8">
@@ -781,13 +783,25 @@ window.Marquee = Marquee;
 const { motion: M4 } = window.Motion;
 
 const StoneSection = () => (
-  <section id="process" className="relative min-h-screen w-full overflow-hidden bg-black flex items-center py-24">
+  <section id="process" className="relative min-h-screen w-full overflow-hidden bg-black flex items-start md:items-center pt-12 md:pt-24 pb-24">
     <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.07),transparent_60%)] pointer-events-none" />
-    <FadingVideo src="assets/videos/diamond-spin.mp4" blendScreen
-      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[55vw] md:w-[55vw] max-w-[640px] h-auto z-[5] md:z-10 pointer-events-none opacity-25 md:opacity-100" />
-    <div className="absolute left-1/2 bottom-[18%] -translate-x-1/2 w-[600px] h-[80px] rounded-full bg-white/15 blur-3xl z-[5] pointer-events-none" />
 
-    <div className="relative z-20 grid grid-cols-12 gap-6 px-6 md:px-12 lg:px-20 w-full max-w-[1400px] mx-auto">
+    {/* MOBILE: diamond at top, inline */}
+    <div className="md:hidden absolute left-1/2 -translate-x-1/2 top-[60px] w-[55vw] max-w-[360px] z-[5] pointer-events-none">
+      <video
+        src="assets/videos/diamond-spin.mp4"
+        autoPlay muted loop playsInline preload="metadata"
+        className="w-full blend-screen"
+      />
+    </div>
+
+    {/* DESKTOP: diamond centered with smooth crossfade loop */}
+    <FadingVideo src="assets/videos/diamond-spin.mp4" blendScreen
+      className="hidden md:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[55vw] max-w-[640px] h-auto z-10 pointer-events-none" />
+
+    <div className="hidden md:block absolute left-1/2 bottom-[18%] -translate-x-1/2 w-[600px] h-[80px] rounded-full bg-white/15 blur-3xl z-[5] pointer-events-none" />
+
+    <div className="relative z-20 grid grid-cols-12 gap-6 px-6 md:px-12 lg:px-20 w-full max-w-[1400px] mx-auto pt-[240px] md:pt-0">
       <M4.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }} transition={{ duration: 1, ease: "easeOut" }}
         className="col-span-12 md:col-span-4">
@@ -797,7 +811,7 @@ const StoneSection = () => (
           Every site is shaped to a single client. We don't reuse layouts, we don't import themes. Each pixel is set, each motion is keyframed, each word is weighed.
         </p>
         <div className="mt-10 space-y-3 text-[10px] uppercase tracking-[0.22em] font-body">
-          {[["Build time","72 hours"],["Frameworks","React · Vite · Tailwind"],["Hosting","Cloudflare · Vercel"],["Performance","100/100 Lighthouse"],["Revisions","Unlimited · 14 days"]].map(([k,v]) => (
+          {[["Build time","72 hours"],["Frameworks","React · Vite · Tailwind"],["Hosting","Cloudflare · Vercel"],["Approach","One client at a time"],["Revisions","Unlimited · 14 days"]].map(([k,v]) => (
             <div key={k} className="flex justify-between items-center border-t border-white/10 pt-3">
               <span className="text-white/55">{k}</span><span className="text-white">{v}</span>
             </div>
@@ -843,7 +857,7 @@ const Capabilities = () => {
   return (
     <section className="relative min-h-screen w-full overflow-hidden bg-black py-24">
       <video className="absolute inset-0 w-full h-full object-cover z-0 opacity-40"
-        src="assets/videos/glass-shape.mp4" autoPlay muted loop playsInline preload="auto" />
+        src="assets/videos/glass-shape.mp4" autoPlay muted loop playsInline preload="metadata" />
       <div className="absolute inset-0 z-[1] bg-black/60 pointer-events-none" />
       <div className="relative z-10 px-6 md:px-12 lg:px-20 max-w-[1400px] mx-auto">
         <M5.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
@@ -1012,8 +1026,8 @@ const Pricing = () => {
       colorClass: "liquid-glass-strong pricing-atelier",
       ctaClass: "liquid-glass",
       badge: "Recommended",
-      body: "Multi-section custom site in 72 hours. Cinematic motion, editorial type, 100/100 Lighthouse. For founders ready to stop looking like a startup.",
-      perks: ["Up to 5 sections", "Cinematic motion + animation", "100/100 performance score", "14 days unlimited revisions", "Domain + hosting + analytics", "Priority reply line"],
+      body: "Multi-section custom site in 72 hours. Cinematic motion, editorial type, hand-coded throughout. For founders ready to stop looking like a startup.",
+      perks: ["Up to 5 sections", "Cinematic motion + animation", "Editorial typography pairings", "14 days unlimited revisions", "Domain + hosting + analytics", "Priority reply line"],
       cta: "Inquire — Atelier",
     },
     {
@@ -1109,7 +1123,7 @@ const TestimonialStats = () => (
         <M9.p initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.9, delay: 0.5 }}
           className="mt-7 text-sm text-white/75 font-body font-light leading-relaxed max-w-[40ch]">
-          Every site I ship will hit 100/100 on Lighthouse, load under a second, and come with full source code you own outright. No builders. No templates. No shortcuts.
+          Every site is hand-coded from scratch in React, fully responsive, and shipped with the complete source code you own outright. No builders. No templates. No shortcuts.
         </M9.p>
       </M9.div>
 
@@ -1118,8 +1132,8 @@ const TestimonialStats = () => (
         className="md:col-span-5 grid grid-cols-2 gap-4">
         {[
           { n: "72h", l: "Build window" },
-          { n: "100/100", l: "Lighthouse score" },
-          { n: "<1s", l: "Target load time" },
+          { n: "1:1", l: "Per-client builds" },
+          { n: "0", l: "Templates used" },
           { n: "100%", l: "Custom code" },
         ].map((s) => (
           <div key={s.l} className="liquid-glass rounded-[1.5rem] p-6 flex flex-col">
@@ -1253,26 +1267,26 @@ const InquiryForm = () => {
 
           {/* Name */}
           <div className="flex flex-col">
-            <label className={labelCls}>Your Name *</label>
-            <input type="text" name="name" required placeholder="Alex Rivera" value={form.name} onChange={set('name')} className={inputCls} style={{ borderRadius: '1rem' }} />
+            <label htmlFor="iq-name" className={labelCls}>Your Name *</label>
+            <input id="iq-name" type="text" name="name" required placeholder="Alex Rivera" value={form.name} onChange={set('name')} className={inputCls} style={{ borderRadius: '1rem' }} />
           </div>
 
           {/* Business */}
           <div className="flex flex-col">
-            <label className={labelCls}>Business / Project</label>
-            <input type="text" name="business" placeholder="Apex Studio, freelance coach…" value={form.business} onChange={set('business')} className={inputCls} style={{ borderRadius: '1rem' }} />
+            <label htmlFor="iq-business" className={labelCls}>Business / Project</label>
+            <input id="iq-business" type="text" name="business" placeholder="Apex Studio, freelance coach…" value={form.business} onChange={set('business')} className={inputCls} style={{ borderRadius: '1rem' }} />
           </div>
 
           {/* Current site / Instagram — full width */}
           <div className="md:col-span-2 flex flex-col">
-            <label className={labelCls}>Current Website or Instagram</label>
-            <input type="text" name="current_site_or_instagram" placeholder="yoursite.com or @yourhandle — or leave blank" value={form.web} onChange={set('web')} className={inputCls} style={{ borderRadius: '1rem' }} />
+            <label htmlFor="iq-web" className={labelCls}>Current Website or Instagram</label>
+            <input id="iq-web" type="text" name="current_site_or_instagram" placeholder="yoursite.com or @yourhandle — or leave blank" value={form.web} onChange={set('web')} className={inputCls} style={{ borderRadius: '1rem' }} />
           </div>
 
           {/* Budget */}
           <div className="flex flex-col">
-            <label className={labelCls}>Budget Range *</label>
-            <select name="budget" required value={form.budget} onChange={set('budget')} className={inputCls} style={{ borderRadius: '1rem' }}>
+            <label htmlFor="iq-budget" className={labelCls}>Budget Range *</label>
+            <select id="iq-budget" name="budget" required value={form.budget} onChange={set('budget')} className={inputCls} style={{ borderRadius: '1rem' }}>
               <option value="" disabled>Select a range…</option>
               <option value="$700 (Lite)">$700 — Lite</option>
               <option value="$1,500–$2,400 (Atelier)">$1,500–$2,400 — The Atelier</option>
@@ -1283,8 +1297,8 @@ const InquiryForm = () => {
 
           {/* Timeline */}
           <div className="flex flex-col">
-            <label className={labelCls}>When Do You Need It?</label>
-            <select name="timeline" value={form.timeline} onChange={set('timeline')} className={inputCls} style={{ borderRadius: '1rem' }}>
+            <label htmlFor="iq-timeline" className={labelCls}>When Do You Need It?</label>
+            <select id="iq-timeline" name="timeline" value={form.timeline} onChange={set('timeline')} className={inputCls} style={{ borderRadius: '1rem' }}>
               <option value="" disabled>Select a timeline…</option>
               <option value="ASAP / this week">ASAP / this week</option>
               <option value="Within 2 weeks">Within 2 weeks</option>
@@ -1295,8 +1309,8 @@ const InquiryForm = () => {
 
           {/* Notes — full width */}
           <div className="md:col-span-2 flex flex-col">
-            <label className={labelCls}>Project Notes</label>
-            <textarea name="project_notes" rows={5} placeholder="One paragraph: what you do, who it's for, the feeling you want the site to leave. Anything helps." value={form.notes} onChange={set('notes')} className={inputCls} style={{ borderRadius: '1rem', resize: 'vertical' }} />
+            <label htmlFor="iq-notes" className={labelCls}>Project Notes</label>
+            <textarea id="iq-notes" name="project_notes" rows={5} placeholder="One paragraph: what you do, who it's for, the feeling you want the site to leave. Anything helps." value={form.notes} onChange={set('notes')} className={inputCls} style={{ borderRadius: '1rem', resize: 'vertical' }} />
           </div>
 
           {/* Submit */}
@@ -1325,7 +1339,7 @@ const { motion: M11 } = window.Motion;
 const FinalCTA = () => (
   <section className="relative min-h-[95vh] w-full overflow-hidden bg-black flex items-center justify-center py-32 border-t border-white/10">
     <video className="absolute inset-0 w-full h-full object-cover z-0"
-      src="assets/videos/diamond-dark.mp4" autoPlay muted loop playsInline preload="auto" />
+      src="assets/videos/diamond-dark.mp4" autoPlay muted loop playsInline preload="metadata" />
     <div className="absolute inset-0 z-[1] bg-black/60 pointer-events-none" />
     <div className="absolute inset-0 z-[1] bg-gradient-to-b from-black/70 via-transparent to-black pointer-events-none" />
 
