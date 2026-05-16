@@ -1493,29 +1493,48 @@ const { AnimatePresence: AP } = window.Motion;
 const App = () => {
   const [loading, setLoading] = useState(true);
 
-  // Pause off-screen plain <video> elements after content mounts
+  // Video lifecycle observers: pause off-screen + preload upgrade near viewport
   useEffect(() => {
     if (loading) return;
-    const io = new IntersectionObserver((entries) => {
+
+    // Pause/play when entering/leaving viewport
+    const playPauseIO = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         const v = entry.target;
-        // Skip videos managed by FadingVideo (they have their own observer)
         if (v.dataset.fading) return;
         if (entry.isIntersecting) v.play().catch(() => {});
         else v.pause();
       });
     }, { threshold: 0.05 });
-    // Observe all plain videos that aren't managed by FadingVideo
+
+    // Upgrade preload="metadata" → "auto" before video enters viewport,
+    // so heavy clips finish buffering by the time user reaches them
+    const preloadIO = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && entry.target.preload === 'metadata') {
+          entry.target.preload = 'auto';
+          try { entry.target.load(); } catch (_) {}
+          preloadIO.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '700px 0px' });
+
     const timer = setTimeout(() => {
       document.querySelectorAll('video').forEach(v => {
-        // Heuristic: FadingVideo creates two stacked videos with same src,
-        // detect them by checking for siblings with same src
         const siblings = Array.from(v.parentElement?.querySelectorAll('video') || []);
         const isManaged = siblings.length > 1 && siblings.every(s => s.src === v.src);
-        if (!isManaged) io.observe(v);
+        if (!isManaged) {
+          playPauseIO.observe(v);
+          if (v.preload === 'metadata') preloadIO.observe(v);
+        }
       });
     }, 200);
-    return () => { clearTimeout(timer); io.disconnect(); };
+
+    return () => {
+      clearTimeout(timer);
+      playPauseIO.disconnect();
+      preloadIO.disconnect();
+    };
   }, [loading]);
 
   return (
