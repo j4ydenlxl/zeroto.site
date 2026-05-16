@@ -542,7 +542,7 @@ const BlurText = ({ text, delay = 0, stepMs = 110, className = "", center = true
           key={i}
           initial={{ filter: "blur(10px)", opacity: 0, y: 50 }}
           animate={inView ? { filter: ["blur(10px)","blur(5px)","blur(0px)"], opacity: [0,0.5,1], y: [50,-5,0] } : {}}
-          transition={{ duration: 0.5, times: [0,0.5,1], ease: "easeOut", delay: delay + (i * stepMs) / 1000 }}
+          transition={{ duration: 0.7, times: [0,0.5,1], ease: "easeOut", delay: delay + (i * stepMs) / 1000 }}
           style={{ display: "inline-block", marginRight: "0.3em" }}
         >{w}</motion.span>
       ))}
@@ -693,31 +693,31 @@ const Hero = () => {
     <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 pt-28 pb-32 text-center"
       style={{ transform: `translateY(${scrollY * -0.07}px)`, willChange: 'transform' }}>
       <M3.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, ease: "easeOut", delay: 0.05 }}
+        transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
         className="liquid-glass rounded-full px-3.5 py-1.5 flex items-center gap-2.5">
         <span className="inline-block h-1.5 w-1.5 rounded-full bg-white pulse-soft" />
         <span className="text-[10px] uppercase tracking-[0.3em] text-white/85 font-body">Now Open — Booking Founding Clients</span>
       </M3.div>
 
       <div className="mt-8 relative">
-        <BlurText text="You start" delay={0.1} stepMs={50}
+        <BlurText text="You start" delay={0.3} stepMs={85}
           className="font-display italic text-white text-5xl sm:text-7xl md:text-8xl lg:text-[10rem] leading-[0.85] sm:leading-[0.82] tracking-[-3px] sm:tracking-[-4px]" />
-        <BlurText text="with nothing." delay={0.2} stepMs={50}
+        <BlurText text="with nothing." delay={0.55} stepMs={85}
           className="font-display italic text-white/85 text-5xl sm:text-7xl md:text-8xl lg:text-[10rem] leading-[0.85] sm:leading-[0.82] tracking-[-3px] sm:tracking-[-4px] -mt-3 md:-mt-5" />
-        <BlurText text="We deliver" delay={0.3} stepMs={50}
+        <BlurText text="We deliver" delay={0.8} stepMs={85}
           className="font-display italic text-white text-5xl sm:text-7xl md:text-8xl lg:text-[10rem] leading-[0.85] sm:leading-[0.82] tracking-[-3px] sm:tracking-[-4px] mt-2" />
-        <BlurText text="the site." delay={0.4} stepMs={50}
+        <BlurText text="the site." delay={1.05} stepMs={85}
           className="font-display italic text-white/60 text-5xl sm:text-7xl md:text-8xl lg:text-[10rem] leading-[0.85] sm:leading-[0.82] tracking-[-3px] sm:tracking-[-4px] -mt-3 md:-mt-5" />
       </div>
 
       <M3.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, ease: "easeOut", delay: 0.7 }}
+        transition={{ duration: 0.7, ease: "easeOut", delay: 1.5 }}
         className="mt-9 text-sm md:text-base text-white/85 max-w-xl font-body font-light leading-relaxed">
         Lightning fast. Tailor made. Premium by design. A digital atelier that turns ideas into polished, memorable websites — no templates, no compromises.
       </M3.p>
 
       <M3.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, ease: "easeOut", delay: 0.85 }}
+        transition={{ duration: 0.7, ease: "easeOut", delay: 1.75 }}
         className="flex flex-wrap items-center justify-center gap-5 mt-10">
         <a href="#inquiry"
            className="liquid-glass-strong rounded-full px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-white font-medium flex items-center gap-2 hover:scale-[1.03] transition-transform">
@@ -729,7 +729,7 @@ const Hero = () => {
       </M3.div>
 
       <M3.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, ease: "easeOut", delay: 1.0 }}
+        transition={{ duration: 0.7, ease: "easeOut", delay: 2.0 }}
         className="flex flex-wrap items-stretch justify-center gap-3 md:gap-4 mt-14">
         {[
           { num: "72h", label: "Average delivery" },
@@ -745,7 +745,7 @@ const Hero = () => {
       </M3.div>
     </div>
 
-    <M3.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 1.1 }}
+    <M3.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 2.3 }}
       className="absolute bottom-6 left-0 right-0 z-10 px-6 md:px-10 flex justify-between items-end text-[10px] uppercase tracking-[0.3em] text-white/50 font-body pointer-events-none">
       <span>buildwithzeroto@gmail.com</span>
       <span className="hidden md:block">Scroll ↓ The Craft</span>
