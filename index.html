@@ -324,7 +324,7 @@ const Bolt = ({ className = "h-4 w-4" }) => (
 // FadingVideo — dual-buffer crossfade. Two stacked videos with the same source.
 // Videos take turns: the next buffer starts playing from 0 before the current finishes,
 // then their opacities crossfade. Result: a continuous, gap-free loop.
-const FadingVideo = ({ src, className = "", style, fadeMs = 900, leadSec = 1.0, blendScreen = false, fetchPriority = "auto", preload = "auto" }) => {
+const FadingVideo = ({ src, className = "", style, fadeMs = 700, leadSec = 1.8, blendScreen = false, fetchPriority = "auto", preload = "auto" }) => {
   const aRef = useRef(null);
   const bRef = useRef(null);
   useEffect(() => {
@@ -382,13 +382,24 @@ const FadingVideo = ({ src, className = "", style, fadeMs = 900, leadSec = 1.0, 
       }
     };
 
-    // Hard fallback: if video reaches end without crossfade triggering, restart it
-    // (Happens when timeupdate fires too sparsely on slow devices and skips the lead window)
+    // Hard fallback: if video reaches end, handle gracefully
     const onEnded = (e) => {
       const v = e.target;
-      if (crossfading) return;
-      v.currentTime = 0;
-      v.play().catch(() => {});
+      if (crossfading) {
+        // Source video ended mid-fade — snap to final state to avoid frozen frame
+        const next = (v === a) ? b : a;
+        if (raf) cancelAnimationFrame(raf);
+        v.style.opacity = "0";
+        next.style.opacity = "1";
+        v.pause();
+        v.currentTime = 0;
+        if (next.paused) next.play().catch(() => {});
+        crossfading = false;
+      } else {
+        // No crossfade in progress — just restart this video (rare path)
+        v.currentTime = 0;
+        v.play().catch(() => {});
+      }
     };
 
     a.addEventListener("timeupdate", onTime);
@@ -734,8 +745,8 @@ const Hero = () => {
       src="assets/videos/falling-diamonds.mp4"
       className="absolute inset-0 w-full h-full object-cover z-0"
       style={{ transform: `scale(1.1) translateY(${scrollY * 0.28}px)`, transformOrigin: 'center top', willChange: 'transform' }}
-      fadeMs={1600}
-      leadSec={1.6}
+      fadeMs={1300}
+      leadSec={2.6}
       preload="auto"
       fetchPriority="high"
     />
@@ -844,7 +855,6 @@ const StoneSection = () => (
       src="assets/videos/diamond-spin.mp4"
       blendScreen
       className="md:hidden absolute left-1/2 -translate-x-1/2 top-[60px] w-[100vw] max-w-[600px] h-auto z-[5] pointer-events-none"
-      preload="metadata"
     />
 
     {/* DESKTOP: diamond centered with smooth crossfade loop */}
