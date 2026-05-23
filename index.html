@@ -339,8 +339,9 @@ const useIsMobile = () => {
 window.useIsMobile = useIsMobile;
 
 const FadingVideo = ({ src, srcMobile, className = "", style, fadeMs = 700, leadSec = 1.8, blendScreen = false, fetchPriority = "auto", preload = "auto" }) => {
-  const isMobile = useIsMobile();
-  const actualSrc = (isMobile && srcMobile) ? srcMobile : src;
+  // Always prefer the smaller mobile-optimized version if provided — visually identical
+  // for background video, saves ~85% bandwidth (desktop was downloading 53MB total)
+  const actualSrc = srcMobile || src;
   const aRef = useRef(null);
   const bRef = useRef(null);
   useEffect(() => {
@@ -501,15 +502,26 @@ const Cursor = () => {
       document.body.appendChild(p);
     };
 
+    // Cache rects — getBoundingClientRect is expensive at 60fps × ~50 elements
+    let rectCache = null;
+    let rectsDirty = true;
+    const invalidateRects = () => { rectsDirty = true; };
+    window.addEventListener('scroll', invalidateRects, { passive: true });
+    window.addEventListener('resize', invalidateRects);
+
     const updateGlass = () => {
       if (!glassEls || glassEls.length === 0) {
         const els = document.querySelectorAll('.liquid-glass, .liquid-glass-strong');
-        if (els.length > 0) glassEls = [...els];
+        if (els.length > 0) { glassEls = [...els]; rectsDirty = true; }
         else return;
       }
-      glassEls.forEach(el => {
-        const r = el.getBoundingClientRect();
-        if (r.width === 0) return;
+      if (rectsDirty || !rectCache) {
+        rectCache = glassEls.map(el => el.getBoundingClientRect());
+        rectsDirty = false;
+      }
+      glassEls.forEach((el, i) => {
+        const r = rectCache[i];
+        if (!r || r.width === 0) return;
 
         // Init per-element tilt state
         if (el._tx === undefined) { el._tx = 0; el._ty = 0; }
@@ -932,7 +944,6 @@ window.StoneSection = StoneSection;
 const { motion: M5 } = window.Motion;
 
 const Capabilities = () => {
-  const isMobile = useIsMobile();
   const cards = [
     { icon: <Bolt className="h-5 w-5" />, tags: ["72h Delivery","Live Same Week","No Drag","Done Right"], title: "Lightning Fast", body: "From letter to live site in under three days. Focused sprints — no lingering, no scope creep, no missed deadlines." },
     { icon: <Hammer className="h-5 w-5" />, tags: ["Hand Built","Zero Templates","Custom Motion","Your Voice"], title: "Tailor Made", body: "Every layout, every line of copy, every animation is built for you. Blank canvas, not a theme marketplace." },
@@ -941,7 +952,7 @@ const Capabilities = () => {
   return (
     <section className="relative min-h-screen w-full overflow-hidden bg-black py-24">
       <video className="absolute inset-0 w-full h-full object-cover z-0 opacity-40"
-        src={isMobile ? "assets/videos/glass-shape-mobile.mp4" : "assets/videos/glass-shape.mp4"} autoPlay muted loop playsInline preload="metadata" />
+        src="assets/videos/glass-shape-mobile.mp4" autoPlay muted loop playsInline preload="metadata" />
       <div className="absolute inset-0 z-[1] bg-black/60 pointer-events-none" />
       <div className="relative z-10 px-6 md:px-12 lg:px-20 max-w-[1400px] mx-auto">
         <M5.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
@@ -1421,11 +1432,10 @@ window.InquiryForm = InquiryForm;
 const { motion: M11 } = window.Motion;
 
 const FinalCTA = () => {
-  const isMobile = useIsMobile();
   return (
   <section className="relative min-h-[95vh] w-full overflow-hidden bg-black flex items-center justify-center py-32 border-t border-white/10">
     <video className="absolute inset-0 w-full h-full object-cover z-0"
-      src={isMobile ? "assets/videos/diamond-dark-mobile.mp4" : "assets/videos/diamond-dark.mp4"} autoPlay muted loop playsInline preload="metadata" />
+      src="assets/videos/diamond-dark-mobile.mp4" autoPlay muted loop playsInline preload="metadata" />
     <div className="absolute inset-0 z-[1] bg-black/60 pointer-events-none" />
     <div className="absolute inset-0 z-[1] bg-gradient-to-b from-black/70 via-transparent to-black pointer-events-none" />
 
