@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Liz Breslin | Howard Hanna Coach Realtors, Garden City</title>
+<meta name="description" content="Liz Breslin. Garden City and Stewart Manor specialist with Howard Hanna Coach Realtors. Strategic, direct, and known for getting the timing right." />
+<meta name="theme-color" content="#f7f5f0" />
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Liz Breslin | Howard Hanna Coach Realtors" />
+<meta property="og:description" content="Garden City. Stewart Manor. Mineola. 125 five star reviews and counting." />
+<meta property="og:image" content="https://photos.zillowstatic.com/fp/5f976df52cce5a808c92f06297801eab-p_d.jpg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        bone: '#f7f5f0',
+        ecru: '#ede7da',
+        ink: '#1d1d1d',
+        sage: '#5a6e58',
+        olive: '#3f4d3e',
+        gold: '#b59456',
+      },
+      fontFamily: {
+        display: ['Fraunces', 'serif'],
+        body: ['"DM Sans"', 'ui-sans-serif', 'system-ui'],
+      },
+    },
+  },
+};
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body { background: #f7f5f0; color: #1d1d1d; font-family: 'DM Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  .font-display { font-family: 'Fraunces', serif; font-weight: 400; letter-spacing: -0.015em; }
+  .hairline { border-color: rgba(29,29,29,0.12); }
+
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity .9s ease, transform .9s ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  @keyframes slowzoom { from { transform: scale(1.0); } to { transform: scale(1.08); } }
+  .slowzoom { animation: slowzoom 18s ease-out forwards; }
+
+  .prop-card { transition: transform .6s cubic-bezier(.2,.7,.3,1); }
+  .prop-card:hover { transform: translateY(-4px); }
+  .prop-img { transition: transform 1s cubic-bezier(.2,.7,.3,1); }
+  .prop-card:hover .prop-img { transform: scale(1.04); }
+
+  .underline-link { background-image: linear-gradient(currentColor, currentColor); background-position: 0 100%; background-repeat: no-repeat; background-size: 100% 1px; padding-bottom: 2px; }
+
+  .nav { transition: all .3s ease; }
+  .nav.scrolled { background: rgba(247,245,240,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(29,29,29,0.08); }
+
+  ::selection { background: #5a6e58; color: #f7f5f0; }
+
+  @media (max-width: 768px) { .hero-display { font-size: 13vw !important; line-height: 1.02 !important; } }
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<header id="nav" class="nav fixed top-0 left-0 right-0 z-50">
+  <div class="max-w-[1400px] mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
+    <a href="#top" class="flex items-baseline gap-3">
+      <span class="font-display text-2xl">Liz Breslin</span>
+      <span class="text-[10px] uppercase tracking-[0.25em] text-ink/55 hidden sm:block">Coach Realtors  /  Garden City</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-7 text-sm">
+      <a href="#story" class="hover:text-sage">Story</a>
+      <a href="#properties" class="hover:text-sage">Properties</a>
+      <a href="#areas" class="hover:text-sage">Areas served</a>
+      <a href="#words" class="hover:text-sage">Reviews</a>
+      <a href="#contact" class="px-5 py-2 bg-ink text-bone hover:bg-sage transition">Get in touch</a>
+    </nav>
+    <a href="tel:+15163757081" class="md:hidden text-sm font-medium">Call</a>
+  </div>
+</header>
+
+<!-- Hero (asymmetric editorial) -->
+<section id="top" class="relative pt-32 lg:pt-36 pb-20 lg:pb-32">
+  <div class="max-w-[1400px] mx-auto px-6 lg:px-12 grid lg:grid-cols-12 gap-10 lg:gap-16 items-end">
+    <div class="lg:col-span-6 order-2 lg:order-1">
+      <p class="text-xs uppercase tracking-[0.32em] text-sage mb-8">Garden City  ·  Stewart Manor  ·  Mineola</p>
+      <h1 class="hero-display font-display text-6xl md:text-8xl leading-[0.95]">
+        Buy. Sell.<br/>
+        <em class="italic font-display text-sage">Or simply ask.</em>
+      </h1>
+      <p class="mt-10 text-lg lg:text-xl text-ink/80 max-w-lg leading-relaxed">
+        Liz Breslin has spent her career helping families navigate Garden City's quiet market. The right timing, the right list price, and the offer your neighbors will be talking about.
+      </p>
+      <div class="mt-12 flex flex-wrap gap-3">
+        <a href="#contact" class="inline-flex items-center gap-3 bg-ink text-bone px-7 py-4 hover:bg-sage transition">
+          Request a home valuation
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#properties" class="inline-flex items-center gap-3 border border-ink/30 px-7 py-4 hover:border-ink transition">
+          See recent sales
+        </a>
+      </div>
+    </div>
+
+    <div class="lg:col-span-6 order-1 lg:order-2">
+      <div class="relative aspect-[4/5] overflow-hidden bg-ecru">
+        <img src="https://photos.zillowstatic.com/fp/5f976df52cce5a808c92f06297801eab-p_d.jpg" alt="58 Poplar Street, Garden City" class="w-full h-full object-cover slowzoom" />
+      </div>
+      <div class="flex justify-between items-baseline mt-3 text-xs text-ink/55">
+        <span>58 Poplar Street, Garden City</span>
+        <span class="uppercase tracking-[0.2em]">Sold by Liz</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Numbers strip -->
+<section class="border-y hairline bg-bone">
+  <div class="max-w-[1400px] mx-auto px-6 lg:px-12 py-12 grid grid-cols-2 lg:grid-cols-4 gap-y-10 gap-x-8">
+    <div class="reveal">
+      <p class="font-display text-5xl">125</p>
+      <p class="text-xs uppercase tracking-[0.22em] text-ink/55 mt-2">Five star reviews</p>
+    </div>
+    <div class="reveal">
+      <p class="font-display text-5xl">220</p>
+      <p class="text-xs uppercase tracking-[0.22em] text-ink/55 mt-2">Sales in Garden City</p>
+    </div>
+    <div class="reveal">
+      <p class="font-display text-5xl">$2.7M</p>
+      <p class="text-xs uppercase tracking-[0.22em] text-ink/55 mt-2">Top of price range</p>
+    </div>
+    <div class="reveal">
+      <p class="font-display text-5xl">5</p>
+      <p class="text-xs uppercase tracking-[0.22em] text-ink/55 mt-2">Villages served</p>
+    </div>
+  </div>
+</section>
+
+<!-- Story -->
+<section id="story" class="py-20 lg:py-32">
+  <div class="max-w-[1400px] mx-auto px-6 lg:px-12 grid lg:grid-cols-12 gap-12 lg:gap-20">
+    <div class="lg:col-span-4 reveal">
+      <p class="text-xs uppercase tracking-[0.3em] text-sage mb-5">A note from Liz</p>
+      <h2 class="font-display text-5xl lg:text-6xl leading-[1.02]">The market <em class="italic">whispers</em>. You just have to listen carefully.</h2>
+    </div>
+    <div class="lg:col-span-7 lg:col-start-6 reveal">
+      <div class="space-y-7 text-lg leading-relaxed text-ink/85">
+        <p>Real estate in Garden City is not a transaction. It is a quiet conversation between sellers who know what their home is worth and buyers who know exactly what they want. The job is to bring those two people together at the right moment.</p>
+        <p>I have spent years learning the rhythm of these streets. When a Wellington Road colonial should go on the market. When a Stewart Manor cape will sit for sixty days, and when it will sell in a weekend. When a buyer says "I love it" but really means "I want to keep looking."</p>
+        <p>What I bring is patience, preparation, and the kind of direct honesty my clients keep coming back for. If your timing is wrong, I will tell you. If your list price is wrong, I will tell you. If the offer on the table is the right one, I will tell you that, too.</p>
+        <p class="font-display italic text-2xl text-sage pt-4">"Strategic, prepared, and straightforward. That is the whole thing."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Properties -->
+<section id="properties" class="bg-ecru border-y hairline">
+  <div class="max-w-[1400px] mx-auto px-6 lg:px-12 py-20 lg:py-28">
+    <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-14">
+      <div class="reveal">
+        <p class="text-xs uppercase tracking-[0.3em] text-sage mb-4">Recent work</p>
+        <h2 class="font-display text-5xl lg:text-6xl leading-[1.02]">A few homes <em class="italic">we found a buyer for.</em></h2>
+      </div>
+      <a href="https://www.zillow.com/profile/Lizbreslin" target="_blank" rel="noopener" class="underline-link text-sm text-ink/70 hover:text-sage">View Liz's full transaction history on Zillow</a>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
+
+      <article class="prop-card">
+        <div class="overflow-hidden aspect-[5/4] bg-bone">
+          <img src="https://photos.zillowstatic.com/fp/977b2610fae3b56e98b6a6d974d45497-p_d.jpg" alt="1804 Leona Court, Merrick" class="prop-img w-full h-full object-cover" />
+        </div>
+        <div class="pt-6 flex justify-between items-baseline">
+          <div>
+            <h3 class="font-display text-2xl">1804 Leona Court</h3>
+            <p class="text-sm text-ink/60 mt-1">Merrick, NY 11566</p>
+          </div>
+          <span class="text-[10px] uppercase tracking-[0.25em] text-sage">Sold</span>
+        </div>
+      </article>
+
+      <article class="prop-card">
+        <div class="overflow-hidden aspect-[5/4] bg-bone">
+          <img src="https://photos.zillowstatic.com/fp/296468f4149476f34e4b734c9cdff495-p_d.jpg" alt="96 Newmarket Road, Garden City" class="prop-img w-full h-full object-cover" />
+        </div>
+        <div class="pt-6 flex justify-between items-baseline">
+          <div>
+            <h3 class="font-display text-2xl">96 Newmarket Road</h3>
+            <p class="text-sm text-ink/60 mt-1">Garden City, NY 11530</p>
+          </div>
+          <span class="text-[10px] uppercase tracking-[0.25em] text-sage">Sold</span>
+        </div>
+      </article>
+
+      <article class="prop-card">
+        <div class="overflow-hidden aspect-[5/4] bg-bone">
+          <img src="https://photos.zillowstatic.com/fp/94322d82a09787f3439bf25afac6bfe7-p_d.jpg" alt="11 Wellington Road, Garden City" class="prop-img w-full h-full object-cover" />
+        </div>
+        <div class="pt-6 flex justify-between items-baseline">
+          <div>
+            <h3 class="font-display text-2xl">11 Wellington Road</h3>
+            <p class="text-sm text-ink/60 mt-1">Garden City, NY 11530</p>
+          </div>
+          <span class="text-[10px] uppercase tracking-[0.25em] text-sage">Sold</span>
+        </div>
+      </article>
+
+      <article class="prop-card">
+        <div class="overflow-hidden aspect-[5/4] bg-bone">
+          <img src="https://photos.zillowstatic.com/fp/59ecd0cf1e4331fa761c560ae2d242ca-p_d.jpg" alt="248-30 88th Drive, Bellerose" class="prop-img w-full h-full object-cover" />
+        </div>
+        <div class="pt-6 flex justify-between items-baseline">
+          <div>
+            <h3 class="font-display text-2xl">248-30 88th Drive</h3>
+            <p class="text-sm text-ink/60 mt-1">Bellerose, NY 11426</p>
+          </div>
+          <span class="text-[10px] uppercase tracking-[0.25em] text-sage">Sold</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- Areas Served -->
+<section id="areas" class="py-20 lg:py-32">
+  <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+    <div class="grid lg:grid-cols-12 gap-12 items-start">
+      <div class="lg:col-span-5 reveal">
+        <p class="text-xs uppercase tracking-[0.3em] text-sage mb-5">Areas served</p>
+        <h2 class="font-display text-5xl lg:text-6xl leading-[1.02]">Five villages. <em class="italic">One Liz.</em></h2>
+        <p class="mt-8 text-lg text-ink/75 leading-relaxed">
+          Most of Liz's work happens within a four mile radius. That focus is intentional. Knowing every block, every school district line, and every quiet street is how you negotiate from a position of strength.
+        </p>
+      </div>
+      <div class="lg:col-span-6 lg:col-start-7 grid grid-cols-1 sm:grid-cols-2 gap-px bg-ink/10 reveal">
+        <div class="bg-bone p-7"><p class="font-display text-2xl">Garden City</p><p class="text-xs uppercase tracking-[0.22em] text-ink/50 mt-2">Nassau County</p></div>
+        <div class="bg-bone p-7"><p class="font-display text-2xl">Stewart Manor</p><p class="text-xs uppercase tracking-[0.22em] text-ink/50 mt-2">Nassau County</p></div>
+        <div class="bg-bone p-7"><p class="font-display text-2xl">Garden City South</p><p class="text-xs uppercase tracking-[0.22em] text-ink/50 mt-2">Nassau County</p></div>
+        <div class="bg-bone p-7"><p class="font-display text-2xl">Mineola</p><p class="text-xs uppercase tracking-[0.22em] text-ink/50 mt-2">Nassau County</p></div>
+        <div class="bg-bone p-7 sm:col-span-2"><p class="font-display text-2xl">Nassau County, broader</p><p class="text-xs uppercase tracking-[0.22em] text-ink/50 mt-2">By referral and request</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Reviews -->
+<section id="words" class="bg-ink text-bone py-20 lg:py-32">
+  <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+    <div class="grid lg:grid-cols-12 gap-12 mb-16">
+      <div class="lg:col-span-6 reveal">
+        <p class="text-xs uppercase tracking-[0.3em] text-gold mb-5">What clients say</p>
+        <h2 class="font-display text-5xl lg:text-6xl leading-[1.02]">One hundred and twenty five reviews. <em class="italic text-gold">All five stars.</em></h2>
+      </div>
+    </div>
+
+    <div class="grid lg:grid-cols-3 gap-12 lg:gap-16">
+
+      <figure class="reveal">
+        <div class="text-gold text-2xl mb-5">★★★★★</div>
+        <blockquote class="font-display text-2xl leading-snug italic text-bone/95">
+          "Liz's strategy for the timing of when to put our house on the market was invaluable. We appreciated her directness and efficiency, and we were very glad we chose her."
+        </blockquote>
+        <figcaption class="mt-8 text-sm text-bone/60">
+          Sold a Single Family home<br/>
+          <span class="text-bone/40">Garden City, 2024</span>
+        </figcaption>
+      </figure>
+
+      <figure class="reveal">
+        <div class="text-gold text-2xl mb-5">★★★★★</div>
+        <blockquote class="font-display text-2xl leading-snug italic text-bone/95">
+          "Liz Breslin is the consummate professional and was a fantastic partner throughout this experience. She has vast and deep knowledge of the market and was quite strategic."
+        </blockquote>
+        <figcaption class="mt-8 text-sm text-bone/60">
+          nancylawe<br/>
+          <span class="text-bone/40">Sold a Single Family home in Garden City, 2024</span>
+        </figcaption>
+      </figure>
+
+      <figure class="reveal">
+        <div class="text-gold text-2xl mb-5">★★★★★</div>
+        <blockquote class="font-display text-2xl leading-snug italic text-bone/95">
+          "I could not recommend working with Liz more. She was an absolute pleasure to work with and was so helpful throughout the whole home buying process."
+        </blockquote>
+        <figcaption class="mt-8 text-sm text-bone/60">
+          jennifer c mchale<br/>
+          <span class="text-bone/40">Bought a home, 2024</span>
+        </figcaption>
+      </figure>
+
+    </div>
+
+    <div class="mt-16 text-center reveal">
+      <a href="https://www.zillow.com/profile/Lizbreslin" target="_blank" rel="noopener" class="underline-link text-sm text-bone/80 hover:text-gold">Read all 125 reviews on Zillow</a>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="py-20 lg:py-32">
+  <div class="max-w-[1400px] mx-auto px-6 lg:px-12 grid lg:grid-cols-12 gap-12 lg:gap-20">
+    <div class="lg:col-span-5 reveal">
+      <p class="text-xs uppercase tracking-[0.3em] text-sage mb-5">Get in touch</p>
+      <h2 class="font-display text-5xl lg:text-6xl leading-[1.02] mb-8">First conversation, <em class="italic">no commitment.</em></h2>
+      <p class="text-lg leading-relaxed text-ink/80 mb-10">
+        Most of Liz's clients begin with a coffee or a fifteen minute phone call. There is no fee, no contract, no pressure, and you walk away knowing a great deal more about your home or your search than you did before.
+      </p>
+
+      <div class="space-y-5 text-ink/90 pt-6 border-t hairline">
+        <div class="flex items-start gap-4 pt-4">
+          <span class="text-xs uppercase tracking-[0.22em] text-ink/50 w-20 mt-1">Call</span>
+          <a href="tel:+15163757081" class="text-lg hover:text-sage">(516) 375-7081</a>
+        </div>
+        <div class="flex items-start gap-4">
+          <span class="text-xs uppercase tracking-[0.22em] text-ink/50 w-20 mt-1">Email</span>
+          <a href="mailto:lbreslin@coachrealtors.com" class="text-lg hover:text-sage">lbreslin@coachrealtors.com</a>
+        </div>
+        <div class="flex items-start gap-4">
+          <span class="text-xs uppercase tracking-[0.22em] text-ink/50 w-20 mt-1">Office</span>
+          <span class="text-lg">Howard Hanna Coach Realtors, Garden City</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="lg:col-span-7 reveal">
+      <form action="https://formsubmit.co/buildwithzeroto@gmail.com" method="POST" class="bg-ecru p-8 lg:p-12">
+        <input type="hidden" name="_subject" value="New inquiry from Liz Breslin spec site" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_next" value="https://zeroto.site/work/breslin/?sent=1" />
+
+        <div class="grid sm:grid-cols-2 gap-5">
+          <label class="block">
+            <span class="text-xs uppercase tracking-[0.22em] text-ink/60">Name</span>
+            <input name="name" required type="text" class="mt-2 w-full bg-transparent border-b hairline focus:border-ink py-3 outline-none text-lg" />
+          </label>
+          <label class="block">
+            <span class="text-xs uppercase tracking-[0.22em] text-ink/60">Phone</span>
+            <input name="phone" type="tel" class="mt-2 w-full bg-transparent border-b hairline focus:border-ink py-3 outline-none text-lg" />
+          </label>
+          <label class="block sm:col-span-2">
+            <span class="text-xs uppercase tracking-[0.22em] text-ink/60">Email</span>
+            <input name="email" required type="email" class="mt-2 w-full bg-transparent border-b hairline focus:border-ink py-3 outline-none text-lg" />
+          </label>
+          <label class="block sm:col-span-2">
+            <span class="text-xs uppercase tracking-[0.22em] text-ink/60">What can Liz help with</span>
+            <select name="interest" class="mt-2 w-full bg-transparent border-b hairline focus:border-ink py-3 outline-none text-lg">
+              <option>Selling a home in the next 12 months</option>
+              <option>Buying in Garden City or nearby</option>
+              <option>A home valuation</option>
+              <option>An honest opinion on a property</option>
+              <option>Other</option>
+            </select>
+          </label>
+          <label class="block sm:col-span-2">
+            <span class="text-xs uppercase tracking-[0.22em] text-ink/60">A little context for Liz</span>
+            <textarea name="message" rows="4" class="mt-2 w-full bg-transparent border-b hairline focus:border-ink py-3 outline-none text-lg"></textarea>
+          </label>
+        </div>
+
+        <button type="submit" class="mt-10 inline-flex items-center gap-3 bg-ink text-bone px-8 py-4 hover:bg-sage transition">
+          Send to Liz
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-ink text-bone/80">
+  <div class="max-w-[1400px] mx-auto px-6 lg:px-12 py-14">
+    <div class="flex flex-col md:flex-row gap-8 justify-between md:items-end">
+      <div>
+        <p class="font-display text-2xl text-bone mb-2">Liz Breslin</p>
+        <p class="text-sm text-bone/60">Licensed Real Estate Salesperson</p>
+        <p class="text-sm text-bone/60">Howard Hanna Coach Realtors, Garden City</p>
+      </div>
+      <div class="text-sm text-bone/60">
+        <p>(516) 375-7081</p>
+        <p>lbreslin@coachrealtors.com</p>
+      </div>
+    </div>
+    <div class="mt-10 pt-6 border-t border-bone/10 flex flex-col sm:flex-row justify-between gap-4 text-xs text-bone/40">
+      <p>© 2026 Liz Breslin. All rights reserved.</p>
+      <p>Concept site by <a href="https://zeroto.site" class="text-bone/60 hover:text-gold underline-link">ZeroTo.site</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  const onScroll = () => { nav.classList.toggle('scrolled', window.scrollY > 30); };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }});
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

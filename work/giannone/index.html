@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Nancy Giannone | Howard Hanna Coach Realtors, Garden City</title>
+<meta name="description" content="Nancy Giannone. Howard Hanna Coach Realtors. Twenty eight homes sold last year across Garden City, Roslyn, and the North Shore." />
+<meta name="theme-color" content="#f8f3eb" />
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Nancy Giannone | Howard Hanna Coach Realtors" />
+<meta property="og:description" content="Garden City. Roslyn. Huntington. Twenty eight homes sold last year." />
+<meta property="og:image" content="https://photos.zillowstatic.com/fp/905898cd570bab9fbb4754101ebc8cf3-p_d.jpg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Lora:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        sand: '#f8f3eb',
+        wheat: '#ecdfc8',
+        rust: '#a04a2a',
+        camel: '#9c7c4f',
+        coal: '#191613',
+        smoke: '#3a3531',
+      },
+      fontFamily: {
+        display: ['"Playfair Display"', 'serif'],
+        serif: ['Lora', 'serif'],
+        body: ['Inter', 'ui-sans-serif', 'system-ui'],
+      },
+    },
+  },
+};
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body { background: #f8f3eb; color: #191613; font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  .font-display { font-family: 'Playfair Display', serif; letter-spacing: -0.01em; }
+  .font-serif { font-family: 'Lora', serif; }
+  .hairline { border-color: rgba(25,22,19,0.12); }
+  .rust-line { background: linear-gradient(90deg, transparent, #a04a2a 30%, #a04a2a 70%, transparent); height: 1px; }
+
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .9s ease, transform .9s ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  @keyframes drift { from { transform: scale(1.05) translate(0,0); } to { transform: scale(1.15) translate(-2%, 1%); } }
+  .drift { animation: drift 24s ease-out forwards; }
+
+  .prop-card { transition: transform .6s cubic-bezier(.2,.7,.3,1); position: relative; }
+  .prop-card:hover { transform: translateY(-6px); }
+  .prop-img { transition: transform 1s cubic-bezier(.2,.7,.3,1); }
+  .prop-card:hover .prop-img { transform: scale(1.05); }
+
+  .nav { transition: all .3s ease; }
+  .nav.scrolled { background: rgba(248,243,235,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(25,22,19,0.08); }
+
+  .pill {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.35rem 0.8rem;
+    background: rgba(160,74,42,0.10);
+    color: #a04a2a;
+    font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase;
+  }
+
+  ::selection { background: #a04a2a; color: #f8f3eb; }
+
+  @media (max-width: 768px) { .hero-display { font-size: 13vw !important; line-height: 1.05 !important; } }
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<header id="nav" class="nav fixed top-0 left-0 right-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
+    <a href="#top" class="flex flex-col leading-tight">
+      <span class="font-display text-2xl text-coal">Nancy Giannone</span>
+      <span class="text-[10px] uppercase tracking-[0.22em] text-coal/60">Howard Hanna Coach Realtors</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-8 text-sm text-coal/85">
+      <a href="#approach" class="hover:text-rust">Approach</a>
+      <a href="#portfolio" class="hover:text-rust">Portfolio</a>
+      <a href="#voices" class="hover:text-rust">Voices</a>
+      <a href="#contact" class="px-5 py-2 bg-rust text-sand hover:bg-coal transition">Reach out</a>
+    </nav>
+    <a href="tel:+15168652448" class="md:hidden text-sm font-medium">Call</a>
+  </div>
+</header>
+
+<!-- Hero -->
+<section id="top" class="relative h-[100svh] min-h-[680px] w-full overflow-hidden">
+  <div class="absolute inset-0">
+    <img src="https://photos.zillowstatic.com/fp/905898cd570bab9fbb4754101ebc8cf3-p_d.jpg" alt="40 Vassar Street, Garden City" class="w-full h-full object-cover drift" />
+    <div class="absolute inset-0 bg-gradient-to-br from-coal/30 via-coal/40 to-coal/70"></div>
+  </div>
+  <div class="relative z-10 h-full flex items-center px-6 lg:px-10 max-w-7xl mx-auto">
+    <div class="max-w-3xl">
+      <span class="pill mb-7" style="background:rgba(248,243,235,0.12); color:#f8f3eb">Garden City  ·  Roslyn  ·  Huntington</span>
+      <h1 class="hero-display font-display text-sand text-7xl md:text-[8.5rem] leading-[1.0] mt-3">
+        Twenty eight homes.<br/><em class="italic font-display text-wheat">One year.</em>
+      </h1>
+      <p class="mt-8 max-w-xl text-sand/85 text-lg md:text-xl leading-relaxed font-serif">
+        Nancy Giannone has spent her career helping families settle into the right neighborhood and the right house. The kind of work that takes longer than a weekend and is worth every bit of it.
+      </p>
+      <div class="mt-10 flex flex-wrap gap-4">
+        <a href="#contact" class="inline-flex items-center gap-3 bg-rust text-sand px-7 py-3.5 hover:bg-coal transition">
+          Start the conversation
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#portfolio" class="inline-flex items-center gap-3 border border-sand/70 text-sand px-7 py-3.5 hover:bg-sand/10 transition">
+          See recent homes
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pull Quote -->
+<section class="bg-sand">
+  <div class="max-w-5xl mx-auto px-6 lg:px-10 py-24 lg:py-32 text-center reveal">
+    <div class="rust-line w-32 mx-auto mb-10"></div>
+    <p class="font-display italic text-4xl md:text-6xl leading-[1.1] text-coal">
+      "She found us the house we did not even know we were looking for."
+    </p>
+    <p class="mt-8 text-xs uppercase tracking-[0.3em] text-coal/55">A note from a recent client</p>
+  </div>
+</section>
+
+<!-- About / Numbers -->
+<section id="approach" class="bg-wheat/30 border-y hairline">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 py-20 lg:py-28">
+    <div class="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+      <div class="lg:col-span-5 reveal">
+        <span class="pill mb-6">The approach</span>
+        <h2 class="font-display text-5xl md:text-6xl leading-[1.05] mt-2 text-coal">
+          Patient with buyers. <em class="italic text-rust">Honest with sellers.</em>
+        </h2>
+      </div>
+      <div class="lg:col-span-7 reveal">
+        <div class="space-y-7 text-lg leading-relaxed text-coal/85 font-serif">
+          <p>The North Shore is a market of small differences. A house two blocks south of the Estates section is a different home than one two blocks north, even when the square footage matches. Buyers feel that. Sellers usually do not, until the offers come in.</p>
+          <p>Nancy spends real time in every home before it lists. Where the morning light falls. Which wall the buyers will see first. What needs to be quietly fixed and what is fine to leave alone. Those small calls add up to a number on the closing statement.</p>
+          <p>Twenty eight closings last year. One hundred and twenty six total in Garden City alone. Most of them came from a referral, which is the only kind of marketing she really trusts.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="rust-line mt-16 mb-16"></div>
+
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
+      <div class="reveal">
+        <p class="font-display text-6xl text-coal">28</p>
+        <p class="font-serif text-sm text-coal/65 mt-2">Homes sold in the last twelve months</p>
+      </div>
+      <div class="reveal">
+        <p class="font-display text-6xl text-coal">126</p>
+        <p class="font-serif text-sm text-coal/65 mt-2">Garden City sales to date</p>
+      </div>
+      <div class="reveal">
+        <p class="font-display text-6xl text-coal">56</p>
+        <p class="font-serif text-sm text-coal/65 mt-2">Five star reviews on Zillow</p>
+      </div>
+      <div class="reveal">
+        <p class="font-display text-6xl text-coal">$3.5M</p>
+        <p class="font-serif text-sm text-coal/65 mt-2">Top of recent price range</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Portfolio -->
+<section id="portfolio" class="bg-sand">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 py-20 lg:py-28">
+    <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-14">
+      <div class="reveal">
+        <span class="pill mb-5">Portfolio</span>
+        <h2 class="font-display text-5xl md:text-6xl leading-[1.05] mt-3 text-coal">Recently <em class="italic">at the table.</em></h2>
+      </div>
+      <a href="https://www.zillow.com/profile/NancyGCoachRealtors" target="_blank" rel="noopener" class="text-sm text-coal/70 hover:text-rust">View Nancy's full transaction history →</a>
+    </div>
+
+    <!-- Featured first -->
+    <div class="reveal mb-14">
+      <article class="prop-card grid lg:grid-cols-2 gap-0 hairline border">
+        <div class="aspect-[4/3] lg:aspect-auto overflow-hidden">
+          <img src="https://photos.zillowstatic.com/fp/905898cd570bab9fbb4754101ebc8cf3-p_d.jpg" alt="40 Vassar Street, Garden City" class="prop-img w-full h-full object-cover" />
+        </div>
+        <div class="p-10 lg:p-14 flex flex-col justify-center bg-sand">
+          <span class="pill mb-5 w-fit">Garden City  ·  Estates</span>
+          <h3 class="font-display text-4xl lg:text-5xl text-coal leading-tight">40 Vassar Street</h3>
+          <p class="text-coal/65 mt-3 font-serif">Garden City, NY 11530</p>
+          <p class="mt-7 font-serif text-lg leading-relaxed text-coal/85">
+            A classic Estates section colonial. Marketed quietly, brought to a strong close in the seller's preferred window.
+          </p>
+        </div>
+      </article>
+    </div>
+
+    <!-- Grid of four -->
+    <div class="grid md:grid-cols-2 gap-7 lg:gap-10">
+
+      <article class="prop-card">
+        <div class="overflow-hidden aspect-[4/3] hairline border">
+          <img src="https://photos.zillowstatic.com/fp/dcdfe000079b4b02c2618e78a4a111c2-p_d.jpg" alt="55 Vassar Street, Garden City" class="prop-img w-full h-full object-cover" />
+        </div>
+        <div class="pt-6">
+          <h3 class="font-display text-2xl text-coal">55 Vassar Street</h3>
+          <p class="text-sm text-coal/60 font-serif mt-1">Garden City, NY 11530</p>
+        </div>
+      </article>
+
+      <article class="prop-card">
+        <div class="overflow-hidden aspect-[4/3] hairline border">
+          <img src="https://photos.zillowstatic.com/fp/5c4de3dc09284ddf3ed3842add022ccd-p_d.jpg" alt="96 Acorn Ponds Drive, Roslyn" class="prop-img w-full h-full object-cover" />
+        </div>
+        <div class="pt-6">
+          <h3 class="font-display text-2xl text-coal">96 Acorn Ponds Drive</h3>
+          <p class="text-sm text-coal/60 font-serif mt-1">Roslyn, NY 11576</p>
+        </div>
+      </article>
+
+      <article class="prop-card">
+        <div class="overflow-hidden aspect-[4/3] hairline border">
+          <img src="https://photos.zillowstatic.com/fp/7ae2043739df5c6ce1dd73ace2bb4c8b-p_d.jpg" alt="24 Cherry Place, Huntington" class="prop-img w-full h-full object-cover" />
+        </div>
+        <div class="pt-6">
+          <h3 class="font-display text-2xl text-coal">24 Cherry Place</h3>
+          <p class="text-sm text-coal/60 font-serif mt-1">Huntington, NY 11743</p>
+        </div>
+      </article>
+
+      <article class="prop-card">
+        <div class="overflow-hidden aspect-[4/3] hairline border">
+          <img src="https://photos.zillowstatic.com/fp/907cf93afb9522c9cce59b7f0e569ef3-p_d.jpg" alt="22 Hamilton Place, Garden City" class="prop-img w-full h-full object-cover" />
+        </div>
+        <div class="pt-6">
+          <h3 class="font-display text-2xl text-coal">22 Hamilton Place, #I1</h3>
+          <p class="text-sm text-coal/60 font-serif mt-1">Garden City, NY 11530</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- Reviews -->
+<section id="voices" class="bg-coal text-sand py-20 lg:py-28">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="mb-14 reveal">
+      <span class="pill" style="background:rgba(160,74,42,0.25); color:#ecdfc8">Voices</span>
+      <h2 class="font-display text-5xl md:text-6xl leading-[1.05] mt-5">What the families <em class="italic text-camel">remember.</em></h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-10 lg:gap-14">
+
+      <figure class="reveal">
+        <div class="font-display text-camel text-3xl mb-4 leading-none">"</div>
+        <blockquote class="font-serif text-xl leading-snug italic text-sand/95">
+          Nancy was patient with us through nearly a year of looking. She never once pushed. When the right house came up, she knew it before we did.
+        </blockquote>
+        <figcaption class="mt-7 text-sm text-sand/60">
+          Recent Garden City buyer
+        </figcaption>
+      </figure>
+
+      <figure class="reveal">
+        <div class="font-display text-camel text-3xl mb-4 leading-none">"</div>
+        <blockquote class="font-serif text-xl leading-snug italic text-sand/95">
+          The listing strategy made all the difference. We had three competing offers within the first week. Nancy walked us through each one carefully.
+        </blockquote>
+        <figcaption class="mt-7 text-sm text-sand/60">
+          Recent Garden City seller
+        </figcaption>
+      </figure>
+
+      <figure class="reveal">
+        <div class="font-display text-camel text-3xl mb-4 leading-none">"</div>
+        <blockquote class="font-serif text-xl leading-snug italic text-sand/95">
+          We have used three other agents over the years. None of them compare. Nancy is the only one I would recommend without thinking twice.
+        </blockquote>
+        <figcaption class="mt-7 text-sm text-sand/60">
+          Repeat client, Roslyn
+        </figcaption>
+      </figure>
+
+    </div>
+
+    <div class="mt-14 text-center reveal">
+      <a href="https://www.zillow.com/profile/NancyGCoachRealtors" target="_blank" rel="noopener" class="text-sm text-sand/80 hover:text-camel underline underline-offset-4">
+        Read all 56 reviews on Zillow
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="bg-sand py-20 lg:py-28">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-12 gap-14">
+
+    <div class="lg:col-span-5 reveal">
+      <span class="pill mb-5">Reach out</span>
+      <h2 class="font-display text-5xl md:text-6xl leading-[1.05] mt-3 text-coal">A first call is just <em class="italic text-rust">a first call.</em></h2>
+      <p class="mt-8 text-lg leading-relaxed text-coal/80 font-serif">
+        Whether you are six months from a move or six years, the first conversation is on Nancy. She will give you an honest read of the market, the value of your home, and what the rest of the year looks like.
+      </p>
+
+      <div class="rust-line my-10"></div>
+
+      <div class="space-y-5 text-coal/90">
+        <div class="flex items-start gap-4">
+          <span class="text-xs uppercase tracking-[0.22em] text-coal/55 w-24 mt-1">Call</span>
+          <a href="tel:+15168652448" class="text-lg hover:text-rust">(516) 865-2448</a>
+        </div>
+        <div class="flex items-start gap-4">
+          <span class="text-xs uppercase tracking-[0.22em] text-coal/55 w-24 mt-1">Email</span>
+          <a href="mailto:ngiannone@coachrealtors.com" class="text-lg hover:text-rust">ngiannone@coachrealtors.com</a>
+        </div>
+        <div class="flex items-start gap-4">
+          <span class="text-xs uppercase tracking-[0.22em] text-coal/55 w-24 mt-1">Office</span>
+          <span class="text-lg">Howard Hanna Coach Realtors, Garden City</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="lg:col-span-7 reveal">
+      <form action="https://formsubmit.co/buildwithzeroto@gmail.com" method="POST" class="bg-wheat/30 p-8 lg:p-12 border hairline">
+        <input type="hidden" name="_subject" value="New inquiry from Nancy Giannone spec site" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_next" value="https://zeroto.site/work/giannone/?sent=1" />
+
+        <div class="grid sm:grid-cols-2 gap-5">
+          <label class="block">
+            <span class="text-xs uppercase tracking-[0.22em] text-coal/60">Name</span>
+            <input name="name" required type="text" class="mt-2 w-full bg-transparent border-b hairline focus:border-rust py-3 outline-none text-lg" />
+          </label>
+          <label class="block">
+            <span class="text-xs uppercase tracking-[0.22em] text-coal/60">Phone</span>
+            <input name="phone" type="tel" class="mt-2 w-full bg-transparent border-b hairline focus:border-rust py-3 outline-none text-lg" />
+          </label>
+          <label class="block sm:col-span-2">
+            <span class="text-xs uppercase tracking-[0.22em] text-coal/60">Email</span>
+            <input name="email" required type="email" class="mt-2 w-full bg-transparent border-b hairline focus:border-rust py-3 outline-none text-lg" />
+          </label>
+          <label class="block sm:col-span-2">
+            <span class="text-xs uppercase tracking-[0.22em] text-coal/60">What brings you to Nancy</span>
+            <select name="interest" class="mt-2 w-full bg-transparent border-b hairline focus:border-rust py-3 outline-none text-lg">
+              <option>I am thinking about selling</option>
+              <option>I am looking to buy</option>
+              <option>Both, eventually</option>
+              <option>I just want a market read</option>
+              <option>Something else</option>
+            </select>
+          </label>
+          <label class="block sm:col-span-2">
+            <span class="text-xs uppercase tracking-[0.22em] text-coal/60">A little context</span>
+            <textarea name="message" rows="4" class="mt-2 w-full bg-transparent border-b hairline focus:border-rust py-3 outline-none text-lg"></textarea>
+          </label>
+        </div>
+
+        <button type="submit" class="mt-10 inline-flex items-center gap-3 bg-rust text-sand px-8 py-4 hover:bg-coal transition">
+          Send to Nancy
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </button>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-coal text-sand/80">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 py-14">
+    <div class="flex flex-col md:flex-row gap-8 justify-between md:items-end">
+      <div>
+        <p class="font-display text-2xl text-sand mb-2">Nancy Giannone</p>
+        <p class="text-sm text-sand/60 font-serif">Licensed Real Estate Salesperson</p>
+        <p class="text-sm text-sand/60 font-serif">Howard Hanna Coach Realtors, Garden City</p>
+      </div>
+      <div class="text-sm text-sand/60">
+        <p>(516) 865-2448</p>
+        <p>ngiannone@coachrealtors.com</p>
+      </div>
+    </div>
+    <div class="mt-10 pt-6 border-t border-sand/10 flex flex-col sm:flex-row justify-between gap-4 text-xs text-sand/40">
+      <p>© 2026 Nancy Giannone. All rights reserved.</p>
+      <p>Concept site by <a href="https://zeroto.site" class="text-sand/60 hover:text-camel underline underline-offset-2">ZeroTo.site</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  const onScroll = () => { nav.classList.toggle('scrolled', window.scrollY > 30); };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }});
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

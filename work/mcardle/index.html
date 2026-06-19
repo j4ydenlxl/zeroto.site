@@ -1,0 +1,867 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Michelle McArdle | Garden City Real Estate | Douglas Elliman</title>
+<meta name="description" content="Michelle McArdle, the #1 Douglas Elliman agent in Garden City for ten consecutive years. 436 career closings. 176 five-star reviews. Search homes, get a free valuation, or schedule a consultation." />
+<meta name="theme-color" content="#0d0d0d" />
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Michelle McArdle | Garden City Real Estate" />
+<meta property="og:description" content="The #1 Douglas Elliman agent in Garden City. 436 career closings. 176 five star reviews." />
+<meta property="og:image" content="https://photos.zillowstatic.com/fp/d18f93e059531b67a1be66b91f2aafd7-cc_ft_1536.webp" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://photos.zillowstatic.com" crossorigin />
+<link rel="preload" as="image" href="https://photos.zillowstatic.com/fp/43652320eb8ce830338bf9fe891e730e-h_l.jpg" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        cream: '#f7f3ec',
+        sand: '#ede5d3',
+        ink: '#0d0d0d',
+        graphite: '#3a3a3a',
+        elliman: '#1a2942',
+        gold: '#9c7c3a',
+        goldLight: '#c9a86a',
+      },
+      fontFamily: {
+        display: ['"Cormorant Garamond"', 'serif'],
+        body: ['Inter', 'ui-sans-serif', 'system-ui'],
+      },
+    },
+  },
+};
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body { background: #ffffff; color: #0d0d0d; font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  .font-display { font-family: 'Cormorant Garamond', serif; letter-spacing: -0.01em; font-weight: 500; }
+  .hairline { border-color: rgba(13,13,13,0.10); }
+  .gold-line { background: linear-gradient(90deg, transparent, #9c7c3a, transparent); height: 1px; }
+
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity .9s ease, transform .9s ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  @keyframes kenburns { 0% { transform: scale(1.02); } 100% { transform: scale(1.12); } }
+  .kenburns { animation: kenburns 20s ease-out forwards; }
+
+  .nav { transition: background-color .3s ease, box-shadow .3s ease; }
+  .nav.scrolled { background: rgba(255,255,255,0.98); backdrop-filter: blur(12px); box-shadow: 0 1px 0 rgba(13,13,13,0.06); }
+
+  .btn-primary { background: #0d0d0d; color: #fff; transition: background .25s ease, transform .25s ease; }
+  .btn-primary:hover { background: #1a2942; transform: translateY(-1px); }
+  .btn-outline { border: 1px solid rgba(13,13,13,0.15); transition: border-color .25s ease, background .25s ease; }
+  .btn-outline:hover { border-color: #0d0d0d; background: rgba(13,13,13,0.03); }
+  .btn-gold { background: #9c7c3a; color: #fff; transition: background .25s ease, transform .25s ease; }
+  .btn-gold:hover { background: #7e6230; transform: translateY(-1px); }
+
+  .listing-card { transition: transform .5s ease, box-shadow .5s ease; }
+  .listing-card:hover { transform: translateY(-4px); box-shadow: 0 24px 48px -24px rgba(13,13,13,0.18); }
+  .listing-img { transition: transform 1s ease; }
+  .listing-card:hover .listing-img { transform: scale(1.04); }
+
+  .pill { display: inline-flex; align-items: center; padding: 0.35rem 0.85rem; font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 500; }
+  .pill-gold { background: rgba(156,124,58,0.12); color: #9c7c3a; }
+  .pill-dark { background: #0d0d0d; color: #fff; }
+  .pill-light { background: rgba(13,13,13,0.06); color: #0d0d0d; }
+  .pill-sold { background: #1a2942; color: #fff; }
+
+  .area-card { transition: transform .4s ease; }
+  .area-card:hover { transform: translateY(-3px); }
+  .area-card:hover .area-arrow { transform: translateX(4px); }
+  .area-arrow { transition: transform .35s ease; }
+
+  ::selection { background: #0d0d0d; color: #fff; }
+</style>
+</head>
+<body>
+
+<!-- TOP ANNOUNCEMENT BAR -->
+<div class="bg-ink text-white text-xs font-medium tracking-wide py-2.5 px-6 text-center">
+  Now accepting new buyer and seller consultations for Spring 2026.
+  <a href="#contact" class="underline underline-offset-2 ml-2 hover:text-goldLight">Schedule yours.</a>
+</div>
+
+<!-- NAV -->
+<header id="nav" class="nav sticky top-0 left-0 right-0 z-50 bg-white/95">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
+    <a href="#top" class="flex items-center gap-3">
+      <span class="font-display text-2xl text-ink leading-none">Michelle McArdle</span>
+      <span class="hidden md:flex flex-col text-[9px] uppercase tracking-[0.24em] text-graphite leading-tight">
+        <span>The McArdle</span><span>Real Estate Group</span>
+      </span>
+    </a>
+    <nav class="hidden lg:flex items-center gap-7 text-sm text-graphite">
+      <a href="#listings" class="hover:text-ink">Search Homes</a>
+      <a href="#sold" class="hover:text-ink">Recently Sold</a>
+      <a href="#valuation" class="hover:text-ink">Home Value</a>
+      <a href="#areas" class="hover:text-ink">Areas</a>
+      <a href="#about" class="hover:text-ink">About</a>
+      <a href="#reviews" class="hover:text-ink">Reviews</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <a href="tel:+15163064134" class="hidden sm:block text-sm text-ink font-medium hover:text-gold">(516) 306-4134</a>
+      <a href="#contact" class="btn-primary px-5 py-2.5 text-sm font-medium">Get In Touch</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO: split layout, agent face PROMINENT -->
+<section id="top" class="relative bg-cream overflow-hidden">
+  <div class="absolute inset-0 opacity-35">
+    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=85&auto=format&fit=crop" alt="" class="w-full h-full object-cover kenburns" />
+    <div class="absolute inset-0 bg-gradient-to-r from-cream via-cream/90 to-cream/40"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-white/40 to-transparent"></div>
+  </div>
+
+  <div class="relative max-w-7xl mx-auto px-6 lg:px-10 py-16 lg:py-24 grid lg:grid-cols-12 gap-12 items-center">
+
+    <div class="lg:col-span-7 reveal">
+      <span class="pill pill-gold mb-7">Garden City  ·  Douglas Elliman</span>
+      <h1 class="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.02] text-ink mt-2">
+        The first name in <em class="italic text-gold">Garden City</em> real estate.
+      </h1>
+      <p class="mt-8 text-lg lg:text-xl text-graphite max-w-xl leading-relaxed">
+        For ten consecutive years, Michelle has led the Douglas Elliman Garden City office. 436 career closings. 176 five-star reviews. Top 1.5% of agents nationally.
+      </p>
+
+      <div class="mt-10 flex flex-wrap gap-3">
+        <a href="#contact" class="btn-primary px-7 py-3.5 text-sm font-medium inline-flex items-center gap-2">
+          Schedule a Consultation
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#valuation" class="btn-outline px-7 py-3.5 text-sm font-medium">Get a Free Home Valuation</a>
+      </div>
+
+      <div class="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-5 max-w-2xl">
+        <div>
+          <p class="font-display text-4xl text-ink">436</p>
+          <p class="text-[10px] uppercase tracking-[0.22em] text-graphite mt-1">Career closings</p>
+        </div>
+        <div>
+          <p class="font-display text-4xl text-ink">176</p>
+          <p class="text-[10px] uppercase tracking-[0.22em] text-graphite mt-1">5 star reviews</p>
+        </div>
+        <div>
+          <p class="font-display text-4xl text-ink">35</p>
+          <p class="text-[10px] uppercase tracking-[0.22em] text-graphite mt-1">Sold last year</p>
+        </div>
+        <div>
+          <p class="font-display text-4xl text-gold">Top 1.5%</p>
+          <p class="text-[10px] uppercase tracking-[0.22em] text-graphite mt-1">Nationally</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="lg:col-span-5 reveal flex justify-center lg:justify-end">
+      <div class="relative">
+        <div class="absolute -inset-3 bg-gradient-to-br from-gold/30 to-transparent rounded-[2rem] -z-10"></div>
+        <div class="w-[280px] sm:w-[340px] lg:w-[400px] aspect-[4/5] overflow-hidden rounded-[1.5rem] bg-sand shadow-2xl">
+          <img src="https://photos.zillowstatic.com/fp/43652320eb8ce830338bf9fe891e730e-h_l.jpg" alt="Michelle McArdle, Real Estate Agent at Douglas Elliman Garden City" class="w-full h-full object-cover"
+            onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'w-full h-full flex flex-col items-center justify-center text-ink bg-sand\'><div class=\'font-display italic text-[10rem] leading-none text-gold/40\'>MM</div><div class=\'text-xs uppercase tracking-[0.28em] text-graphite mt-4\'>Headshot pending</div></div>'" />
+        </div>
+        <div class="absolute -bottom-6 -left-6 bg-white p-5 shadow-xl rounded-2xl max-w-[220px] hidden lg:block">
+          <div class="text-gold text-base mb-1">★★★★★</div>
+          <p class="text-xs text-graphite leading-relaxed">"The best real estate experience of our lives."</p>
+          <p class="text-[10px] uppercase tracking-[0.22em] text-ink mt-2 font-medium">Recent Garden City Client</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- QUICK ACTIONS -->
+<section class="bg-white border-y hairline">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 py-10">
+    <div class="grid md:grid-cols-3 gap-5">
+
+      <a href="#listings" class="group flex items-center gap-5 p-6 hover:bg-cream transition rounded-xl">
+        <div class="w-14 h-14 rounded-full bg-ink text-white flex items-center justify-center shrink-0">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        </div>
+        <div>
+          <p class="font-display text-xl text-ink">Search Active Homes</p>
+          <p class="text-sm text-graphite mt-0.5">Garden City, Mineola, and surrounding villages.</p>
+        </div>
+      </a>
+
+      <a href="#valuation" class="group flex items-center gap-5 p-6 hover:bg-cream transition rounded-xl">
+        <div class="w-14 h-14 rounded-full bg-gold text-white flex items-center justify-center shrink-0">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>
+        </div>
+        <div>
+          <p class="font-display text-xl text-ink">What Is My Home Worth?</p>
+          <p class="text-sm text-graphite mt-0.5">Free, no-obligation market valuation.</p>
+        </div>
+      </a>
+
+      <a href="#contact" class="group flex items-center gap-5 p-6 hover:bg-cream transition rounded-xl">
+        <div class="w-14 h-14 rounded-full bg-elliman text-white flex items-center justify-center shrink-0">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <div>
+          <p class="font-display text-xl text-ink">Talk to Michelle</p>
+          <p class="text-sm text-graphite mt-0.5">(516) 306-4134 or schedule online.</p>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED LISTINGS (active for sale, with prices) -->
+<section id="listings" class="bg-white py-20 lg:py-24">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12 reveal">
+      <div>
+        <span class="pill pill-gold mb-4">Active Listings</span>
+        <h2 class="font-display text-4xl md:text-5xl lg:text-6xl text-ink leading-[1.05] mt-3">Available now in <em class="italic">Nassau County.</em></h2>
+      </div>
+      <a href="https://www.zillow.com/profile/Michelle%20F.%20McArdle" target="_blank" rel="noopener" class="text-sm text-graphite hover:text-ink underline underline-offset-4">View all 3 active listings  →</a>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+
+      <article class="listing-card bg-white">
+        <div class="relative overflow-hidden aspect-[4/3] bg-cream">
+          <img src="https://photos.zillowstatic.com/fp/d18f93e059531b67a1be66b91f2aafd7-cc_ft_1344.webp" alt="146 Kildare Road" class="listing-img w-full h-full object-cover" />
+          <div class="absolute top-4 left-4 pill pill-dark">For Sale</div>
+        </div>
+        <div class="pt-6">
+          <div class="flex items-baseline justify-between">
+            <p class="font-display text-3xl text-ink">$699,000</p>
+            <p class="text-xs uppercase tracking-[0.22em] text-gold">Garden City</p>
+          </div>
+          <h3 class="mt-3 text-lg text-ink font-medium">1107 Cross Bay Boulevard</h3>
+          <p class="text-sm text-graphite">Broad Channel, NY 11693</p>
+          <div class="mt-5 pt-5 border-t hairline flex items-center gap-5 text-sm text-graphite">
+            <span class="flex items-center gap-1.5"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 4v16M22 4v16M2 9h20M5 9v3a2 2 0 002 2h10a2 2 0 002-2V9"/></svg> 3 bed</span>
+            <span class="flex items-center gap-1.5"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 6V4a2 2 0 014 0v2M3 10h18l-2 10H5z"/></svg> 2 bath</span>
+            <span class="flex items-center gap-1.5"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> 1,224 sf</span>
+          </div>
+          <a href="#contact" class="mt-5 inline-flex w-full justify-center btn-outline px-5 py-3 text-sm font-medium">Inquire</a>
+        </div>
+      </article>
+
+      <article class="listing-card bg-white">
+        <div class="relative overflow-hidden aspect-[4/3] bg-cream">
+          <img src="https://photos.zillowstatic.com/fp/e447aa8e4dcdbf9f5ca1ebd96b9e6167-cc_ft_1344.webp" alt="4 Birchwood Court #2P" class="listing-img w-full h-full object-cover" />
+          <div class="absolute top-4 left-4 pill pill-dark">For Sale</div>
+        </div>
+        <div class="pt-6">
+          <div class="flex items-baseline justify-between">
+            <p class="font-display text-3xl text-ink">$259,000</p>
+            <p class="text-xs uppercase tracking-[0.22em] text-gold">Mineola</p>
+          </div>
+          <h3 class="mt-3 text-lg text-ink font-medium">4 Birchwood Court, #2P</h3>
+          <p class="text-sm text-graphite">Mineola, NY 11501</p>
+          <div class="mt-5 pt-5 border-t hairline flex items-center gap-5 text-sm text-graphite">
+            <span class="flex items-center gap-1.5"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 4v16M22 4v16M2 9h20M5 9v3a2 2 0 002 2h10a2 2 0 002-2V9"/></svg> 1 bed</span>
+            <span class="flex items-center gap-1.5"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 6V4a2 2 0 014 0v2M3 10h18l-2 10H5z"/></svg> 1 bath</span>
+            <span class="flex items-center gap-1.5"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> 600 sf</span>
+          </div>
+          <a href="#contact" class="mt-5 inline-flex w-full justify-center btn-outline px-5 py-3 text-sm font-medium">Inquire</a>
+        </div>
+      </article>
+
+      <article class="listing-card bg-white">
+        <div class="relative overflow-hidden aspect-[4/3] bg-cream">
+          <img src="https://photos.zillowstatic.com/fp/44b06c492d7bb29748dabd9a9c53cfc0-cc_ft_1344.webp" alt="2 Birchwood Court #5H" class="listing-img w-full h-full object-cover" />
+          <div class="absolute top-4 left-4 pill pill-dark">For Sale</div>
+        </div>
+        <div class="pt-6">
+          <div class="flex items-baseline justify-between">
+            <p class="font-display text-3xl text-ink">$349,999</p>
+            <p class="text-xs uppercase tracking-[0.22em] text-gold">Mineola</p>
+          </div>
+          <h3 class="mt-3 text-lg text-ink font-medium">2 Birchwood Court, #5H</h3>
+          <p class="text-sm text-graphite">Mineola, NY 11501</p>
+          <div class="mt-5 pt-5 border-t hairline flex items-center gap-5 text-sm text-graphite">
+            <span class="flex items-center gap-1.5"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 4v16M22 4v16M2 9h20M5 9v3a2 2 0 002 2h10a2 2 0 002-2V9"/></svg> 2 bed</span>
+            <span class="flex items-center gap-1.5"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 6V4a2 2 0 014 0v2M3 10h18l-2 10H5z"/></svg> 1 bath</span>
+            <span class="flex items-center gap-1.5"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> 800 sf</span>
+          </div>
+          <a href="#contact" class="mt-5 inline-flex w-full justify-center btn-outline px-5 py-3 text-sm font-medium">Inquire</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- RECENTLY SOLD -->
+<section id="sold" class="bg-cream py-20 lg:py-24">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12 reveal">
+      <div>
+        <span class="pill pill-gold mb-4">Sold by Michelle</span>
+        <h2 class="font-display text-4xl md:text-5xl lg:text-6xl text-ink leading-[1.05] mt-3">A <em class="italic">portfolio</em> of closings.</h2>
+      </div>
+      <p class="text-sm text-graphite max-w-md">A small sample from the 436 transactions Michelle has closed across Garden City, Mineola, Floral Park, Rockville Centre, and the North Shore.</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
+
+      <article class="listing-card group">
+        <div class="relative overflow-hidden aspect-[4/3] bg-sand rounded-xl">
+          <img src="https://photos.zillowstatic.com/fp/d18f93e059531b67a1be66b91f2aafd7-cc_ft_1344.webp" alt="146 Kildare Road" class="listing-img w-full h-full object-cover" />
+          <div class="absolute top-3 left-3 pill pill-sold">Sold</div>
+        </div>
+        <div class="pt-4 px-1">
+          <h3 class="text-sm font-medium text-ink leading-tight">146 Kildare Road</h3>
+          <p class="text-xs text-graphite mt-0.5">Garden City  ·  Estates</p>
+        </div>
+      </article>
+
+      <article class="listing-card group">
+        <div class="relative overflow-hidden aspect-[4/3] bg-sand rounded-xl">
+          <img src="https://photos.zillowstatic.com/fp/e447aa8e4dcdbf9f5ca1ebd96b9e6167-cc_ft_1344.webp" alt="4 Birchwood Court" class="listing-img w-full h-full object-cover" />
+          <div class="absolute top-3 left-3 pill pill-sold">Sold</div>
+        </div>
+        <div class="pt-4 px-1">
+          <h3 class="text-sm font-medium text-ink leading-tight">4 Birchwood Court, #4J</h3>
+          <p class="text-xs text-graphite mt-0.5">Mineola</p>
+        </div>
+      </article>
+
+      <article class="listing-card group">
+        <div class="relative overflow-hidden aspect-[4/3] bg-sand rounded-xl">
+          <img src="https://photos.zillowstatic.com/fp/44b06c492d7bb29748dabd9a9c53cfc0-cc_ft_1344.webp" alt="101 Lincoln Avenue" class="listing-img w-full h-full object-cover" />
+          <div class="absolute top-3 left-3 pill pill-sold">Sold</div>
+        </div>
+        <div class="pt-4 px-1">
+          <h3 class="text-sm font-medium text-ink leading-tight">101 Lincoln Avenue, #4K</h3>
+          <p class="text-xs text-graphite mt-0.5">Mineola</p>
+        </div>
+      </article>
+
+      <article class="listing-card group">
+        <div class="relative overflow-hidden aspect-[4/3] bg-sand rounded-xl">
+          <img src="https://photos.zillowstatic.com/fp/7988e13879a026659bf569dc7c1d1d3b-cc_ft_1344.webp" alt="106 S Village Avenue" class="listing-img w-full h-full object-cover" />
+          <div class="absolute top-3 left-3 pill pill-sold">Sold</div>
+        </div>
+        <div class="pt-4 px-1">
+          <h3 class="text-sm font-medium text-ink leading-tight">106 S Village Avenue, #1D</h3>
+          <p class="text-xs text-graphite mt-0.5">Rockville Centre</p>
+        </div>
+      </article>
+
+      <article class="listing-card group">
+        <div class="relative overflow-hidden aspect-[4/3] bg-sand rounded-xl">
+          <img src="https://photos.zillowstatic.com/fp/1c6a5878d186e895aff21167d543477c-cc_ft_1344.webp" alt="62 Hudson Road" class="listing-img w-full h-full object-cover" />
+          <div class="absolute top-3 left-3 pill pill-sold">Sold</div>
+        </div>
+        <div class="pt-4 px-1">
+          <h3 class="text-sm font-medium text-ink leading-tight">62 Hudson Road</h3>
+          <p class="text-xs text-graphite mt-0.5">Floral Park</p>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="mt-10 text-center">
+      <a href="https://www.zillow.com/profile/Michelle%20F.%20McArdle" target="_blank" rel="noopener" class="btn-outline px-6 py-3 text-sm font-medium inline-flex items-center gap-2">
+        View the full 436-transaction history
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- HOME VALUATION CTA -->
+<section id="valuation" class="relative bg-ink text-white py-20 lg:py-28 overflow-hidden">
+  <div class="absolute inset-0 opacity-20">
+    <img src="https://photos.zillowstatic.com/fp/d18f93e059531b67a1be66b91f2aafd7-cc_ft_1536.webp" alt="" class="w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/40"></div>
+  </div>
+  <div class="relative max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-12 gap-12">
+
+    <div class="lg:col-span-6 reveal">
+      <span class="pill pill-gold mb-5">Free  ·  No obligation</span>
+      <h2 class="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.02] mt-3">What is your home <em class="italic text-goldLight">actually worth?</em></h2>
+      <p class="mt-7 text-lg text-white/85 max-w-lg leading-relaxed">
+        Most online valuations are off by 5 to 20 percent. Michelle delivers a real, hand-prepared CMA based on actual comparable sales in your specific block. No fee. No obligation. Usually back within 48 hours.
+      </p>
+      <ul class="mt-8 space-y-3 text-white/85 text-sm">
+        <li class="flex items-start gap-3"><span class="text-goldLight mt-1">✓</span>Real comparable sales, not Zillow's algorithm</li>
+        <li class="flex items-start gap-3"><span class="text-goldLight mt-1">✓</span>Specific to your block and home condition</li>
+        <li class="flex items-start gap-3"><span class="text-goldLight mt-1">✓</span>Delivered as a PDF you can share with family</li>
+        <li class="flex items-start gap-3"><span class="text-goldLight mt-1">✓</span>Zero pressure to list, ever</li>
+      </ul>
+    </div>
+
+    <div class="lg:col-span-6 reveal">
+      <form action="https://formsubmit.co/buildwithzeroto@gmail.com" method="POST" class="bg-white text-ink p-8 lg:p-10 rounded-2xl">
+        <input type="hidden" name="_subject" value="HOME VALUATION REQUEST · Michelle McArdle spec site" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_next" value="https://zeroto.site/work/mcardle/?valuation=sent" />
+
+        <p class="text-xs uppercase tracking-[0.22em] text-graphite mb-6">Request your free CMA</p>
+
+        <div class="space-y-4">
+          <label class="block">
+            <span class="text-xs text-graphite">Property address</span>
+            <input required name="address" type="text" placeholder="123 Cathedral Avenue, Garden City NY" class="mt-1.5 w-full bg-cream/50 border hairline px-4 py-3 outline-none focus:border-ink rounded-lg text-base" />
+          </label>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <label class="block">
+              <span class="text-xs text-graphite">Your name</span>
+              <input required name="name" type="text" class="mt-1.5 w-full bg-cream/50 border hairline px-4 py-3 outline-none focus:border-ink rounded-lg text-base" />
+            </label>
+            <label class="block">
+              <span class="text-xs text-graphite">Phone</span>
+              <input name="phone" type="tel" class="mt-1.5 w-full bg-cream/50 border hairline px-4 py-3 outline-none focus:border-ink rounded-lg text-base" />
+            </label>
+          </div>
+          <label class="block">
+            <span class="text-xs text-graphite">Email</span>
+            <input required name="email" type="email" class="mt-1.5 w-full bg-cream/50 border hairline px-4 py-3 outline-none focus:border-ink rounded-lg text-base" />
+          </label>
+          <label class="block">
+            <span class="text-xs text-graphite">When are you thinking about selling?</span>
+            <select name="timeline" class="mt-1.5 w-full bg-cream/50 border hairline px-4 py-3 outline-none focus:border-ink rounded-lg text-base">
+              <option>Just curious</option>
+              <option>Within 3 months</option>
+              <option>3 to 6 months</option>
+              <option>6 to 12 months</option>
+              <option>More than a year</option>
+            </select>
+          </label>
+        </div>
+
+        <button type="submit" class="mt-7 w-full btn-gold px-6 py-4 text-sm font-medium inline-flex items-center justify-center gap-2 rounded-lg">
+          Send my free valuation request
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </button>
+        <p class="mt-4 text-[11px] text-graphite text-center">Replied to personally by Michelle within 48 hours.</p>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<!-- AREAS SERVED -->
+<section id="areas" class="bg-white py-20 lg:py-24">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="mb-12 reveal">
+      <span class="pill pill-gold mb-4">Areas Served</span>
+      <h2 class="font-display text-4xl md:text-5xl lg:text-6xl text-ink leading-[1.05] mt-3 max-w-3xl">Local expertise in every <em class="italic">Nassau County</em> village.</h2>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+      <a href="#contact" class="area-card group flex items-center justify-between p-7 border hairline hover:border-ink rounded-xl">
+        <div>
+          <p class="font-display text-2xl text-ink">Garden City</p>
+          <p class="text-sm text-graphite mt-1">Estates  ·  Central  ·  Western</p>
+        </div>
+        <span class="area-arrow text-gold">→</span>
+      </a>
+
+      <a href="#contact" class="area-card group flex items-center justify-between p-7 border hairline hover:border-ink rounded-xl">
+        <div>
+          <p class="font-display text-2xl text-ink">Mineola</p>
+          <p class="text-sm text-graphite mt-1">Co-ops, condos, single family</p>
+        </div>
+        <span class="area-arrow text-gold">→</span>
+      </a>
+
+      <a href="#contact" class="area-card group flex items-center justify-between p-7 border hairline hover:border-ink rounded-xl">
+        <div>
+          <p class="font-display text-2xl text-ink">Floral Park</p>
+          <p class="text-sm text-graphite mt-1">North Floral Park  ·  Bellerose border</p>
+        </div>
+        <span class="area-arrow text-gold">→</span>
+      </a>
+
+      <a href="#contact" class="area-card group flex items-center justify-between p-7 border hairline hover:border-ink rounded-xl">
+        <div>
+          <p class="font-display text-2xl text-ink">Rockville Centre</p>
+          <p class="text-sm text-graphite mt-1">Village  ·  Hewlett Bay Park</p>
+        </div>
+        <span class="area-arrow text-gold">→</span>
+      </a>
+
+      <a href="#contact" class="area-card group flex items-center justify-between p-7 border hairline hover:border-ink rounded-xl">
+        <div>
+          <p class="font-display text-2xl text-ink">Williston Park</p>
+          <p class="text-sm text-graphite mt-1">East Williston  ·  Roslyn Heights</p>
+        </div>
+        <span class="area-arrow text-gold">→</span>
+      </a>
+
+      <a href="#contact" class="area-card group flex items-center justify-between p-7 border hairline hover:border-ink rounded-xl">
+        <div>
+          <p class="font-display text-2xl text-ink">Westbury  ·  Hempstead</p>
+          <p class="text-sm text-graphite mt-1">Carle Place  ·  New Hyde Park</p>
+        </div>
+        <span class="area-arrow text-gold">→</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT MICHELLE (FACE AGAIN) -->
+<section id="about" class="bg-cream py-20 lg:py-28">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-12 gap-14 items-start">
+
+    <div class="lg:col-span-5 reveal">
+      <div class="relative">
+        <div class="aspect-[4/5] bg-sand overflow-hidden rounded-2xl">
+          <img src="https://photos.zillowstatic.com/fp/43652320eb8ce830338bf9fe891e730e-h_l.jpg" alt="Michelle McArdle" class="w-full h-full object-cover"
+            onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'w-full h-full flex items-center justify-center font-display italic text-[12rem] text-gold/40\'>MM</div>'" />
+        </div>
+        <div class="absolute -bottom-6 -right-6 bg-ink text-white p-6 max-w-[220px] rounded-2xl shadow-xl hidden md:block">
+          <p class="font-display text-3xl text-goldLight leading-tight">10 years</p>
+          <p class="text-xs uppercase tracking-[0.22em] mt-2 text-white/70">#1 in Garden City Office</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="lg:col-span-7 reveal">
+      <span class="pill pill-gold mb-4">About Michelle</span>
+      <h2 class="font-display text-4xl md:text-5xl lg:text-6xl text-ink leading-[1.05] mt-3">
+        Eighteen years of <em class="italic">closing Long Island</em>.
+      </h2>
+
+      <div class="mt-8 space-y-5 text-lg text-graphite leading-relaxed">
+        <p>Michelle McArdle has led the Douglas Elliman Garden City office in production for ten consecutive years. Since 2021 she has been recognized annually in the Wall Street Journal Tom Ferry and Real Trends report as one of the top 1.5% of real estate agents in the country.</p>
+        <p>In 2022 and 2023 she ranked among the top 100 agents in all of New York State. Most of her business comes from referrals, and most of those referrals come from clients she closed years ago. That repeat business is the only number she really tracks.</p>
+      </div>
+
+      <div class="mt-10 grid grid-cols-2 gap-x-8 gap-y-3">
+        <div class="flex items-center gap-3 text-sm text-ink"><span class="w-1.5 h-1.5 rounded-full bg-gold"></span>Buyer representation</div>
+        <div class="flex items-center gap-3 text-sm text-ink"><span class="w-1.5 h-1.5 rounded-full bg-gold"></span>Listing strategy</div>
+        <div class="flex items-center gap-3 text-sm text-ink"><span class="w-1.5 h-1.5 rounded-full bg-gold"></span>Luxury homes</div>
+        <div class="flex items-center gap-3 text-sm text-ink"><span class="w-1.5 h-1.5 rounded-full bg-gold"></span>First-time homebuyers</div>
+        <div class="flex items-center gap-3 text-sm text-ink"><span class="w-1.5 h-1.5 rounded-full bg-gold"></span>Relocation</div>
+        <div class="flex items-center gap-3 text-sm text-ink"><span class="w-1.5 h-1.5 rounded-full bg-gold"></span>Investment property</div>
+        <div class="flex items-center gap-3 text-sm text-ink"><span class="w-1.5 h-1.5 rounded-full bg-gold"></span>New construction</div>
+        <div class="flex items-center gap-3 text-sm text-ink"><span class="w-1.5 h-1.5 rounded-full bg-gold"></span>Staging consultation</div>
+      </div>
+
+      <div class="mt-10 flex flex-wrap gap-3">
+        <a href="#contact" class="btn-primary px-6 py-3 text-sm font-medium">Schedule a Consultation</a>
+        <a href="tel:+15163064134" class="btn-outline px-6 py-3 text-sm font-medium">Call (516) 306-4134</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROCESS: Buyer + Seller side by side -->
+<section class="bg-white py-20 lg:py-24">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="text-center mb-14 reveal max-w-3xl mx-auto">
+      <span class="pill pill-gold mb-4">How Michelle Works</span>
+      <h2 class="font-display text-4xl md:text-5xl lg:text-6xl text-ink leading-[1.05] mt-3">Two journeys. <em class="italic">One agent.</em></h2>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-8">
+
+      <div class="border hairline p-8 lg:p-10 rounded-2xl reveal">
+        <p class="text-xs uppercase tracking-[0.28em] text-gold mb-5">For Buyers</p>
+        <h3 class="font-display text-3xl text-ink leading-tight">Your search, structured.</h3>
+        <ol class="mt-8 space-y-6">
+          <li class="flex gap-5">
+            <span class="font-display text-2xl text-gold w-8 shrink-0">01</span>
+            <div>
+              <p class="font-medium text-ink">Discovery call</p>
+              <p class="text-sm text-graphite mt-1">A 30-minute conversation to understand neighborhood, school district, must-haves, and timeline.</p>
+            </div>
+          </li>
+          <li class="flex gap-5">
+            <span class="font-display text-2xl text-gold w-8 shrink-0">02</span>
+            <div>
+              <p class="font-medium text-ink">Curated showings</p>
+              <p class="text-sm text-graphite mt-1">You see only homes worth seeing. No 80-listing slogs through MLS.</p>
+            </div>
+          </li>
+          <li class="flex gap-5">
+            <span class="font-display text-2xl text-gold w-8 shrink-0">03</span>
+            <div>
+              <p class="font-medium text-ink">Offer strategy</p>
+              <p class="text-sm text-graphite mt-1">When the right one shows up, Michelle structures an offer the seller respects without overpaying.</p>
+            </div>
+          </li>
+          <li class="flex gap-5">
+            <span class="font-display text-2xl text-gold w-8 shrink-0">04</span>
+            <div>
+              <p class="font-medium text-ink">Closing coordination</p>
+              <p class="text-sm text-graphite mt-1">Inspections, attorney, mortgage, title. You sign the papers. She does the rest.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <div class="bg-ink text-white p-8 lg:p-10 rounded-2xl reveal">
+        <p class="text-xs uppercase tracking-[0.28em] text-goldLight mb-5">For Sellers</p>
+        <h3 class="font-display text-3xl leading-tight">Your home, sold for more.</h3>
+        <ol class="mt-8 space-y-6">
+          <li class="flex gap-5">
+            <span class="font-display text-2xl text-goldLight w-8 shrink-0">01</span>
+            <div>
+              <p class="font-medium">Walk-through valuation</p>
+              <p class="text-sm text-white/70 mt-1">Michelle visits, walks the property, and tells you what it is honestly worth and what it could be worth.</p>
+            </div>
+          </li>
+          <li class="flex gap-5">
+            <span class="font-display text-2xl text-goldLight w-8 shrink-0">02</span>
+            <div>
+              <p class="font-medium">Prep and stage</p>
+              <p class="text-sm text-white/70 mt-1">Photography, staging consultation, and the small fixes that pay back ten to one.</p>
+            </div>
+          </li>
+          <li class="flex gap-5">
+            <span class="font-display text-2xl text-goldLight w-8 shrink-0">03</span>
+            <div>
+              <p class="font-medium">Strategic launch</p>
+              <p class="text-sm text-white/70 mt-1">Listed at the right number, marketed across Douglas Elliman's network, brokers' open within the first week.</p>
+            </div>
+          </li>
+          <li class="flex gap-5">
+            <span class="font-display text-2xl text-goldLight w-8 shrink-0">04</span>
+            <div>
+              <p class="font-medium">Negotiate and close</p>
+              <p class="text-sm text-white/70 mt-1">Multiple offers when possible. The right offer when it matters. Closed on your timeline.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS / TESTIMONIALS -->
+<section id="reviews" class="bg-cream py-20 lg:py-24">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+    <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12 reveal">
+      <div>
+        <span class="pill pill-gold mb-4">In Their Words</span>
+        <h2 class="font-display text-4xl md:text-5xl lg:text-6xl text-ink leading-[1.05] mt-3">176 five-star reviews. <em class="italic">Zero exceptions.</em></h2>
+      </div>
+      <div class="text-right">
+        <div class="text-gold text-2xl">★★★★★</div>
+        <p class="text-sm text-graphite mt-1">5.0 average rating, Zillow verified</p>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+
+      <figure class="bg-white p-8 lg:p-10 rounded-2xl reveal">
+        <div class="text-gold text-xl mb-5">★★★★★</div>
+        <blockquote class="font-display text-2xl leading-snug text-ink italic">
+          "This review is long overdue. Michelle helped sell our Mineola house. It was our first home, and as such, our first sale. Her professionalism and market knowledge made what should have been overwhelming feel easy."
+        </blockquote>
+        <figcaption class="mt-7 pt-6 border-t hairline">
+          <p class="text-sm font-medium text-ink">Michelle Santulin</p>
+          <p class="text-xs text-graphite mt-1">Sold a Single Family home in Mineola</p>
+        </figcaption>
+      </figure>
+
+      <figure class="bg-white p-8 lg:p-10 rounded-2xl reveal">
+        <div class="text-gold text-xl mb-5">★★★★★</div>
+        <blockquote class="font-display text-2xl leading-snug text-ink italic">
+          "Michelle was a pleasure to work with. It truly felt like she was looking out for us on both the buying and selling side. Very helpful, patient, and incredibly responsive throughout the entire process."
+        </blockquote>
+        <figcaption class="mt-7 pt-6 border-t hairline">
+          <p class="text-sm font-medium text-ink">Recent Client</p>
+          <p class="text-xs text-graphite mt-1">Bought a condo in Mineola, 2025</p>
+        </figcaption>
+      </figure>
+
+      <figure class="bg-white p-8 lg:p-10 rounded-2xl reveal">
+        <div class="text-gold text-xl mb-5">★★★★★</div>
+        <blockquote class="font-display text-2xl leading-snug text-ink italic">
+          "We recently sold our home with Michelle and we could not be more pleased. From the first conversation to the closing table, everything was handled with care."
+        </blockquote>
+        <figcaption class="mt-7 pt-6 border-t hairline">
+          <p class="text-sm font-medium text-ink">Recent Client</p>
+          <p class="text-xs text-graphite mt-1">Sold a Single Family home in Garden City, 2025</p>
+        </figcaption>
+      </figure>
+
+    </div>
+
+    <div class="mt-12 text-center">
+      <a href="https://www.zillow.com/profile/Michelle%20F.%20McArdle#reviews" target="_blank" rel="noopener" class="btn-outline px-6 py-3 text-sm font-medium inline-flex items-center gap-2">
+        Read all 176 reviews on Zillow
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="bg-white py-20 lg:py-28">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+
+    <div class="lg:col-span-5 reveal">
+      <div class="aspect-[4/5] bg-sand overflow-hidden rounded-2xl mb-8 max-w-md">
+        <img src="https://photos.zillowstatic.com/fp/43652320eb8ce830338bf9fe891e730e-h_l.jpg" alt="Michelle McArdle" class="w-full h-full object-cover"
+          onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'w-full h-full flex items-center justify-center font-display italic text-[10rem] text-gold/40\'>MM</div>'" />
+      </div>
+
+      <span class="pill pill-gold mb-4">Reach Out</span>
+      <h2 class="font-display text-4xl md:text-5xl text-ink leading-[1.05] mt-3">Let's <em class="italic">talk.</em></h2>
+      <p class="mt-6 text-graphite leading-relaxed">
+        Whether you are six months from a move, six weeks, or six years, the first conversation is on Michelle. No fee, no pressure, no commitment.
+      </p>
+
+      <div class="mt-10 space-y-4">
+        <a href="tel:+15163064134" class="flex items-center gap-4 group">
+          <span class="w-12 h-12 rounded-full bg-ink text-white flex items-center justify-center group-hover:bg-gold transition">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+          </span>
+          <div>
+            <p class="text-xs uppercase tracking-[0.22em] text-graphite">Call or text</p>
+            <p class="text-lg text-ink font-medium">(516) 306-4134</p>
+          </div>
+        </a>
+        <a href="mailto:michelle.mcardle@elliman.com" class="flex items-center gap-4 group">
+          <span class="w-12 h-12 rounded-full bg-ink text-white flex items-center justify-center group-hover:bg-gold transition">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </span>
+          <div>
+            <p class="text-xs uppercase tracking-[0.22em] text-graphite">Email</p>
+            <p class="text-base text-ink font-medium break-all">michelle.mcardle@elliman.com</p>
+          </div>
+        </a>
+        <div class="flex items-center gap-4">
+          <span class="w-12 h-12 rounded-full bg-ink text-white flex items-center justify-center">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </span>
+          <div>
+            <p class="text-xs uppercase tracking-[0.22em] text-graphite">Office</p>
+            <p class="text-base text-ink">Douglas Elliman, Garden City</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lg:col-span-7 reveal">
+      <form action="https://formsubmit.co/buildwithzeroto@gmail.com" method="POST" class="bg-cream p-8 lg:p-12 rounded-2xl">
+        <input type="hidden" name="_subject" value="New contact form · Michelle McArdle spec site" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_next" value="https://zeroto.site/work/mcardle/?contact=sent" />
+
+        <p class="text-xs uppercase tracking-[0.22em] text-graphite mb-6">Send Michelle a message</p>
+
+        <div class="space-y-5">
+          <div class="grid sm:grid-cols-2 gap-5">
+            <label class="block">
+              <span class="text-xs text-graphite">First name</span>
+              <input required name="first" type="text" class="mt-1.5 w-full bg-white border hairline px-4 py-3.5 outline-none focus:border-ink rounded-lg" />
+            </label>
+            <label class="block">
+              <span class="text-xs text-graphite">Last name</span>
+              <input required name="last" type="text" class="mt-1.5 w-full bg-white border hairline px-4 py-3.5 outline-none focus:border-ink rounded-lg" />
+            </label>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-5">
+            <label class="block">
+              <span class="text-xs text-graphite">Email</span>
+              <input required name="email" type="email" class="mt-1.5 w-full bg-white border hairline px-4 py-3.5 outline-none focus:border-ink rounded-lg" />
+            </label>
+            <label class="block">
+              <span class="text-xs text-graphite">Phone</span>
+              <input name="phone" type="tel" class="mt-1.5 w-full bg-white border hairline px-4 py-3.5 outline-none focus:border-ink rounded-lg" />
+            </label>
+          </div>
+          <label class="block">
+            <span class="text-xs text-graphite">I am interested in</span>
+            <select name="interest" class="mt-1.5 w-full bg-white border hairline px-4 py-3.5 outline-none focus:border-ink rounded-lg">
+              <option>Selling my home</option>
+              <option>Buying a home</option>
+              <option>Both, eventually</option>
+              <option>An honest market read</option>
+              <option>Just exploring</option>
+            </select>
+          </label>
+          <label class="block">
+            <span class="text-xs text-graphite">Tell Michelle a bit about your timing</span>
+            <textarea name="message" rows="4" class="mt-1.5 w-full bg-white border hairline px-4 py-3.5 outline-none focus:border-ink rounded-lg" placeholder="Looking in Garden City Estates, hoping to close before next school year..."></textarea>
+          </label>
+        </div>
+
+        <button type="submit" class="mt-7 w-full btn-primary px-6 py-4 text-sm font-medium rounded-lg">Send Message</button>
+        <p class="mt-4 text-[11px] text-graphite text-center">Michelle personally responds within 24 hours.</p>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-ink text-white">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 py-14">
+    <div class="grid md:grid-cols-4 gap-10">
+
+      <div class="md:col-span-2">
+        <p class="font-display text-3xl text-white mb-3">Michelle McArdle</p>
+        <p class="text-sm text-white/70 leading-relaxed max-w-sm">Licensed Real Estate Salesperson with Douglas Elliman Real Estate. Garden City office. Serving Nassau County and Western Long Island since 2007.</p>
+        <div class="mt-6 text-sm text-white/70 space-y-1">
+          <p>(516) 306-4134</p>
+          <p>michelle.mcardle@elliman.com</p>
+        </div>
+      </div>
+
+      <div>
+        <p class="text-xs uppercase tracking-[0.22em] text-goldLight mb-5">Explore</p>
+        <ul class="space-y-3 text-sm text-white/80">
+          <li><a href="#listings" class="hover:text-white">Active Listings</a></li>
+          <li><a href="#sold" class="hover:text-white">Recently Sold</a></li>
+          <li><a href="#valuation" class="hover:text-white">Free Home Valuation</a></li>
+          <li><a href="#areas" class="hover:text-white">Areas Served</a></li>
+          <li><a href="#about" class="hover:text-white">About Michelle</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="text-xs uppercase tracking-[0.22em] text-goldLight mb-5">Brokerage</p>
+        <ul class="space-y-3 text-sm text-white/80">
+          <li>Douglas Elliman Real Estate</li>
+          <li>Garden City Office</li>
+          <li>Licensed NY Real Estate Brokerage</li>
+          <li>Equal Housing Opportunity</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="mt-14 pt-7 border-t border-white/10 flex flex-col sm:flex-row justify-between gap-3 text-xs text-white/45">
+      <p>© 2026 Michelle McArdle. All rights reserved. Each Douglas Elliman office is independently owned and operated.</p>
+      <p>Concept site by <a href="https://zeroto.site" class="hover:text-goldLight underline underline-offset-2">ZeroTo.site</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  const onScroll = () => { nav.classList.toggle('scrolled', window.scrollY > 30); };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }});
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

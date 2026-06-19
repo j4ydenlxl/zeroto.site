@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Blackbeard Barbershop — Jericho, NY</title>
+<meta name="description" content="Blackbeard Barbershop. Old school cuts, straight razor shaves, beard work. Al and Sal in Jericho, NY. Walk in or call (516) 938-4776." />
+<meta name="theme-color" content="#0a0807" />
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Blackbeard Barbershop" />
+<meta property="og:description" content="Old school cuts. Hot towel shaves. Jericho, NY." />
+<meta property="og:video" content="hero.mp4" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,700;1,6..96,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        coal: '#0a0807',
+        soot: '#15110e',
+        leather: '#1c1612',
+        bone: '#efe6d4',
+        cream: '#d9cdb1',
+        brass: '#b8965f',
+        brassDeep: '#86663a',
+        rust: '#a04a2a',
+      },
+      fontFamily: {
+        display: ['"Bodoni Moda"', 'serif'],
+        body: ['Inter', 'ui-sans-serif', 'system-ui'],
+      },
+    },
+  },
+};
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body { background: #0a0807; color: #efe6d4; font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  .font-display { font-family: 'Bodoni Moda', serif; letter-spacing: -0.005em; }
+
+  /* Subtle grain over the dark background */
+  body::before {
+    content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 1; opacity: 0.05;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' /></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.8'/></svg>");
+  }
+
+  /* Hairlines */
+  .rule { border-color: rgba(239,230,212,0.12); }
+  .brass-line { background: linear-gradient(90deg, transparent, #b8965f 30%, #b8965f 70%, transparent); height: 1px; }
+
+  /* Barber pole stripe */
+  .pole-stripe {
+    background-image: repeating-linear-gradient(45deg,
+      #b8965f 0px, #b8965f 8px,
+      #efe6d4 8px, #efe6d4 16px,
+      #a04a2a 16px, #a04a2a 24px,
+      #efe6d4 24px, #efe6d4 32px);
+    height: 4px;
+  }
+
+  /* Reveals */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .9s ease, transform .9s ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  /* Hero overlay to mask any softness in the compressed video */
+  .hero-vid {
+    filter: contrast(1.08) saturate(0.92) brightness(0.92);
+  }
+
+  /* Glass for marquee + cards */
+  .glass {
+    background: rgba(239,230,212,0.04);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(239,230,212,0.10);
+    box-shadow: inset 0 1px 0 rgba(239,230,212,0.08);
+  }
+
+  /* Reviews marquee — perpetual horizontal scroll */
+  @keyframes marqueeX { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .marquee-track { animation: marqueeX 90s linear infinite; will-change: transform; }
+  .marquee-track:hover { animation-play-state: paused; }
+
+  /* Nav */
+  .nav { transition: background-color .3s ease, border-color .3s ease, padding .3s ease; }
+  .nav.scrolled { background: rgba(10,8,7,0.85); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(239,230,212,0.08); }
+
+  /* Buttons */
+  .btn-brass { background: #b8965f; color: #0a0807; transition: background .25s ease, transform .25s ease; }
+  .btn-brass:hover { background: #d4af74; transform: translateY(-1px); }
+  .btn-outline-bone { border: 1px solid rgba(239,230,212,0.35); color: #efe6d4; transition: border-color .25s ease, background-color .25s ease; }
+  .btn-outline-bone:hover { border-color: #efe6d4; background: rgba(239,230,212,0.06); }
+
+  /* Menu rows */
+  .menu-row { display: grid; grid-template-columns: 1fr auto; gap: 1.5rem; align-items: baseline; padding: 1.5rem 0; border-bottom: 1px dashed rgba(239,230,212,0.14); }
+  .menu-row:last-child { border-bottom: none; }
+  .menu-row .dots { position: relative; }
+  .menu-row .label { display: block; font-family: 'Bodoni Moda', serif; font-size: 2rem; color: #efe6d4; }
+  .menu-row .desc { color: rgba(239,230,212,0.65); font-size: 0.9rem; margin-top: 0.35rem; max-width: 36ch; }
+  .menu-row .price { font-family: 'Bodoni Moda', serif; font-size: 2.25rem; color: #b8965f; line-height: 1; }
+  .menu-row .price small { font-size: 0.9rem; vertical-align: super; margin-right: 0.15rem; color: rgba(184,150,95,0.7); }
+
+  ::selection { background: #b8965f; color: #0a0807; }
+
+  @media (max-width: 640px) {
+    .menu-row .label { font-size: 1.5rem; }
+    .menu-row .price { font-size: 1.6rem; }
+  }
+</style>
+</head>
+<body class="relative">
+
+<!-- NAV -->
+<header id="nav" class="nav fixed top-0 left-0 right-0 z-50 px-6 lg:px-10 py-5">
+  <div class="max-w-7xl mx-auto flex items-center justify-between">
+    <a href="#top" class="flex items-center gap-2.5">
+      <span class="font-display text-2xl text-bone tracking-wide">Blackbeard</span>
+      <span class="hidden sm:block text-[10px] uppercase tracking-[0.32em] text-bone/55 leading-none mt-1">Est. Jericho</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-7 text-sm text-bone/80">
+      <a href="#menu" class="hover:text-brass transition">Menu</a>
+      <a href="#voices" class="hover:text-brass transition">Reviews</a>
+      <a href="#visit" class="hover:text-brass transition">Visit</a>
+      <a href="tel:+15169384776" class="hover:text-brass transition">(516) 938-4776</a>
+    </nav>
+    <a href="tel:+15169384776" class="btn-brass px-5 py-2.5 text-sm font-medium">Walk In</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="top" class="relative h-[88svh] min-h-[560px] max-h-[860px] w-full overflow-hidden">
+  <div class="absolute inset-0">
+    <video id="heroVideo" class="hero-vid w-full h-full object-cover" autoplay loop muted playsinline preload="auto" poster="">
+      <source src="hero.mp4" type="video/mp4" />
+    </video>
+    <div class="absolute inset-0 bg-coal/55"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-coal/30 via-coal/35 to-coal/95"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(70%_55%_at_50%_42%,transparent,#0a0807_92%)]"></div>
+  </div>
+
+  <div class="relative z-10 h-full flex flex-col justify-between px-6 lg:px-12 pt-32 pb-12 max-w-7xl mx-auto">
+
+    <div class="flex-1 flex flex-col justify-center">
+      <div class="flex items-center gap-3 mb-7">
+        <span class="h-px w-12 bg-brass"></span>
+        <span class="text-[10px] uppercase tracking-[0.32em] text-brass">Jericho, NY  ·  Est. Locally</span>
+      </div>
+
+      <h1 class="font-display text-bone leading-[0.85] tracking-[-2px]" style="font-size: clamp(4.5rem, 16vw, 13rem);">
+        BLACKBEARD<span class="text-brass">.</span>
+      </h1>
+
+      <p class="mt-5 max-w-xl text-bone/85 text-lg md:text-xl leading-relaxed font-light">
+        Old school cuts. Hot towel shaves. Tight beards. Walk in or call ahead.
+      </p>
+
+      <div class="mt-9 flex flex-wrap items-center gap-4">
+        <a href="tel:+15169384776" class="btn-brass px-7 py-3.5 text-sm font-semibold inline-flex items-center gap-2.5">
+          Call (516) 938-4776
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.84.58 2.81.7A2 2 0 0122 16.92z"/></svg>
+        </a>
+        <a href="#menu" class="btn-outline-bone px-7 py-3.5 text-sm font-medium">See the Menu</a>
+      </div>
+    </div>
+
+    <div class="flex items-center justify-between gap-4 flex-wrap">
+      <div class="flex items-center gap-5">
+        <div class="flex items-center gap-1.5">
+          <span class="text-brass text-base">★★★★★</span>
+        </div>
+        <span class="text-bone/55 text-xs uppercase tracking-[0.22em]">Top Rated · Jericho</span>
+      </div>
+      <div class="text-bone/45 text-[10px] uppercase tracking-[0.3em]">Scroll</div>
+    </div>
+  </div>
+  <div class="pole-stripe absolute bottom-0 left-0 right-0"></div>
+</section>
+
+<!-- INTRO STRIP -->
+<section class="relative bg-coal py-20 md:py-28 px-6 lg:px-10">
+  <div class="max-w-5xl mx-auto text-center reveal">
+    <p class="text-[10px] uppercase tracking-[0.32em] text-brass mb-6">// 01 · The Shop</p>
+    <h2 class="font-display text-bone text-4xl md:text-6xl leading-[1.05]">
+      Master barbers. <em class="italic">Decades behind the chair.</em>
+    </h2>
+    <p class="mt-8 text-bone/75 text-lg leading-relaxed max-w-2xl mx-auto">
+      Al, Sal, and Arthur run the chairs at Blackbeard. Every cut is handled by a licensed barber with real craft behind it. Classic cuts, modern fades, hot towel straight razor shaves, and precision beard work. Every client gets the time and attention to leave looking sharp.
+    </p>
+    <div class="brass-line w-32 mx-auto mt-10"></div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu" class="relative bg-soot py-20 md:py-28 px-6 lg:px-10 border-y rule">
+  <div class="max-w-4xl mx-auto">
+
+    <div class="text-center mb-14 reveal">
+      <p class="text-[10px] uppercase tracking-[0.32em] text-brass mb-5">// 02 · The Menu</p>
+      <h2 class="font-display text-bone text-5xl md:text-7xl leading-[1.05]">What it costs.</h2>
+      <p class="mt-5 text-bone/65 text-sm uppercase tracking-[0.22em]">Cash or card. No hidden fees.</p>
+    </div>
+
+    <div class="reveal">
+      <div class="menu-row"><span class="label">Haircuts</span><p class="price"><small>$</small>40</p></div>
+      <div class="menu-row"><span class="label">Buzz Cuts</span><p class="price"><small>$</small>35</p></div>
+      <div class="menu-row"><span class="label">The Edge</span><p class="price"><small>$</small>25</p></div>
+      <div class="menu-row"><span class="label">The Shave</span><p class="price"><small>$</small>45</p></div>
+      <div class="menu-row"><span class="label">The Face</span><p class="price"><small>$</small>25</p></div>
+      <div class="menu-row"><span class="label">Kids — 12 &amp; Under</span><p class="price"><small>$</small>35</p></div>
+      <div class="menu-row"><span class="label">The Royal Treatment</span><p class="price"><small>$</small>120</p></div>
+    </div>
+
+    <div class="mt-12 text-center">
+      <a href="tel:+15169384776" class="btn-brass px-7 py-3.5 text-sm font-semibold inline-flex items-center gap-2.5">
+        Call to Book
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="relative bg-coal py-20 md:py-28 px-6 lg:px-10 border-t rule">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-12 reveal">
+      <p class="text-[10px] uppercase tracking-[0.32em] text-brass mb-5">// 02.5 · Inside the Shop</p>
+      <h2 class="font-display text-bone text-5xl md:text-7xl leading-[1.05]">The chair. <em class="italic">The crew.</em></h2>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 reveal">
+
+      <a href="gallery/01.jpg" target="_blank" class="group block relative aspect-square overflow-hidden rounded-xl bg-leather md:col-span-2 md:row-span-2">
+        <img src="gallery/01.jpg" alt="Al with regulars at Blackbeard Barbershop" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-105" style="filter: contrast(1.08) saturate(1.05) brightness(1.02);" onerror="this.parentNode.classList.add('gallery-empty'); this.style.display='none';" />
+        <div class="absolute inset-0 bg-gradient-to-t from-coal/60 via-transparent to-transparent"></div>
+      </a>
+
+      <a href="gallery/02.jpg" target="_blank" class="group block relative aspect-square overflow-hidden rounded-xl bg-leather">
+        <img src="gallery/02.jpg" alt="Customers at Blackbeard" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-105" style="filter: contrast(1.08) saturate(1.05) brightness(1.02);" onerror="this.parentNode.classList.add('gallery-empty'); this.style.display='none';" />
+        <div class="absolute inset-0 bg-gradient-to-t from-coal/60 via-transparent to-transparent"></div>
+      </a>
+
+      <a href="gallery/03.jpg" target="_blank" class="group block relative aspect-square overflow-hidden rounded-xl bg-leather">
+        <img src="gallery/03.jpg" alt="Kids cut at Blackbeard" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-105" style="filter: contrast(1.08) saturate(1.05) brightness(1.02);" onerror="this.parentNode.classList.add('gallery-empty'); this.style.display='none';" />
+        <div class="absolute inset-0 bg-gradient-to-t from-coal/60 via-transparent to-transparent"></div>
+      </a>
+
+      <a href="gallery/04.jpg" target="_blank" class="group block relative aspect-square overflow-hidden rounded-xl bg-leather">
+        <img src="gallery/04.jpg" alt="Kids cape at Blackbeard" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-105" style="filter: contrast(1.08) saturate(1.05) brightness(1.02);" onerror="this.parentNode.classList.add('gallery-empty'); this.style.display='none';" />
+        <div class="absolute inset-0 bg-gradient-to-t from-coal/60 via-transparent to-transparent"></div>
+      </a>
+
+      <a href="gallery/05.jpg" target="_blank" class="group block relative aspect-square overflow-hidden rounded-xl bg-leather">
+        <img src="gallery/05.jpg" alt="Hustle Never Ends, Blackbeard" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-105" style="filter: contrast(1.08) saturate(1.05) brightness(1.02);" onerror="this.parentNode.classList.add('gallery-empty'); this.style.display='none';" />
+        <div class="absolute inset-0 bg-gradient-to-t from-coal/60 via-transparent to-transparent"></div>
+      </a>
+
+    </div>
+
+    <div class="mt-10 text-center reveal">
+      <a href="https://www.google.com/maps/place/Blackbeard+Barbershop/@40.7893117,-73.5345614,17z/data=!4m6!3m5!1s0x89c281156f43e3cf:0x3054988f83079f5b!8m2!3d40.7893117!4d-73.5345614!16s%2Fg%2F1tr18h9t" target="_blank" rel="noopener" class="btn-outline-bone px-6 py-3 text-sm font-medium inline-flex items-center gap-2">
+        See all photos on Google Maps
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M7 17L17 7M7 7h10v10"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .gallery-empty {
+    background: linear-gradient(135deg, #1c1612 0%, #15110e 100%);
+  }
+  .gallery-empty::after {
+    content: "Photo";
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Bodoni Moda', serif;
+    color: rgba(184,150,95,0.35);
+    font-size: 1.5rem; letter-spacing: 0.2em; text-transform: uppercase;
+  }
+</style>
+
+<!-- VOICES / REVIEWS MARQUEE -->
+<section id="voices" class="relative bg-coal py-20 md:py-28 overflow-hidden">
+
+  <div class="text-center mb-12 px-6 lg:px-10 reveal">
+    <p class="text-[10px] uppercase tracking-[0.32em] text-brass mb-5">// 03 · The Regulars</p>
+    <h2 class="font-display text-bone text-5xl md:text-7xl leading-[1.05]">What people <em class="italic">say.</em></h2>
+
+    <div class="mt-10 inline-flex items-center gap-6">
+      <div class="font-display text-bone leading-none" style="font-size: clamp(3.5rem, 8vw, 6rem);">
+        4.9<span class="text-brass">★</span>
+      </div>
+      <div class="text-left">
+        <div class="text-brass text-2xl tracking-widest">★★★★★</div>
+        <p class="text-bone/65 text-[11px] uppercase tracking-[0.22em] mt-2">Verified Google Reviews</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="relative">
+    <div class="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-coal to-transparent z-10 pointer-events-none"></div>
+    <div class="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-coal to-transparent z-10 pointer-events-none"></div>
+
+    <div class="marquee-track flex gap-6 w-max">
+
+      <!-- Set 1 -->
+      <figure class="glass rounded-2xl p-7 w-[360px] md:w-[420px] shrink-0">
+        <div class="flex items-center gap-3 mb-5">
+          <span class="text-brass text-sm tracking-widest">★★★★★</span>
+          <span class="text-bone/45 text-[10px] uppercase tracking-[0.22em]">1 week ago</span>
+        </div>
+        <blockquote class="font-display text-xl text-bone leading-snug italic">
+          "BEST-ever barbershop. Period. Tons of one-on-one attention and total care for every client, like you're the only client. You'll be lucky to get your haircut here."
+        </blockquote>
+        <figcaption class="mt-6 pt-5 border-t rule text-sm text-bone/80">— Greta F.</figcaption>
+      </figure>
+
+      <figure class="glass rounded-2xl p-7 w-[360px] md:w-[420px] shrink-0">
+        <div class="flex items-center gap-3 mb-5">
+          <span class="text-brass text-sm tracking-widest">★★★★★</span>
+          <span class="text-bone/45 text-[10px] uppercase tracking-[0.22em]">7 months ago</span>
+        </div>
+        <blockquote class="font-display text-xl text-bone leading-snug italic">
+          "Al is a wonderful barber. He takes his time and makes sure you're satisfied with the results."
+        </blockquote>
+        <figcaption class="mt-6 pt-5 border-t rule text-sm text-bone/80">— Yusuf S.</figcaption>
+      </figure>
+
+      <figure class="glass rounded-2xl p-7 w-[360px] md:w-[420px] shrink-0">
+        <div class="flex items-center gap-3 mb-5">
+          <span class="text-brass text-sm tracking-widest">★★★★★</span>
+          <span class="text-bone/45 text-[10px] uppercase tracking-[0.22em]">3 years ago</span>
+        </div>
+        <blockquote class="font-display text-xl text-bone leading-snug italic">
+          "Al and Sal are extremely professional. Been going to Al for over 8 years now and have never had a problem. 10/10 would recommend."
+        </blockquote>
+        <figcaption class="mt-6 pt-5 border-t rule text-sm text-bone/80">— Francesco C.</figcaption>
+      </figure>
+
+      <figure class="glass rounded-2xl p-7 w-[360px] md:w-[420px] shrink-0">
+        <div class="flex items-center gap-3 mb-5">
+          <span class="text-brass text-sm tracking-widest">★★★★★</span>
+          <span class="text-bone/45 text-[10px] uppercase tracking-[0.22em]">1 year ago</span>
+        </div>
+        <blockquote class="font-display text-xl text-bone leading-snug italic">
+          "Al is great. Kind, professional, calm and efficient cut. I could not for the life of me find a reasonably priced haircut and they killed it here. Great bang for your buck."
+        </blockquote>
+        <figcaption class="mt-6 pt-5 border-t rule text-sm text-bone/80">— Morgan F.</figcaption>
+      </figure>
+
+      <figure class="glass rounded-2xl p-7 w-[360px] md:w-[420px] shrink-0">
+        <div class="flex items-center gap-3 mb-5">
+          <span class="text-brass text-sm tracking-widest">★★★★★</span>
+          <span class="text-bone/45 text-[10px] uppercase tracking-[0.22em]">2 months ago</span>
+        </div>
+        <blockquote class="font-display text-xl text-bone leading-snug italic">
+          "Very nice place to relax and get a great hair cleanup. Sal and Al are the best."
+        </blockquote>
+        <figcaption class="mt-6 pt-5 border-t rule text-sm text-bone/80">— Steven C., M.D.</figcaption>
+      </figure>
+
+      <figure class="glass rounded-2xl p-7 w-[360px] md:w-[420px] shrink-0">
+        <div class="flex items-center gap-3 mb-5">
+          <span class="text-brass text-sm tracking-widest">★★★★★</span>
+          <span class="text-bone/45 text-[10px] uppercase tracking-[0.22em]">1 year ago</span>
+        </div>
+        <blockquote class="font-display text-xl text-bone leading-snug italic">
+          "Such a warm, friendly and chic shop. These gentlemen know their craft. My son looks and feels wonderful after leaving there."
+        </blockquote>
+        <figcaption class="mt-6 pt-5 border-t rule text-sm text-bone/80">— Dana F.</figcaption>
+      </figure>
+
+      <figure class="glass rounded-2xl p-7 w-[360px] md:w-[420px] shrink-0">
+        <div class="flex items-center gap-3 mb-5">
+          <span class="text-brass text-sm tracking-widest">★★★★★</span>
+          <span class="text-bone/45 text-[10px] uppercase tracking-[0.22em]">2 weeks ago</span>
+        </div>
+        <blockquote class="font-display text-xl text-bone leading-snug italic">
+          "I walked in to trim my hair. Al was very responsive and took care of my hair the way I wanted. Thanks Al."
+        </blockquote>
+        <figcaption class="mt-6 pt-5 border-t rule text-sm text-bone/80">— Kindness D.</figcaption>
+      </figure>
+
+      <figure class="glass rounded-2xl p-7 w-[360px] md:w-[420px] shrink-0">
+        <div class="flex items-center gap-3 mb-5">
+          <span class="text-brass text-sm tracking-widest">★★★★★</span>
+          <span class="text-bone/45 text-[10px] uppercase tracking-[0.22em]">2 years ago</span>
+        </div>
+        <blockquote class="font-display text-xl text-bone leading-snug italic">
+          "Great and well run barbershop. I normally do not take time to write reviews but wanted to share this. Arthur is simply the best — overall skill and attention to detail are best in class."
+        </blockquote>
+        <figcaption class="mt-6 pt-5 border-t rule text-sm text-bone/80">— Greg L.</figcaption>
+      </figure>
+
+      <!-- Set 2 (duplicate for seamless loop) -->
+      <figure class="glass rounded-2xl p-7 w-[360px] md:w-[420px] shrink-0">
+        <div class="flex items-center gap-3 mb-5">
+          <span class="text-brass text-sm tracking-widest">★★★★★</span>
+          <span class="text-bone/45 text-[10px] uppercase tracking-[0.22em]">1 week ago</span>
+        </div>
+        <blockquote class="font-display text-xl text-bone leading-snug italic">
+          "BEST-ever barbershop. Period. Tons of one-on-one attention and total care for every client, like you're the only client. You'll be lucky to get your haircut here."
+        </blockquote>
+        <figcaption class="mt-6 pt-5 border-t rule text-sm text-bone/80">— Greta F.</figcaption>
+      </figure>
+
+      <figure class="glass rounded-2xl p-7 w-[360px] md:w-[420px] shrink-0">
+        <div class="flex items-center gap-3 mb-5">
+          <span class="text-brass text-sm tracking-widest">★★★★★</span>
+          <span class="text-bone/45 text-[10px] uppercase tracking-[0.22em]">7 months ago</span>
+        </div>
+        <blockquote class="font-display text-xl text-bone leading-snug italic">
+          "Al is a wonderful barber. He takes his time and makes sure you're satisfied with the results."
+        </blockquote>
+        <figcaption class="mt-6 pt-5 border-t rule text-sm text-bone/80">— Yusuf S.</figcaption>
+      </figure>
+
+      <figure class="glass rounded-2xl p-7 w-[360px] md:w-[420px] shrink-0">
+        <div class="flex items-center gap-3 mb-5">
+          <span class="text-brass text-sm tracking-widest">★★★★★</span>
+          <span class="text-bone/45 text-[10px] uppercase tracking-[0.22em]">3 years ago</span>
+        </div>
+        <blockquote class="font-display text-xl text-bone leading-snug italic">
+          "Al and Sal are extremely professional. Been going to Al for over 8 years now and have never had a problem. 10/10 would recommend."
+        </blockquote>
+        <figcaption class="mt-6 pt-5 border-t rule text-sm text-bone/80">— Francesco C.</figcaption>
+      </figure>
+
+      <figure class="glass rounded-2xl p-7 w-[360px] md:w-[420px] shrink-0">
+        <div class="flex items-center gap-3 mb-5">
+          <span class="text-brass text-sm tracking-widest">★★★★★</span>
+          <span class="text-bone/45 text-[10px] uppercase tracking-[0.22em]">1 year ago</span>
+        </div>
+        <blockquote class="font-display text-xl text-bone leading-snug italic">
+          "Al is great. Kind, professional, calm and efficient cut. I could not for the life of me find a reasonably priced haircut and they killed it here. Great bang for your buck."
+        </blockquote>
+        <figcaption class="mt-6 pt-5 border-t rule text-sm text-bone/80">— Morgan F.</figcaption>
+      </figure>
+
+      <figure class="glass rounded-2xl p-7 w-[360px] md:w-[420px] shrink-0">
+        <div class="flex items-center gap-3 mb-5">
+          <span class="text-brass text-sm tracking-widest">★★★★★</span>
+          <span class="text-bone/45 text-[10px] uppercase tracking-[0.22em]">2 months ago</span>
+        </div>
+        <blockquote class="font-display text-xl text-bone leading-snug italic">
+          "Very nice place to relax and get a great hair cleanup. Sal and Al are the best."
+        </blockquote>
+        <figcaption class="mt-6 pt-5 border-t rule text-sm text-bone/80">— Steven C., M.D.</figcaption>
+      </figure>
+
+      <figure class="glass rounded-2xl p-7 w-[360px] md:w-[420px] shrink-0">
+        <div class="flex items-center gap-3 mb-5">
+          <span class="text-brass text-sm tracking-widest">★★★★★</span>
+          <span class="text-bone/45 text-[10px] uppercase tracking-[0.22em]">1 year ago</span>
+        </div>
+        <blockquote class="font-display text-xl text-bone leading-snug italic">
+          "Such a warm, friendly and chic shop. These gentlemen know their craft. My son looks and feels wonderful after leaving there."
+        </blockquote>
+        <figcaption class="mt-6 pt-5 border-t rule text-sm text-bone/80">— Dana F.</figcaption>
+      </figure>
+
+      <figure class="glass rounded-2xl p-7 w-[360px] md:w-[420px] shrink-0">
+        <div class="flex items-center gap-3 mb-5">
+          <span class="text-brass text-sm tracking-widest">★★★★★</span>
+          <span class="text-bone/45 text-[10px] uppercase tracking-[0.22em]">2 weeks ago</span>
+        </div>
+        <blockquote class="font-display text-xl text-bone leading-snug italic">
+          "I walked in to trim my hair. Al was very responsive and took care of my hair the way I wanted. Thanks Al."
+        </blockquote>
+        <figcaption class="mt-6 pt-5 border-t rule text-sm text-bone/80">— Kindness D.</figcaption>
+      </figure>
+
+      <figure class="glass rounded-2xl p-7 w-[360px] md:w-[420px] shrink-0">
+        <div class="flex items-center gap-3 mb-5">
+          <span class="text-brass text-sm tracking-widest">★★★★★</span>
+          <span class="text-bone/45 text-[10px] uppercase tracking-[0.22em]">2 years ago</span>
+        </div>
+        <blockquote class="font-display text-xl text-bone leading-snug italic">
+          "Great and well run barbershop. I normally do not take time to write reviews but wanted to share this. Arthur is simply the best — overall skill and attention to detail are best in class."
+        </blockquote>
+        <figcaption class="mt-6 pt-5 border-t rule text-sm text-bone/80">— Greg L.</figcaption>
+      </figure>
+
+    </div>
+  </div>
+
+  <div class="mt-12 text-center reveal">
+    <a href="https://www.google.com/maps/place/Blackbeard+Barbershop/@40.7893117,-73.5345614,17z" target="_blank" rel="noopener" class="btn-outline-bone px-6 py-3 text-sm font-medium inline-flex items-center gap-2">
+      View all reviews on Google
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M7 17L17 7M7 7h10v10"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- VISIT -->
+<section id="visit" class="relative bg-soot py-20 md:py-28 px-6 lg:px-10 border-t rule">
+  <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+
+    <div class="reveal">
+      <p class="text-[10px] uppercase tracking-[0.32em] text-brass mb-5">// 04 · Visit the Shop</p>
+      <h2 class="font-display text-bone text-5xl md:text-6xl leading-[1.05]">Stop in.</h2>
+      <p class="mt-6 text-bone/75 text-lg leading-relaxed max-w-md">
+        Walk-ins welcome. Call ahead if you want to make sure Al or Sal is in the chair. Parking out front.
+      </p>
+
+      <div class="brass-line w-32 my-10"></div>
+
+      <div class="space-y-7">
+        <div class="flex items-start gap-5">
+          <span class="text-[10px] uppercase tracking-[0.22em] text-brass mt-1.5 w-16 shrink-0">Address</span>
+          <a href="https://www.google.com/maps/place/Blackbeard+Barbershop" target="_blank" rel="noopener" class="text-bone text-lg hover:text-brass transition">
+            Jericho, NY 11753<br/><span class="text-bone/55 text-sm">View on Google Maps →</span>
+          </a>
+        </div>
+        <div class="flex items-start gap-5">
+          <span class="text-[10px] uppercase tracking-[0.22em] text-brass mt-1.5 w-16 shrink-0">Phone</span>
+          <a href="tel:+15169384776" class="text-bone text-lg hover:text-brass transition">(516) 938-4776</a>
+        </div>
+        <div class="flex items-start gap-5">
+          <span class="text-[10px] uppercase tracking-[0.22em] text-brass mt-1.5 w-16 shrink-0">Hours</span>
+          <div class="text-bone text-lg">
+            <p>Tues – Fri  ·  9:00 am – 7:00 pm</p>
+            <p>Saturday  ·  8:00 am – 5:00 pm</p>
+            <p class="text-bone/55 text-sm mt-1">Closed Sunday and Monday</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-12 flex flex-wrap gap-3">
+        <a href="tel:+15169384776" class="btn-brass px-7 py-3.5 text-sm font-semibold inline-flex items-center gap-2.5">
+          Call (516) 938-4776
+        </a>
+        <a href="https://www.google.com/maps/dir//Blackbeard+Barbershop" target="_blank" rel="noopener" class="btn-outline-bone px-7 py-3.5 text-sm font-medium inline-flex items-center gap-2.5">
+          Get Directions
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M7 17L17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <div class="glass rounded-2xl overflow-hidden aspect-[4/5] relative">
+        <video class="hero-vid w-full h-full object-cover" autoplay loop muted playsinline preload="metadata">
+          <source src="welcome.mp4" type="video/mp4" />
+        </video>
+        <div class="absolute inset-0 bg-gradient-to-t from-coal/85 via-coal/15 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-8">
+          <p class="font-display text-brass text-3xl">"Welcome to the shop."</p>
+          <p class="text-bone/70 text-sm mt-3 uppercase tracking-[0.22em]">— Al, Owner</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- MAP EMBED -->
+<section id="map" class="relative bg-coal border-t rule">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 pt-16 pb-10 text-center reveal">
+    <p class="text-[10px] uppercase tracking-[0.32em] text-brass mb-4">// 05 · Find us</p>
+    <h2 class="font-display text-bone text-4xl md:text-6xl leading-[1.05]">Right off the corner.</h2>
+  </div>
+  <div class="relative h-[60vh] min-h-[420px] w-full overflow-hidden">
+    <iframe
+      src="https://maps.google.com/maps?q=Blackbeard+Barbershop+Jericho+NY&t=&z=16&ie=UTF8&iwloc=&output=embed"
+      width="100%" height="100%" frameborder="0"
+      style="border:0; filter: invert(0.92) hue-rotate(180deg) brightness(0.9) contrast(1.05);"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Blackbeard Barbershop on Google Maps">
+    </iframe>
+    <div class="absolute top-4 left-4 z-10">
+      <a href="https://www.google.com/maps/place/Blackbeard+Barbershop/@40.7893117,-73.5345614,17z" target="_blank" rel="noopener" class="btn-brass px-5 py-2.5 text-sm font-semibold inline-flex items-center gap-2">
+        Open in Google Maps
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M7 17L17 7M7 7h10v10"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="relative bg-coal border-t rule">
+  <div class="pole-stripe"></div>
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 py-14">
+    <div class="flex flex-col md:flex-row gap-8 justify-between md:items-end">
+      <div>
+        <p class="font-display text-bone text-4xl leading-none">Blackbeard<span class="text-brass">.</span></p>
+        <p class="text-bone/55 text-sm mt-3">Old school cuts. Jericho, NY.</p>
+        <p class="text-bone/55 text-sm">Al &amp; Sal at the chairs.</p>
+      </div>
+      <div class="text-bone/65 text-sm">
+        <p>(516) 938-4776</p>
+        <p>Tues – Sat</p>
+      </div>
+    </div>
+    <div class="mt-10 pt-6 border-t rule flex flex-col sm:flex-row justify-between gap-3 text-[11px] text-bone/35">
+      <p>© 2026 Blackbeard Barbershop. All rights reserved.</p>
+      <p>Concept site by <a href="https://zeroto.site" class="text-bone/55 hover:text-brass underline underline-offset-2">ZeroTo.site</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  const onScroll = () => { nav.classList.toggle('scrolled', window.scrollY > 30); };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }});
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Force video autoplay fallback. Some browsers block autoplay on reload even with muted.
+  document.querySelectorAll('video').forEach(v => {
+    const tryPlay = () => v.play().catch(() => {});
+    tryPlay();
+    v.addEventListener('canplay', tryPlay, { once: true });
+    document.addEventListener('click', tryPlay, { once: true });
+    document.addEventListener('touchstart', tryPlay, { once: true });
+  });
+</script>
+
+</body>
+</html>
