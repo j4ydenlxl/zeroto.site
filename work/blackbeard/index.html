@@ -85,10 +85,21 @@ tailwind.config = {
     box-shadow: inset 0 1px 0 rgba(239,230,212,0.08);
   }
 
-  /* Reviews marquee — perpetual horizontal scroll */
+  /* Reviews marquee — perpetual horizontal scroll on desktop, native swipe on touch */
   @keyframes marqueeX { from { transform: translateX(0); } to { transform: translateX(-50%); } }
   .marquee-track { animation: marqueeX 90s linear infinite; will-change: transform; }
   .marquee-track:hover { animation-play-state: paused; }
+  @media (pointer: coarse) {
+    .marquee-wrapper {
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .marquee-wrapper::-webkit-scrollbar { display: none; }
+    .marquee-track { animation: none; }
+    .marquee-track > figure { scroll-snap-align: center; }
+  }
 
   /* Nav */
   .nav { transition: background-color .3s ease, border-color .3s ease, padding .3s ease; }
@@ -142,9 +153,9 @@ tailwind.config = {
     <video id="heroVideo" class="hero-vid w-full h-full object-cover" autoplay loop muted playsinline preload="auto" poster="">
       <source src="hero.mp4" type="video/mp4" />
     </video>
-    <div class="absolute inset-0 bg-coal/55"></div>
-    <div class="absolute inset-0 bg-gradient-to-b from-coal/30 via-coal/35 to-coal/95"></div>
-    <div class="absolute inset-0 bg-[radial-gradient(70%_55%_at_50%_42%,transparent,#0a0807_92%)]"></div>
+    <div class="absolute inset-0 bg-coal/40"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-coal/15 via-coal/25 to-coal/85"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(80%_65%_at_50%_45%,transparent,#0a0807_98%)]"></div>
   </div>
 
   <div class="relative z-10 h-full flex flex-col justify-between px-6 lg:px-12 pt-32 pb-12 max-w-7xl mx-auto">
@@ -304,9 +315,9 @@ tailwind.config = {
     </div>
   </div>
 
-  <div class="relative">
-    <div class="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-coal to-transparent z-10 pointer-events-none"></div>
-    <div class="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-coal to-transparent z-10 pointer-events-none"></div>
+  <div class="relative marquee-wrapper">
+    <div class="absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-coal to-transparent z-10 pointer-events-none"></div>
+    <div class="absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-coal to-transparent z-10 pointer-events-none"></div>
 
     <div class="marquee-track flex gap-6 w-max">
 
